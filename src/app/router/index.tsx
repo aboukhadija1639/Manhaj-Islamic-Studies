@@ -11,6 +11,9 @@ const AboutPage = lazy(() => import('../../features/landing/AboutPage'));
 const NotFoundPage = lazy(() => import('../../features/landing/NotFoundPage'));
 const EnglishModulePage = lazy(() => import('../../features/lessons/EnglishModulePage'));
 const LessonPage = lazy(() => import('../../features/lessons/LessonPage'));
+const ManhajOverviewPage = lazy(() => import('../../features/manhaj/ManhajOverviewPage'));
+const CurriculumMapPage = lazy(() => import('../../features/manhaj/CurriculumMapPage'));
+const ScienceDetailPage = lazy(() => import('../../features/manhaj/ScienceDetailPage'));
 
 // Loading component
 function PageLoader() {
@@ -81,6 +84,30 @@ const router = createBrowserRouter([
         element: (
           <Suspense fallback={<PageLoader />}>
             <AboutPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: 'manhaj',
+        element: (
+          <Suspense fallback={<PageLoader />}>
+            <ManhajOverviewPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: 'manhaj/curriculum-map',
+        element: (
+          <Suspense fallback={<PageLoader />}>
+            <CurriculumMapPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: 'manhaj/science/:scienceId',
+        element: (
+          <Suspense fallback={<PageLoader />}>
+            <ScienceDetailPage />
           </Suspense>
         ),
       },

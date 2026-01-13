@@ -26,6 +26,12 @@ function Header() {
               الرئيسية
             </Link>
             <Link
+              to="/manhaj"
+              className="text-sm font-medium transition-colors hover:text-primary-600"
+            >
+              المنهج
+            </Link>
+            <Link
               to="/subjects"
               className="text-sm font-medium transition-colors hover:text-primary-600"
             >
