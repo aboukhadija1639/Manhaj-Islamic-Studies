@@ -9,6 +9,8 @@ const SubjectsPage = lazy(() => import('../../features/subjects/SubjectsPageEnha
 const ModuleDetailPage = lazy(() => import('../../features/subjects/ModuleDetailPage'));
 const AboutPage = lazy(() => import('../../features/landing/AboutPage'));
 const NotFoundPage = lazy(() => import('../../features/landing/NotFoundPage'));
+const EnglishModulePage = lazy(() => import('../../features/lessons/EnglishModulePage'));
+const LessonPage = lazy(() => import('../../features/lessons/LessonPage'));
 
 // Loading component
 function PageLoader() {
@@ -55,6 +57,22 @@ const router = createBrowserRouter([
         element: (
           <Suspense fallback={<PageLoader />}>
             <ModuleDetailPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: 'modules/english-language',
+        element: (
+          <Suspense fallback={<PageLoader />}>
+            <EnglishModulePage />
+          </Suspense>
+        ),
+      },
+      {
+        path: 'lessons/:lessonId',
+        element: (
+          <Suspense fallback={<PageLoader />}>
+            <LessonPage />
           </Suspense>
         ),
       },

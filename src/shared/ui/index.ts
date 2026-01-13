@@ -21,3 +21,7 @@ export type { ModuleCardProps } from './ModuleCard';
 export { default as CategoryFilter } from './CategoryFilter';
 
 export { default as StatsCard } from './StatsCard';
+
+export { default as LessonSection } from './LessonSection';
+
+export { default as ExerciseCard } from './ExerciseCard';

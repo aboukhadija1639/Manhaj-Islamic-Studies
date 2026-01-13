@@ -131,7 +131,7 @@ const ModuleCard = forwardRef<HTMLDivElement, ModuleCardProps>(
 
           {/* Action Button */}
           <Link
-            to={`/modules/${module.id}`}
+            to={module.id === 'english-language' ? '/modules/english-language' : `/modules/${module.id}`}
             className={cn(
               'block w-full mt-4 py-3 px-4 rounded-xl text-center font-semibold',
               'transition-all duration-200',

@@ -181,7 +181,7 @@ const ModuleDetailPage = () => {
 
         {/* Navigation */}
         <div className="flex justify-between items-center pt-8">
-          <Link to="/subjects">
+          <Link to={module.id === 'english-language' ? '/modules/english-language' : '/subjects'}>
             <Button variant="secondary" size="lg">
               ← العودة إلى المقاييس
             </Button>
