@@ -4,8 +4,9 @@ import RootLayout from '../layout/RootLayout';
 import { Container, Skeleton } from '../../shared/ui';
 
 // Lazy load pages for code splitting
-const LandingPage = lazy(() => import('../../features/landing/LandingPage'));
-const SubjectsPage = lazy(() => import('../../features/subjects/SubjectsPage'));
+const LandingPage = lazy(() => import('../../features/landing/LandingPageEnhanced'));
+const SubjectsPage = lazy(() => import('../../features/subjects/SubjectsPageEnhanced'));
+const ModuleDetailPage = lazy(() => import('../../features/subjects/ModuleDetailPage'));
 const AboutPage = lazy(() => import('../../features/landing/AboutPage'));
 const NotFoundPage = lazy(() => import('../../features/landing/NotFoundPage'));
 
@@ -46,6 +47,14 @@ const router = createBrowserRouter([
         element: (
           <Suspense fallback={<PageLoader />}>
             <SubjectsPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: 'modules/:moduleId',
+        element: (
+          <Suspense fallback={<PageLoader />}>
+            <ModuleDetailPage />
           </Suspense>
         ),
       },

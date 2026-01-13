@@ -14,3 +14,10 @@ export { default as Container } from './Container';
 export type { ContainerProps } from './Container';
 
 export { default as ThemeToggle } from './ThemeToggle';
+
+export { default as ModuleCard } from './ModuleCard';
+export type { ModuleCardProps } from './ModuleCard';
+
+export { default as CategoryFilter } from './CategoryFilter';
+
+export { default as StatsCard } from './StatsCard';
