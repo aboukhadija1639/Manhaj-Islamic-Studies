@@ -1,0 +1,105 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
+  darkMode: 'class',
+  theme: {
+    extend: {
+      colors: {
+        primary: {
+          50: 'var(--color-primary-50)',
+          100: 'var(--color-primary-100)',
+          200: 'var(--color-primary-200)',
+          300: 'var(--color-primary-300)',
+          400: 'var(--color-primary-400)',
+          500: 'var(--color-primary-500)',
+          600: 'var(--color-primary-600)',
+          700: 'var(--color-primary-700)',
+          800: 'var(--color-primary-800)',
+          900: 'var(--color-primary-900)',
+          950: 'var(--color-primary-950)',
+        },
+        secondary: {
+          50: 'var(--color-secondary-50)',
+          100: 'var(--color-secondary-100)',
+          200: 'var(--color-secondary-200)',
+          300: 'var(--color-secondary-300)',
+          400: 'var(--color-secondary-400)',
+          500: 'var(--color-secondary-500)',
+          600: 'var(--color-secondary-600)',
+          700: 'var(--color-secondary-700)',
+          800: 'var(--color-secondary-800)',
+          900: 'var(--color-secondary-900)',
+        },
+        accent: {
+          50: 'var(--color-accent-50)',
+          100: 'var(--color-accent-100)',
+          200: 'var(--color-accent-200)',
+          300: 'var(--color-accent-300)',
+          400: 'var(--color-accent-400)',
+          500: 'var(--color-accent-500)',
+          600: 'var(--color-accent-600)',
+          700: 'var(--color-accent-700)',
+          800: 'var(--color-accent-800)',
+          900: 'var(--color-accent-900)',
+        },
+        background: 'var(--color-background)',
+        foreground: 'var(--color-foreground)',
+        card: 'var(--color-card)',
+        'card-foreground': 'var(--color-card-foreground)',
+        border: 'var(--color-border)',
+        muted: 'var(--color-muted)',
+        'muted-foreground': 'var(--color-muted-foreground)',
+      },
+      fontFamily: {
+        heading: ['Cairo', 'system-ui', 'sans-serif'],
+        body: ['Tajawal', 'system-ui', 'sans-serif'],
+      },
+      fontSize: {
+        'xs': ['0.75rem', { lineHeight: '1.5', letterSpacing: '0.01em' }],
+        'sm': ['0.875rem', { lineHeight: '1.6', letterSpacing: '0.01em' }],
+        'base': ['1rem', { lineHeight: '1.75', letterSpacing: '0.01em' }],
+        'lg': ['1.125rem', { lineHeight: '1.75', letterSpacing: '0.01em' }],
+        'xl': ['1.25rem', { lineHeight: '1.75', letterSpacing: '0' }],
+        '2xl': ['1.5rem', { lineHeight: '1.7', letterSpacing: '0' }],
+        '3xl': ['1.875rem', { lineHeight: '1.6', letterSpacing: '-0.01em' }],
+        '4xl': ['2.25rem', { lineHeight: '1.5', letterSpacing: '-0.01em' }],
+        '5xl': ['3rem', { lineHeight: '1.4', letterSpacing: '-0.02em' }],
+        '6xl': ['3.75rem', { lineHeight: '1.3', letterSpacing: '-0.02em' }],
+      },
+      spacing: {
+        '18': '4.5rem',
+        '88': '22rem',
+        '128': '32rem',
+      },
+      borderRadius: {
+        lg: 'var(--radius)',
+        md: 'calc(var(--radius) - 2px)',
+        sm: 'calc(var(--radius) - 4px)',
+      },
+      animation: {
+        'fade-in': 'fadeIn 0.2s ease-in-out',
+        'slide-in': 'slideIn 0.3s ease-out',
+        'slide-up': 'slideUp 0.3s ease-out',
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        slideIn: {
+          '0%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(0)' },
+        },
+        slideUp: {
+          '0%': { transform: 'translateY(10px)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '1' },
+        },
+      },
+    },
+  },
+  plugins: [],
+}
+

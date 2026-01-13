@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=Tajawal:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CSS Variables for Theme Tokens */
+@layer base {
+  :root {
+    /* Primary: Deep emerald/teal */
+    --color-primary-50: #f0fdfa;
+    --color-primary-100: #ccfbf1;
+    --color-primary-200: #99f6e4;
+    --color-primary-300: #5eead4;
+    --color-primary-400: #2dd4bf;
+    --color-primary-500: #14b8a6;
+    --color-primary-600: #0d9488;
+    --color-primary-700: #0f766e;
+    --color-primary-800: #115e59;
+    --color-primary-900: #134e4a;
+    --color-primary-950: #042f2e;
+
+    /* Secondary: Sand/beige */
+    --color-secondary-50: #faf9f7;
+    --color-secondary-100: #f5f3ee;
+    --color-secondary-200: #e8e4db;
+    --color-secondary-300: #d9d3c5;
+    --color-secondary-400: #c8bfad;
+    --color-secondary-500: #b8ab95;
+    --color-secondary-600: #a89a82;
+    --color-secondary-700: #8a7d68;
+    --color-secondary-800: #6f6555;
+    --color-secondary-900: #5a5346;
+
+    /* Accent: Subtle gold */
+    --color-accent-50: #fefce8;
+    --color-accent-100: #fef9c3;
+    --color-accent-200: #fef08a;
+    --color-accent-300: #fde047;
+    --color-accent-400: #facc15;
+    --color-accent-500: #eab308;
+    --color-accent-600: #ca8a04;
+    --color-accent-700: #a16207;
+    --color-accent-800: #854d0e;
+    --color-accent-900: #713f12;
+
+    /* Light theme */
+    --color-background: #ffffff;
+    --color-foreground: #1a1a1a;
+    --color-card: #ffffff;
+    --color-card-foreground: #1a1a1a;
+    --color-border: #e5e7eb;
+    --color-muted: #f3f4f6;
+    --color-muted-foreground: #6b7280;
+
+    /* Border radius */
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    /* Dark theme */
+    --color-background: #0a0a0a;
+    --color-foreground: #fafafa;
+    --color-card: #1a1a1a;
+    --color-card-foreground: #fafafa;
+    --color-border: #2a2a2a;
+    --color-muted: #1f1f1f;
+    --color-muted-foreground: #a1a1aa;
+  }
+
+  * {
+    border-color: var(--color-border);
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: 'Tajawal', system-ui, sans-serif;
+    font-feature-settings: "kern" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* RTL Support */
+  [dir="rtl"] {
+    direction: rtl;
+  }
+
+  /* Arabic Typography Optimization */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cairo', system-ui, sans-serif;
+  }
+
+  /* Reduced Motion Support */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Focus Visible for Accessibility */
+  *:focus-visible {
+    outline: 2px solid var(--color-primary-500);
+    outline-offset: 2px;
+  }
+
+  /* Scrollbar Styling */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: var(--color-muted);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--color-border);
+    border-radius: 0.5rem;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--color-muted-foreground);
+  }
+}
+
+/* Utility Classes */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  /* RTL-aware utilities */
+  .rtl\:space-x-reverse > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 1;
+  }
+}
