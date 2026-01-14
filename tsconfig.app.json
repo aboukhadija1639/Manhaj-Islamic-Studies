@@ -31,7 +31,8 @@
       "@components/*": ["./src/shared/ui/*"],
       "@features/*": ["./src/features/*"],
       "@shared/*": ["./src/shared/*"],
-      "@app/*": ["./src/app/*"]
+      "@app/*": ["./src/app/*"],
+      "@domain/*": ["./src/domain/*"]
     }
   },
   "include": ["src"]
