@@ -1,5 +1,5 @@
+// App.tsx
 import { AppRouter } from './app/router';
-import './styles/globals.css';
 
 function App() {
   return <AppRouter />;
