@@ -8,9 +8,11 @@ function Header() {
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 hover:opacity-80 transition-opacity">
-            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-primary-600 text-white font-heading font-bold text-xl">
-              م
-            </div>
+            <img
+    src="/logo.svg"
+    alt="منهاج"
+    className="h-10 w-10"
+  />
             <div className="flex flex-col">
               <span className="font-heading font-bold text-lg leading-none">منهاج</span>
               <span className="text-xs text-muted-foreground">العلوم الشرعية</span>
