@@ -95,7 +95,7 @@ function AboutPage() {
 
   const sections = React.useMemo(() => [
   { id: 'vision', label: 'الرؤية' },
-  { id: 'goals', label: 'الأرض' },
+  { id: 'goals', label: 'الأهداف' },
   { id: 'how', label: 'كيف تعمل' },
   { id: 'who', label: 'من نحن' },
   { id: 'faq', label: 'الأسئلة' },
@@ -385,7 +385,7 @@ function AboutPage() {
                       >
                         <div className={`p-1.5 rounded-lg ${active ? 'bg-primary/20' : 'bg-muted'}`}>
                           <span className={`text-sm ${active ? 'text-primary' : 'text-muted-foreground'}`}>
-                            {s.id === 'vision' ? '🎯' : 
+                            {s.id === 'vision' ? '🌟' : 
                              s.id === 'goals' ? '🎯' : 
                              s.id === 'how' ? '⚡' : 
                              s.id === 'who' ? '👥' : 
