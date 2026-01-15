@@ -1,40 +1,77 @@
+import * as React from 'react';
 import { forwardRef } from 'react';
 import type { ButtonHTMLAttributes } from 'react';
 import { cn } from '../utils/cn';
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary' | 'ghost' | 'destructive';
-  size?: 'sm' | 'md' | 'lg';
+  variant?: 'primary' | 'secondary' | 'ghost' | 'destructive' | 'outline';
+  size?: 'sm' | 'md' | 'lg' | 'icon';
   isLoading?: boolean;
   asChild?: boolean;
 }
 
+
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant = 'primary', size = 'md', isLoading, disabled, asChild, children, ...props }, ref) => {
-    const baseStyles = 'inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50';
-    
+  (
+    {
+      className,
+      variant = 'primary',
+      size = 'md',
+      isLoading,
+      disabled,
+      asChild,
+      children,
+      ...props
+    },
+    ref
+  ) => {
+    const baseStyles =
+      'inline-flex items-center justify-center gap-2 rounded-xl font-medium ' +
+      'transition-all duration-200 ' +
+      'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 ' +
+      'disabled:pointer-events-none disabled:opacity-50 ' +
+      'hover:-translate-y-0.5 active:translate-y-0';
+
     const variants = {
-      primary: 'bg-primary-600 text-white hover:bg-primary-700 active:bg-primary-800 shadow-sm hover:shadow-md',
-      secondary: 'bg-secondary-200 text-secondary-900 hover:bg-secondary-300 active:bg-secondary-400 dark:bg-secondary-800 dark:text-secondary-100 dark:hover:bg-secondary-700',
-      ghost: 'hover:bg-muted active:bg-border',
-      destructive: 'bg-red-600 text-white hover:bg-red-700 active:bg-red-800 shadow-sm',
+      primary:
+        'bg-primary-600 text-white hover:bg-primary-700 active:bg-primary-800 shadow-sm hover:shadow-md',
+      secondary:
+        'bg-secondary-200 text-secondary-900 hover:bg-secondary-300 active:bg-secondary-400 ' +
+        'dark:bg-secondary-800 dark:text-secondary-100 dark:hover:bg-secondary-700',
+      ghost: 'bg-transparent hover:bg-muted active:bg-border',
+      destructive:
+        'bg-red-600 text-white hover:bg-red-700 active:bg-red-800 shadow-sm hover:shadow-md',
+      outline:
+        'bg-transparent border border-border text-foreground hover:bg-muted/60 active:bg-muted ' +
+        'dark:border-border/60',
     };
 
     const sizes = {
       sm: 'h-9 px-3 text-sm',
       md: 'h-11 px-5 text-base',
-      lg: 'h-13 px-6 text-lg',
+      lg: 'h-12 px-6 text-lg',
+      icon: 'h-11 w-11 p-0',
     };
 
-    // If asChild is true, render children directly with className
+    const composedClassName = cn(baseStyles, variants[variant], sizes[size], className);
+
+    // Correct asChild: clone the child and inject className + common props
     if (asChild) {
-      return children as React.ReactElement;
+      if (!React.isValidElement(children)) return null;
+
+      const child = children as React.ReactElement<ButtonProps>;
+      return React.cloneElement(child, {
+        className: cn(composedClassName, child.props?.className),
+        // Do not forward "disabled" to <a>; use aria-disabled if needed
+        'aria-disabled': disabled || isLoading ? true : child.props?.['aria-disabled'],
+        ...props,
+      });
     }
 
     return (
       <button
         ref={ref}
-        className={cn(baseStyles, variants[variant], sizes[size], className)}
+        className={composedClassName}
         disabled={disabled || isLoading}
         {...props}
       >
@@ -44,6 +81,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"
+            aria-hidden="true"
           >
             <circle
               className="opacity-25"
@@ -67,5 +105,4 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
 );
 
 Button.displayName = 'Button';
-
 export default Button;

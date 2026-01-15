@@ -9,23 +9,6 @@ import {
   Badge,
   Separator,
 } from '../../shared/ui';
-import { 
-  Sparkles, 
-  Target, 
-  Zap, 
-  Compass, 
-  Users, 
-  BookOpen,
-  ChevronRight,
-  ArrowUp,
-  MessageSquare,
-  Globe,
-  Lightbulb,
-  CheckCircle,
-  ExternalLink,
-  Copy,
-  Rocket
-} from 'lucide-react';
 
 const TELEGRAM_LINK = 'https://t.me/just_contactbot';
 
@@ -45,25 +28,25 @@ function AboutPage() {
       title: 'تنظيم المحتوى', 
       desc: 'تجميع المواد والملخصات والمراجع في مسار واضح حسب السنة والمقياس.',
       icon: '📚',
-      color: 'from-blue-500/10 to-blue-600/10'
+      color: 'bg-blue-500/10'
     },
     { 
       title: 'تسهيل الوصول', 
       desc: 'تقليل الوقت الضائع في البحث وتوحيد المصادر داخل واجهة واحدة.',
       icon: '⚡',
-      color: 'from-amber-500/10 to-amber-600/10'
+      color: 'bg-amber-500/10'
     },
     { 
       title: 'تحسين تجربة التعلم', 
       desc: 'تصميم مناسب للجوال مع واجهة واضحة تساعد على التركيز.',
       icon: '🧭',
-      color: 'from-emerald-500/10 to-emerald-600/10'
+      color: 'bg-emerald-500/10'
     },
     { 
       title: 'دعم الطالب', 
       desc: 'إتاحة قنوات تواصل للاقتراحات والتحسين المستمر.',
       icon: '🤝',
-      color: 'from-violet-500/10 to-violet-600/10'
+      color: 'bg-violet-500/10'
     },
   ];
 
@@ -110,14 +93,14 @@ function AboutPage() {
     },
   ];
 
-  const sections: Array<{ id: SectionId; label: string; icon: React.ReactNode }> = [
-    { id: 'vision', label: 'الرؤية', icon: <Target size={16} /> },
-    { id: 'goals', label: 'الأهداف', icon: <Target size={16} /> },
-    { id: 'how', label: 'كيف تعمل', icon: <Zap size={16} /> },
-    { id: 'who', label: 'من نحن', icon: <Users size={16} /> },
-    { id: 'faq', label: 'الأسئلة', icon: <MessageSquare size={16} /> },
-    { id: 'contact', label: 'التواصل', icon: <Globe size={16} /> },
-  ];
+  const sections = React.useMemo(() => [
+  { id: 'vision', label: 'الرؤية' },
+  { id: 'goals', label: 'الأرض' },
+  { id: 'how', label: 'كيف تعمل' },
+  { id: 'who', label: 'من نحن' },
+  { id: 'faq', label: 'الأسئلة' },
+  { id: 'contact', label: 'التواصل' },
+], []);
 
   const [activeSection, setActiveSection] = React.useState<SectionId>('vision');
   const [showTop, setShowTop] = React.useState(false);
@@ -125,20 +108,6 @@ function AboutPage() {
   const [progress, setProgress] = React.useState(0);
   const [bannerClosed, setBannerClosed] = React.useState(false);
   const [expandedFaqs, setExpandedFaqs] = React.useState<boolean[]>(faqs.map(() => false));
-  const [mousePosition, setMousePosition] = React.useState({ x: 0, y: 0 });
-
-  // تأثير تتبع الماوس للخلفية
-  React.useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({
-        x: e.clientX / window.innerWidth,
-        y: e.clientY / window.innerHeight,
-      });
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
 
   // Smooth anchor scrolling
   React.useEffect(() => {
@@ -185,7 +154,7 @@ function AboutPage() {
     });
 
     return () => observer.disconnect();
-  }, []);
+  }, [sections]);
 
   // Scroll progress + back-to-top visibility
   React.useEffect(() => {
@@ -217,34 +186,12 @@ function AboutPage() {
   };
 
   return (
-    <div dir="rtl" className="relative min-h-screen overflow-hidden">
-      {/* تأثيرات خلفية ديناميكية */}
-      <div 
-        className="fixed inset-0 -z-20 opacity-30"
-        style={{
-          background: `radial-gradient(circle at ${mousePosition.x * 100}% ${mousePosition.y * 100}%, rgba(120, 119, 198, 0.15), transparent 50%)`,
-        }}
-      />
-      
-      <div className="absolute inset-0 -z-30 bg-gradient-to-b from-background via-background to-muted/20" />
-
-      {/* نمط شبكي ديناميكي */}
-      <div className="fixed inset-0 -z-10 opacity-[0.03]">
-        <div 
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `linear-gradient(to right, #888 1px, transparent 1px),
-                            linear-gradient(to bottom, #888 1px, transparent 1px)`,
-            backgroundSize: '50px 50px',
-          }}
-        />
-      </div>
-
+    <div dir="rtl" className="relative min-h-screen">
       {/* Scroll progress bar */}
       <div className="fixed top-0 left-0 right-0 z-50 h-1 bg-background/50 backdrop-blur-md">
         <div
           className="h-full transition-[width] duration-200 ease-out
-                     bg-gradient-to-r from-primary via-primary/80 to-primary"
+                     bg-linear-to-r from-primary via-primary/80 to-primary"
           style={{ width: `${progress}%` }}
         />
       </div>
@@ -253,12 +200,12 @@ function AboutPage() {
       {!bannerClosed && (
         <div className="relative z-40">
           <div className="absolute inset-x-0 top-0">
-            <div className="bg-gradient-to-r from-primary/20 via-primary/10 to-transparent">
+            <div className="bg-linear-to-r from-primary/20 via-primary/10 to-transparent">
               <div className="mx-auto max-w-7xl px-4 py-3 sm:px-6 lg:px-8">
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
                   <div className="flex items-center gap-3">
                     <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary/20">
-                      <Sparkles className="h-3 w-3 text-primary" />
+                      <span className="text-xs">✨</span>
                     </div>
                     <p className="text-sm font-medium">
                       تحسينات تجربة المستخدم وتحديثات المحتوى بشكل مستمر
@@ -303,18 +250,18 @@ function AboutPage() {
                 variant="secondary" 
                 className="rounded-full px-4 py-1.5 backdrop-blur-sm bg-background/80"
               >
-                <Sparkles className="w-3 h-3 ml-1" />
+                <span className="text-xs ml-1">✨</span>
                 منصة طلابية متكاملة
               </Badge>
               <span className="text-sm text-muted-foreground flex items-center gap-1">
-                <Globe className="w-3 h-3" />
+                <span>🌐</span>
                 جامعة الوادي • كلية العلوم الإسلامية
               </span>
             </div>
 
             <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight">
               عن منصة{' '}
-              <span className="bg-gradient-to-r from-primary via-primary/80 to-primary bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-primary via-primary/80 to-primary bg-clip-text text-transparent">
                 منهاج
               </span>
             </h1>
@@ -326,7 +273,7 @@ function AboutPage() {
 
             {/* Highlights */}
             <div className="mt-8 flex flex-wrap gap-3">
-              {highlights.map((h, i) => (
+              {highlights.map((h) => (
                 <Badge
                   key={h}
                   variant="outline"
@@ -334,7 +281,7 @@ function AboutPage() {
                            bg-background/70 backdrop-blur-sm
                            transition-all duration-300 hover:scale-105 hover:shadow-md"
                 >
-                  <CheckCircle className="w-3 h-3 ml-2" />
+                  <span className="text-xs ml-2">✅</span>
                   {h}
                 </Badge>
               ))}
@@ -346,13 +293,13 @@ function AboutPage() {
                 size="lg"
                 className="rounded-xl px-8 py-6 text-base font-semibold
                          transition-all duration-300 hover:scale-105 hover:shadow-xl
-                         bg-gradient-to-r from-primary to-primary/90"
+                         bg-linear-to-r from-primary to-primary/90"
                 asChild
               >
                 <a href="/subjects" className="flex items-center gap-2">
-                  <BookOpen className="w-5 h-5" />
+                  <span>📖</span>
                   ابدأ الاستكشاف الآن
-                  <ChevronRight className="w-4 h-4" />
+                  <span>›</span>
                 </a>
               </Button>
 
@@ -365,7 +312,7 @@ function AboutPage() {
                 asChild
               >
                 <a href="#contact" className="flex items-center gap-2">
-                  <MessageSquare className="w-5 h-5" />
+                  <span>💬</span>
                   تواصل مع الفريق
                 </a>
               </Button>
@@ -383,7 +330,7 @@ function AboutPage() {
                   rel="noreferrer"
                   className="flex items-center gap-2"
                 >
-                  <ExternalLink className="w-5 h-5" />
+                  <span>↗</span>
                   قناة التلغرام
                 </a>
               </Button>
@@ -417,7 +364,7 @@ function AboutPage() {
             >
               <CardHeader className="pb-4">
                 <CardTitle className="text-lg flex items-center gap-2">
-                  <Compass className="w-5 h-5" />
+                  <span>🧭</span>
                   التنقل بين الأقسام
                 </CardTitle>
               </CardHeader>
@@ -437,13 +384,17 @@ function AboutPage() {
                         aria-current={active ? 'page' : undefined}
                       >
                         <div className={`p-1.5 rounded-lg ${active ? 'bg-primary/20' : 'bg-muted'}`}>
-                          {React.cloneElement(s.icon as React.ReactElement, { 
-                            className: `w-4 h-4 ${active ? 'text-primary' : 'text-muted-foreground'}` 
-                          })}
+                          <span className={`text-sm ${active ? 'text-primary' : 'text-muted-foreground'}`}>
+                            {s.id === 'vision' ? '🎯' : 
+                             s.id === 'goals' ? '🎯' : 
+                             s.id === 'how' ? '⚡' : 
+                             s.id === 'who' ? '👥' : 
+                             s.id === 'faq' ? '💬' : '🌐'}
+                          </span>
                         </div>
                         <span className="font-medium">{s.label}</span>
                         {active && (
-                          <ChevronRight className="w-4 h-4 mr-auto text-primary" />
+                          <span className="mr-auto text-primary">›</span>
                         )}
                       </a>
                     );
@@ -454,7 +405,7 @@ function AboutPage() {
 
                 <div className="p-4 rounded-xl bg-muted/30">
                   <div className="flex items-center gap-2 text-sm font-medium mb-2">
-                    <Lightbulb className="w-4 h-4" />
+                    <span>💡</span>
                     نصيحة سريعة
                   </div>
                   <p className="text-xs text-muted-foreground leading-relaxed">
@@ -465,10 +416,10 @@ function AboutPage() {
             </Card>
 
             {/* Features Sidebar */}
-            <Card className="mt-6 rounded-2xl bg-gradient-to-br from-muted/30 to-background/50">
+            <Card className="mt-6 rounded-2xl bg-linear-to-br from-muted/30 to-background/50">
               <CardContent className="p-6">
                 <h3 className="font-semibold mb-4 flex items-center gap-2">
-                  <Zap className="w-4 h-4" />
+                  <span>⚡</span>
                   ميزات المنصة
                 </h3>
                 <div className="space-y-3">
@@ -490,12 +441,12 @@ function AboutPage() {
           <main className="lg:col-span-9 space-y-8">
             {/* Vision */}
             <section id="vision" className="scroll-mt-32">
-              <Card className="rounded-2xl overflow-hidden border-border/50 bg-gradient-to-br from-background to-muted/20">
+              <Card className="rounded-2xl overflow-hidden border-border/50 bg-linear-to-br from-background to-muted/20">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -translate-y-16 translate-x-16 blur-3xl" />
                 <CardHeader className="relative">
                   <div className="flex items-center gap-3 mb-2">
                     <div className="p-2 rounded-xl bg-primary/10">
-                      <Target className="w-6 h-6 text-primary" />
+                      <span className="text-primary text-lg">🎯</span>
                     </div>
                     <CardTitle className="text-2xl">رؤيتنا</CardTitle>
                   </div>
@@ -506,9 +457,9 @@ function AboutPage() {
                       نسعى لتوفير منصة تعليمية متكاملة وحديثة تساعد الطالب على الوصول السهل والمنظم للمحتوى العلمي،
                       وتقلل الجهد الضائع في البحث، وتدعم تجربة تعلم مركّزة عبر واجهة عصرية وسهلة الاستخدام.
                     </p>
-                    <div className="mt-8 p-6 rounded-2xl bg-gradient-to-r from-primary/5 via-transparent to-primary/5">
+                    <div className="mt-8 p-6 rounded-2xl bg-linear-to-r from-primary/5 via-transparent to-primary/5">
                       <div className="flex items-center gap-3">
-                        <Rocket className="w-5 h-5 text-primary" />
+                        <span className="text-primary text-lg">🚀</span>
                         <h3 className="text-lg font-semibold">نؤمن بأن</h3>
                       </div>
                       <p className="mt-2">
@@ -526,27 +477,22 @@ function AboutPage() {
                 <CardHeader>
                   <div className="flex items-center gap-3 mb-2">
                     <div className="p-2 rounded-xl bg-emerald-500/10">
-                      <Target className="w-6 h-6 text-emerald-500" />
+                      <span className="text-emerald-500 text-lg">🎯</span>
                     </div>
                     <CardTitle className="text-2xl">أهدافنا</CardTitle>
                   </div>
                 </CardHeader>
                 <CardContent>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {goals.map((goal, index) => (
+                    {goals.map((goal) => (
                       <div
                         key={goal.title}
                         className="group relative overflow-hidden rounded-2xl p-6
-                                 bg-gradient-to-br from-background to-muted/30
+                                 bg-linear-to-br from-background to-muted/30
                                  border transition-all duration-500
                                  hover:scale-[1.02] hover:shadow-2xl"
-                        style={{ 
-                          animationDelay: `${index * 100}ms`,
-                          animation: 'slideUp 0.5s ease-out forwards',
-                          opacity: 0
-                        } as React.CSSProperties}
                       >
-                        <div className="absolute inset-0 bg-gradient-to-br from-transparent via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                        <div className="absolute inset-0 bg-linear-to-br from-transparent via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                         <div className="relative">
                           <div className="flex items-start gap-4">
                             <div className={`p-3 rounded-xl ${goal.color} backdrop-blur-sm`}>
@@ -562,7 +508,7 @@ function AboutPage() {
                           <div className="mt-6 pt-4 border-t border-border/50 group-hover:border-primary/30 transition-colors duration-300">
                             <div className="flex items-center text-sm text-muted-foreground">
                               <span className="inline-flex items-center gap-1">
-                                <CheckCircle className="w-4 h-4 text-emerald-500" />
+                                <span>✅</span>
                                 قيد التنفيذ
                               </span>
                             </div>
@@ -577,11 +523,11 @@ function AboutPage() {
 
             {/* How it Works */}
             <section id="how" className="scroll-mt-32">
-              <Card className="rounded-2xl overflow-hidden bg-gradient-to-b from-background to-muted/10">
+              <Card className="rounded-2xl overflow-hidden bg-linear-to-b from-background to-muted/10">
                 <CardHeader>
                   <div className="flex items-center gap-3 mb-2">
                     <div className="p-2 rounded-xl bg-amber-500/10">
-                      <Zap className="w-6 h-6 text-amber-500" />
+                      <span className="text-amber-500 text-lg">⚡</span>
                     </div>
                     <CardTitle className="text-2xl">كيف تعمل المنصة؟</CardTitle>
                   </div>
@@ -589,7 +535,7 @@ function AboutPage() {
                 <CardContent>
                   <div className="relative">
                     {/* Connection Lines */}
-                    <div className="hidden md:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-1 bg-gradient-to-r from-transparent via-primary/20 to-transparent" />
+                    <div className="hidden md:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-1 bg-linear-to-r from-transparent via-primary/20 to-transparent" />
                     
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                       {steps.map((step, index) => (
@@ -602,7 +548,7 @@ function AboutPage() {
                             <div className="relative bg-background border rounded-2xl p-6
                                          transition-all duration-300 group-hover:scale-105 group-hover:shadow-xl">
                               <div className="flex items-center gap-4 mb-4">
-                                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/20 to-primary/10
+                                <div className="w-12 h-12 rounded-xl bg-linear-to-br from-primary/20 to-primary/10
                                               flex items-center justify-center text-xl font-bold">
                                   {step.icon}
                                 </div>
@@ -636,7 +582,7 @@ function AboutPage() {
 
                   <Separator className="my-8" />
 
-                  <div className="text-center p-6 rounded-2xl bg-gradient-to-r from-primary/5 to-transparent">
+                  <div className="text-center p-6 rounded-2xl bg-linear-to-r from-primary/5 to-transparent">
                     <p className="text-lg font-medium">
                       هدفنا أن تصل للمعلومة في أقل عدد من النقرات، وبأعلى درجة وضوح وتنظيم.
                     </p>
@@ -647,11 +593,11 @@ function AboutPage() {
 
             {/* About Us */}
             <section id="who" className="scroll-mt-32">
-              <Card className="rounded-2xl bg-gradient-to-br from-muted/20 to-background">
+              <Card className="rounded-2xl bg-linear-to-br from-muted/20 to-background">
                 <CardHeader>
                   <div className="flex items-center gap-3 mb-2">
                     <div className="p-2 rounded-xl bg-violet-500/10">
-                      <Users className="w-6 h-6 text-violet-500" />
+                      <span className="text-violet-500 text-lg">👥</span>
                     </div>
                     <CardTitle className="text-2xl">من نحن</CardTitle>
                   </div>
@@ -683,7 +629,7 @@ function AboutPage() {
                       </div>
                     </div>
                     <div className="relative">
-                      <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent rounded-2xl" />
+                      <div className="absolute inset-0 bg-linear-to-tr from-primary/10 to-transparent rounded-2xl" />
                       <div className="relative p-6 rounded-2xl border bg-background/80 backdrop-blur-sm">
                         <h4 className="font-semibold mb-4">لماذا اختارونا؟</h4>
                         <div className="space-y-3">
@@ -694,7 +640,7 @@ function AboutPage() {
                             'تحديثات دورية بناء على الملاحظات'
                           ].map((item) => (
                             <div key={item} className="flex items-center gap-3 p-2 rounded-lg hover:bg-muted/30">
-                              <CheckCircle className="w-4 h-4 text-emerald-500 flex-shrink-0" />
+                              <span className="text-emerald-500 shrink-0">✅</span>
                               <span>{item}</span>
                             </div>
                           ))}
@@ -712,7 +658,7 @@ function AboutPage() {
                 <CardHeader>
                   <div className="flex items-center gap-3 mb-2">
                     <div className="p-2 rounded-xl bg-blue-500/10">
-                      <MessageSquare className="w-6 h-6 text-blue-500" />
+                      <span className="text-blue-500 text-lg">💬</span>
                     </div>
                     <CardTitle className="text-2xl">أسئلة شائعة</CardTitle>
                   </div>
@@ -732,7 +678,7 @@ function AboutPage() {
                         >
                           <span className="font-semibold text-lg flex-1">{faq.q}</span>
                           <div className={`transform transition-transform duration-300 ${expandedFaqs[index] ? 'rotate-180' : ''}`}>
-                            <ChevronRight className="w-5 h-5 text-muted-foreground" />
+                            <span className="text-muted-foreground text-lg">›</span>
                           </div>
                         </button>
                         <div
@@ -756,12 +702,12 @@ function AboutPage() {
             {/* Contact */}
             <section id="contact" className="scroll-mt-32">
               <Card className="rounded-2xl overflow-hidden border-0
-                           bg-gradient-to-br from-primary/5 via-background to-primary/5">
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary via-primary/50 to-primary" />
+                           bg-linear-to-br from-primary/5 via-background to-primary/5">
+                <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-primary via-primary/50 to-primary" />
                 <CardHeader className="relative">
                   <div className="flex items-center gap-3 mb-2">
-                    <div className="p-2 rounded-xl bg-gradient-to-br from-primary to-primary/80">
-                      <Globe className="w-6 h-6 text-white" />
+                    <div className="p-2 rounded-xl bg-linear-to-br from-primary to-primary/80">
+                      <span className="text-white text-lg">🌐</span>
                     </div>
                     <CardTitle className="text-2xl">تواصل معنا</CardTitle>
                   </div>
@@ -810,7 +756,7 @@ function AboutPage() {
                             asChild
                           >
                             <a href="/support" className="flex items-center gap-3">
-                              <MessageSquare className="w-5 h-5" />
+                              <span>💬</span>
                               مركز الدعم
                             </a>
                           </Button>
@@ -821,7 +767,7 @@ function AboutPage() {
                             variant="outline"
                             onClick={handleCopyTelegram}
                           >
-                            <Copy className="w-5 h-5 ml-2" />
+                            <span className="text-xs ml-2">📋</span>
                             {copied ? 'تم النسخ!' : 'نسخ الرابط'}
                           </Button>
                         </div>
@@ -830,14 +776,14 @@ function AboutPage() {
                           <Button
                             size="lg"
                             className="w-full rounded-xl h-14 text-base font-semibold
-                                     bg-gradient-to-r from-primary to-primary/90
+                                     bg-linear-to-r from-primary to-primary/90
                                      hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
                             asChild
                           >
                             <a href={TELEGRAM_LINK} target="_blank" rel="noreferrer">
-                              <MessageSquare className="w-5 h-5 ml-2" />
+                              <span className="text-xs ml-2">💬</span>
                               مراسلتنا عبر تيليغرام
-                              <ExternalLink className="w-4 h-4 mr-2" />
+                              <span className="text-xs mr-2">↗</span>
                             </a>
                           </Button>
                         </div>
@@ -862,80 +808,14 @@ function AboutPage() {
             className="fixed bottom-8 left-8 z-50 rounded-full w-12 h-12
                      backdrop-blur-sm border-border/50 shadow-lg
                      transition-all duration-300 hover:scale-110 hover:shadow-xl
-                     animate-bounce-slow"
+                     animate-bounce"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             aria-label="العودة للأعلى"
           >
-            <ArrowUp className="w-5 h-5" />
+            ↑
           </Button>
         )}
       </Container>
-
-      
-      {/* Custom CSS Animations */}
-      <style jsx>{`
-        @keyframes slideUp {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        
-        @keyframes bounce-slow {
-          0%, 100% {
-            transform: translateY(0);
-          }
-          50% {
-            transform: translateY(-10px);
-          }
-        }
-        
-        .animate-bounce-slow {
-          animation: bounce-slow 2s infinite;
-        }
-        
-        .animate-fade-in {
-          animation: slideUp 0.8s ease-out;
-        }
-        
-        /* Smooth transitions for cards */
-        .card-hover-effect {
-          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .card-hover-effect:hover {
-          transform: translateY(-4px);
-          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-        
-        /* Gradient text animation */
-        .gradient-text {
-          background: linear-gradient(
-            45deg,
-            var(--primary),
-            var(--primary-light),
-            var(--primary)
-          );
-          background-size: 200% auto;
-          animation: gradient 3s ease-in-out infinite;
-        }
-        
-        @keyframes gradient {
-          0% {
-            background-position: 0% 50%;
-          }
-          50% {
-            background-position: 100% 50%;
-          }
-          100% {
-            background-position: 0% 50%;
-          }
-        }
-      `}</style>
     </div>
   );
 }

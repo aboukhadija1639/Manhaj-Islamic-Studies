@@ -18,7 +18,7 @@ export function Separator({
   return (
     <div
       role="separator"
-      aria-orientation={orientation}
+      aria-orientation={isVertical ? 'vertical' : 'horizontal'}
       className={cx(
         'bg-border',
         isVertical ? 'w-px h-full' : 'h-px w-full',
