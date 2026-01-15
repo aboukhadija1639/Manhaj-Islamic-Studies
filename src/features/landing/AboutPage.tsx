@@ -71,6 +71,9 @@ function AboutPage() {
                 <p>
                   نرحب بملاحظاتكم واقتراحاتكم لتطوير المنصة وتحسين الخدمات المقدمة.
                 </p>
+                 <p>
+                رابط بوت التلغرام  t.me/just_contactbot
+                </p>
               </div>
             </CardContent>
           </Card>
