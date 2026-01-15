@@ -16,13 +16,14 @@ const getSystemTheme = (): 'light' | 'dark' => {
 
 const applyTheme = (theme: Theme) => {
   const root = window.document.documentElement;
-  const resolvedTheme = theme === 'system' ? getSystemTheme() : theme;
-  
-  root.classList.remove('light', 'dark');
-  root.classList.add(resolvedTheme);
-  
-  return resolvedTheme;
+  const resolved = theme === 'system' ? getSystemTheme() : theme;
+
+  // لا نستخدم "light" إطلاقًا، فقط dark عند الحاجة
+  root.classList.toggle('dark', resolved === 'dark');
+
+  return resolved;
 };
+
 
 export const useTheme = create<ThemeStore>()(
   persist(
