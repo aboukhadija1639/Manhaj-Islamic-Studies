@@ -25,3 +25,11 @@ export { default as StatsCard } from './StatsCard';
 export { default as LessonSection } from './LessonSection';
 
 export { default as ExerciseCard } from './ExerciseCard';
+
+
+/* ✅ Add these */
+export { default as Badge } from './Badge';
+export type { BadgeProps, BadgeVariant } from './Badge';
+
+export { default as Separator } from './Separator';
+export type { SeparatorProps } from './Separator';
