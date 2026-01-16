@@ -18,6 +18,9 @@ const ScienceDetailPage = lazy(() => import('../../features/manhaj/ScienceDetail
 
 // New Academic Structure Pages
 const DegreesPage = lazy(() => import('../../features/academics/DegreesPage'));
+const CommonCorePage = lazy(() => import('../../features/academics/CommonCorePage'));
+const SpecializationChoicePage = lazy(() => import('../../features/academics/SpecializationChoicePage'));
+const AcademicPathwaysPage = lazy(() => import('../../features/academics/AcademicPathwaysPage'));
 const DegreeDetailPage = lazy(() => import('../../features/academics/DegreeDetailPage'));
 const SpecialtyDetailPage = lazy(() => import('../../features/academics/SpecialtyDetailPage'));
 const AcademicYearPage = lazy(() => import('../../features/academics/AcademicYearPage'));
@@ -65,6 +68,36 @@ const router = createBrowserRouter([
         element: (
           <Suspense fallback={<PageLoader />}>
             <DegreesPage />
+          </Suspense>
+        ),
+      },
+      
+      // 1.1 Common Core Page
+      {
+        path: 'academics/licence-islamic-sciences/common-core',
+        element: (
+          <Suspense fallback={<PageLoader />}>
+            <CommonCorePage />
+          </Suspense>
+        ),
+      },
+      
+      // 1.2 Specialization Choice Page
+      {
+        path: 'academics/choose-specialization',
+        element: (
+          <Suspense fallback={<PageLoader />}>
+            <SpecializationChoicePage />
+          </Suspense>
+        ),
+      },
+      
+      // 1.3 Academic Pathways Page (Licence → Master)
+      {
+        path: 'academics/pathways',
+        element: (
+          <Suspense fallback={<PageLoader />}>
+            <AcademicPathwaysPage />
           </Suspense>
         ),
       },
