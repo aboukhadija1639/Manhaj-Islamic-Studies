@@ -19,14 +19,14 @@ export function SearchResults({
   }
 
   return (
-    <div className="border-t border-gray-200 bg-white">
+    <div className="border-t border-border bg-card">
       <div className="max-h-96 overflow-y-auto">
         <ul className="divide-y divide-gray-100">
           {results.map((result) => (
             <li key={`${result.sectionId}-${result.lessonId}`}>
               <button
                 onClick={() => onSelectResult(result)}
-                className="w-full px-4 py-3 text-right hover:bg-gray-50 focus:bg-gray-50 focus:outline-none"
+                className="w-full px-4 py-3 text-right hover:bg-background focus:bg-background focus:outline-none"
               >
                 <div className="flex items-start gap-3">
                   {/* Relevance Indicator */}
@@ -38,7 +38,7 @@ export function SearchResults({
                           className={`h-2 w-2 rounded-full ${
                             i <= Math.ceil(result.relevance * 3)
                               ? 'bg-blue-500'
-                              : 'bg-gray-300'
+                              : 'bg-muted'
                           }`}
                         />
                       ))}
@@ -47,14 +47,14 @@ export function SearchResults({
 
                   {/* Content */}
                   <div className="flex-1 min-w-0">
-                    <div className="text-sm font-medium text-gray-900">
+                    <div className="text-sm font-medium text-foreground">
                       {result.lessonTitle}
                     </div>
-                    <div className="text-xs text-gray-500">
+                    <div className="text-xs text-muted-foreground">
                       {result.sectionTitle}
                     </div>
                     <div
-                      className="mt-1 text-xs text-gray-600 line-clamp-2"
+                      className="mt-1 text-xs text-muted-foreground line-clamp-2"
                       dangerouslySetInnerHTML={{
                         __html: result.highlightedSnippet,
                       }}
@@ -68,7 +68,7 @@ export function SearchResults({
       </div>
 
       {/* Footer */}
-      <div className="border-t border-gray-100 bg-gray-50 px-4 py-2 text-center text-xs text-gray-500">
+      <div className="border-t border-border bg-background px-4 py-2 text-center text-xs text-muted-foreground">
         {results.length} نتيجة
       </div>
     </div>

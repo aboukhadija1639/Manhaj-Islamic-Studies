@@ -33,12 +33,12 @@ export function ModuleHeader({
   };
 
   return (
-    <header className="border-b border-gray-200 bg-white shadow-sm">
+    <header className="border-b border-border bg-card shadow-sm">
       <div className="flex items-center justify-between gap-4 px-4 py-3 sm:px-6">
         {/* Menu Button - Mobile */}
         <button
           onClick={onMenuClick}
-          className="md:hidden inline-flex items-center justify-center rounded-lg p-2 text-gray-600 hover:bg-gray-100"
+          className="md:hidden inline-flex items-center justify-center rounded-lg p-2 text-muted-foreground hover:bg-muted"
           aria-label="فتح القائمة"
         >
           <svg
@@ -58,11 +58,11 @@ export function ModuleHeader({
 
         {/* Module Title */}
         <div className="flex-1">
-          <h1 className="text-xl font-bold text-gray-900">
+          <h1 className="text-xl font-bold text-foreground">
             {manifest.title}
           </h1>
           {progress && (
-            <p className="text-sm text-gray-600">
+            <p className="text-sm text-muted-foreground">
               {progress.completedLessons} من {progress.totalLessons} درس مكتمل
             </p>
           )}
@@ -80,7 +80,7 @@ export function ModuleHeader({
 
         {/* Help Button */}
         <button
-          className="inline-flex items-center justify-center rounded-lg p-2 text-gray-600 hover:bg-gray-100"
+          className="inline-flex items-center justify-center rounded-lg p-2 text-muted-foreground hover:bg-muted"
           aria-label="مساعدة"
         >
           <svg

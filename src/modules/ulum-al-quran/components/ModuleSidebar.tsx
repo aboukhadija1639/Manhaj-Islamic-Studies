@@ -29,17 +29,17 @@ export function ModuleSidebar({
   };
 
   return (
-    <div className="flex flex-col h-full overflow-hidden bg-white">
+    <div className="flex flex-col h-full overflow-hidden bg-card">
       {progress && (
-        <div className="border-b border-gray-200 p-4">
-          <div className="text-sm font-medium text-gray-900">التقدم</div>
-          <div className="mt-2 h-2 rounded-full bg-gray-200 overflow-hidden">
+        <div className="border-b border-border p-4">
+          <div className="text-sm font-medium text-foreground">التقدم</div>
+          <div className="mt-2 h-2 rounded-full bg-muted overflow-hidden">
             <div
               className="h-full bg-blue-500 transition-all duration-300"
               style={{ width: `${progress.percentComplete}%` }}
             />
           </div>
-          <div className="mt-1 text-xs text-gray-600">
+          <div className="mt-1 text-xs text-muted-foreground">
             {progress.completedLessons} من {progress.totalLessons}
           </div>
         </div>
@@ -51,7 +51,7 @@ export function ModuleSidebar({
             <li key={section.id}>
               <button
                 onClick={() => toggleSection(section.id)}
-                className="flex w-full items-center justify-between rounded-lg px-3 py-2 text-sm font-medium text-gray-900 hover:bg-gray-100"
+                className="flex w-full items-center justify-between rounded-lg px-3 py-2 text-sm font-medium text-foreground hover:bg-muted"
               >
                 <span>{section.title}</span>
                 <svg
@@ -80,7 +80,7 @@ export function ModuleSidebar({
                         className={`w-full rounded-lg px-3 py-2 text-sm text-right transition-colors ${
                           currentLessonId === item.id
                             ? 'bg-blue-50 text-blue-700 font-medium'
-                            : 'text-gray-700 hover:bg-gray-50'
+                            : 'text-card-foreground hover:bg-background'
                         }`}
                         aria-current={
                           currentLessonId === item.id ? 'page' : undefined
@@ -88,7 +88,7 @@ export function ModuleSidebar({
                       >
                         <div className="flex items-center justify-between gap-2">
                           <span className="truncate">{item.title}</span>
-                          <span className="flex-shrink-0 text-xs text-gray-500">
+                          <span className="flex-shrink-0 text-xs text-muted-foreground">
                             {item.type === 'pdf' && '📄'}
                             {item.type === 'md' && '📝'}
                             {item.type === 'mdx' && '✨'}
@@ -96,7 +96,7 @@ export function ModuleSidebar({
                           </span>
                         </div>
                         {item.metadata?.duration && (
-                          <div className="text-xs text-gray-500 mt-1">
+                          <div className="text-xs text-muted-foreground mt-1">
                             {item.metadata.duration} دقيقة
                           </div>
                         )}
@@ -110,7 +110,7 @@ export function ModuleSidebar({
         </ul>
       </nav>
 
-      <div className="border-t border-gray-200 p-4">
+      <div className="border-t border-border p-4">
         <button className="w-full rounded-lg bg-blue-50 px-3 py-2 text-sm font-medium text-blue-700 hover:bg-blue-100">
           تنزيل جميع الموارد
         </button>

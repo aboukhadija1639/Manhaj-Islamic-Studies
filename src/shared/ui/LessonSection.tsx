@@ -14,7 +14,7 @@ const LessonSection = ({ section, className }: LessonSectionProps) => {
         return (
           <Card className={cn('p-6', className)}>
             {section.title && (
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+              <h3 className="text-2xl font-bold text-foreground mb-4">
                 {section.title}
               </h3>
             )}
@@ -38,7 +38,7 @@ const LessonSection = ({ section, className }: LessonSectionProps) => {
         return (
           <Card className={cn('p-6 overflow-x-auto', className)}>
             {section.title && (
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+              <h3 className="text-2xl font-bold text-foreground mb-4">
                 {section.title}
               </h3>
             )}
@@ -50,7 +50,7 @@ const LessonSection = ({ section, className }: LessonSectionProps) => {
                       {section.data.headers.map((header: string, idx: number) => (
                         <th
                           key={idx}
-                          className="border-2 border-gray-300 dark:border-gray-600 px-4 py-3 text-left font-bold text-gray-900 dark:text-white"
+                          className="border-2 border-border px-4 py-3 text-left font-bold text-foreground"
                         >
                           {header}
                         </th>
@@ -61,12 +61,12 @@ const LessonSection = ({ section, className }: LessonSectionProps) => {
                     {section.data.rows.map((row: string[], rowIdx: number) => (
                       <tr
                         key={rowIdx}
-                        className="hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                        className="hover:bg-background dark:hover:bg-muted transition-colors"
                       >
                         {row.map((cell: string, cellIdx: number) => (
                           <td
                             key={cellIdx}
-                            className="border-2 border-gray-300 dark:border-gray-600 px-4 py-3 text-gray-700 dark:text-gray-300"
+                            className="border-2 border-border px-4 py-3 text-card-foreground"
                           >
                             {cell}
                           </td>
@@ -96,19 +96,19 @@ const LessonSection = ({ section, className }: LessonSectionProps) => {
                 {section.data?.examples && (
                   <div className="space-y-4">
                     {section.data.examples.map((example: any, idx: number) => (
-                      <div key={idx} className="p-4 bg-white dark:bg-gray-800 rounded-lg border border-blue-200 dark:border-blue-700">
+                      <div key={idx} className="p-4 bg-card rounded-lg border border-blue-200 dark:border-blue-700">
                         {example.text && (
-                          <p className="text-gray-800 dark:text-gray-200 font-medium mb-2">
+                          <p className="text-card-foreground font-medium mb-2">
                             {example.text}
                           </p>
                         )}
                         {example.number && example.text && (
-                          <p className="text-gray-800 dark:text-gray-200">
+                          <p className="text-card-foreground">
                             <span className="font-bold">{example.number}</span> is <span className="font-bold text-blue-600 dark:text-blue-400">{example.text}</span>
                           </p>
                         )}
                         {example.note && (
-                          <p className="text-sm text-gray-600 dark:text-gray-400 italic mt-1">
+                          <p className="text-sm text-muted-foreground italic mt-1">
                             {example.note}
                           </p>
                         )}
@@ -119,10 +119,10 @@ const LessonSection = ({ section, className }: LessonSectionProps) => {
                         )}
                         {example.direct && (
                           <div className="space-y-2">
-                            <p className="text-gray-800 dark:text-gray-200">
+                            <p className="text-card-foreground">
                               <span className="font-semibold text-green-600 dark:text-green-400">Direct:</span> {example.direct}
                             </p>
-                            <p className="text-gray-800 dark:text-gray-200">
+                            <p className="text-card-foreground">
                               <span className="font-semibold text-blue-600 dark:text-blue-400">Indirect:</span>{' '}
                               <span dangerouslySetInnerHTML={{ __html: example.indirect.replace(/\*\*(.*?)\*\*/g, '<strong class="text-blue-600 dark:text-blue-400">$1</strong>') }} />
                             </p>
@@ -130,10 +130,10 @@ const LessonSection = ({ section, className }: LessonSectionProps) => {
                         )}
                         {example.active && (
                           <div className="space-y-2">
-                            <p className="text-gray-800 dark:text-gray-200">
+                            <p className="text-card-foreground">
                               <span className="font-semibold text-green-600 dark:text-green-400">Active:</span> {example.active}
                             </p>
-                            <p className="text-gray-800 dark:text-gray-200">
+                            <p className="text-card-foreground">
                               <span className="font-semibold text-purple-600 dark:text-purple-400">Passive:</span> {example.passive}
                             </p>
                           </div>
@@ -144,7 +144,7 @@ const LessonSection = ({ section, className }: LessonSectionProps) => {
                               {example.step}
                             </p>
                             <p
-                              className="text-gray-800 dark:text-gray-200"
+                              className="text-card-foreground"
                               dangerouslySetInnerHTML={{
                                 __html: example.text.replace(/\*\*(.*?)\*\*/g, '<strong class="text-blue-600 dark:text-blue-400">$1</strong>'),
                               }}
@@ -175,7 +175,7 @@ const LessonSection = ({ section, className }: LessonSectionProps) => {
                 )}
                 {section.content && (
                   <p
-                    className="text-gray-800 dark:text-gray-200"
+                    className="text-card-foreground"
                     dangerouslySetInnerHTML={{
                       __html: section.content.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>'),
                     }}
@@ -190,7 +190,7 @@ const LessonSection = ({ section, className }: LessonSectionProps) => {
         return (
           <Card className={cn('p-6', className)}>
             {section.title && (
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+              <h3 className="text-2xl font-bold text-foreground mb-6">
                 {section.title}
               </h3>
             )}
@@ -202,7 +202,7 @@ const LessonSection = ({ section, className }: LessonSectionProps) => {
                       {idx + 1}
                     </span>
                     <p
-                      className="flex-1 text-gray-700 dark:text-gray-300 pt-1"
+                      className="flex-1 text-card-foreground pt-1"
                       dangerouslySetInnerHTML={{
                         __html: step.replace(/\*\*(.*?)\*\*/g, '<strong class="text-primary-600 dark:text-primary-400">$1</strong>'),
                       }}
@@ -223,7 +223,7 @@ const LessonSection = ({ section, className }: LessonSectionProps) => {
               </h3>
             )}
             {section.content && (
-              <p className="text-gray-800 dark:text-gray-200">{section.content}</p>
+              <p className="text-card-foreground">{section.content}</p>
             )}
           </Card>
         );

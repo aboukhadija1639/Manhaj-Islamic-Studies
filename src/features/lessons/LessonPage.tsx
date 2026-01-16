@@ -16,7 +16,7 @@ const LessonPage = () => {
     return (
       <Container className="py-12 text-center">
         <div className="text-6xl mb-4">❌</div>
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+        <h1 className="text-3xl font-bold text-foreground mb-4">
           Lesson Not Found
         </h1>
         <Link to="/modules/english-language">
@@ -111,22 +111,22 @@ const LessonPage = () => {
       <Container className="py-12">
         {/* Progress Bar */}
         {lesson.exercises && lesson.exercises.length > 0 && (
-          <div className="mb-8 p-6 bg-white dark:bg-gray-800 rounded-2xl border-2 border-gray-200 dark:border-gray-700">
+          <div className="mb-8 p-6 bg-card rounded-2xl border-2 border-border">
             <div className="flex items-center justify-between mb-3">
-              <h3 className="text-lg font-bold text-gray-900 dark:text-white">
+              <h3 className="text-lg font-bold text-foreground">
                 Your Progress
               </h3>
               <span className="text-2xl font-bold text-primary-600 dark:text-primary-400">
                 {progress}%
               </span>
             </div>
-            <div className="w-full h-4 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+            <div className="w-full h-4 bg-muted dark:bg-muted rounded-full overflow-hidden">
               <div
                 className="h-full bg-gradient-to-r from-primary-500 to-primary-600 transition-all duration-500"
                 style={{ width: `${progress}%` }}
               />
             </div>
-            <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
+            <p className="text-sm text-muted-foreground mt-2">
               {correctExercises.size} of {lesson.exercises.length} exercises completed correctly
             </p>
           </div>
@@ -134,7 +134,7 @@ const LessonPage = () => {
 
         {/* Lesson Content */}
         <div className="space-y-6 mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white flex items-center gap-3">
+          <h2 className="text-3xl font-bold text-foreground flex items-center gap-3">
             <span>📚</span>
             <span>Lesson Content</span>
           </h2>
@@ -146,11 +146,11 @@ const LessonPage = () => {
         {/* Exercises */}
         {lesson.exercises && lesson.exercises.length > 0 && (
           <div className="space-y-6">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white flex items-center gap-3">
+            <h2 className="text-3xl font-bold text-foreground flex items-center gap-3">
               <span>✍️</span>
               <span>Practice Exercises</span>
             </h2>
-            <p className="text-gray-600 dark:text-gray-400">
+            <p className="text-muted-foreground">
               Test your understanding with these exercises. You can try each exercise multiple times!
             </p>
             {lesson.exercises.map((exercise, idx) => (
@@ -165,7 +165,7 @@ const LessonPage = () => {
         )}
 
         {/* Navigation */}
-        <div className="flex justify-between items-center pt-12 mt-12 border-t-2 border-gray-200 dark:border-gray-700">
+        <div className="flex justify-between items-center pt-12 mt-12 border-t-2 border-border">
           <Link to="/modules/english-language">
             <Button variant="secondary" size="lg">
               ← Back to English Module

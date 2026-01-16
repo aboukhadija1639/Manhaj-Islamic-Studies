@@ -61,7 +61,7 @@ const StatsCard = ({ icon, label, value, color = 'emerald', className }: StatsCa
 
         {/* Content */}
         <div className="flex-1">
-          <p className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-1">
+          <p className="text-sm font-medium text-muted-foreground mb-1">
             {label}
           </p>
           <p className={cn('text-3xl font-bold', styles.text)}>

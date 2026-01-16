@@ -10,10 +10,10 @@ import type { ModuleManifest } from '@/modules/ulum-al-quran/types';
 
 function LoadingFallback() {
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-50">
+    <div className="flex items-center justify-center min-h-screen bg-background">
       <div className="text-center">
-        <div className="h-12 w-12 animate-spin rounded-full border-4 border-gray-300 border-t-emerald-500 mx-auto" />
-        <p className="mt-4 text-gray-600 font-medium">جاري تحميل وحدة علوم القرآن...</p>
+        <div className="h-12 w-12 animate-spin rounded-full border-4 border-border border-t-emerald-500 mx-auto" />
+        <p className="mt-4 text-muted-foreground font-medium">جاري تحميل وحدة علوم القرآن...</p>
       </div>
     </div>
   );
@@ -21,7 +21,7 @@ function LoadingFallback() {
 
 function ErrorFallback({ error, onRetry }: { error: Error; onRetry: () => void }) {
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-50">
+    <div className="flex items-center justify-center min-h-screen bg-background">
       <div className="text-center max-w-md mx-auto px-4">
         <svg 
           className="h-16 w-16 text-red-500 mx-auto mb-4" 
@@ -36,8 +36,8 @@ function ErrorFallback({ error, onRetry }: { error: Error; onRetry: () => void }
             d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" 
           />
         </svg>
-        <h2 className="text-2xl font-bold text-gray-900 mb-2">خطأ في تحميل الوحدة</h2>
-        <p className="text-gray-600 mb-6">{error.message}</p>
+        <h2 className="text-2xl font-bold text-foreground mb-2">خطأ في تحميل الوحدة</h2>
+        <p className="text-muted-foreground mb-6">{error.message}</p>
         <div className="flex gap-4 justify-center">
           <button
             onClick={onRetry}
@@ -50,7 +50,7 @@ function ErrorFallback({ error, onRetry }: { error: Error; onRetry: () => void }
           </button>
           <a
             href="/subjects"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-muted text-card-foreground rounded-lg hover:bg-muted transition-colors"
           >
             العودة للمقاييس
           </a>
@@ -122,7 +122,7 @@ export default function UlumAlQuranPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-background">
       <ModuleShell 
         manifest={manifest}
         initialLessonId={lessonId}
