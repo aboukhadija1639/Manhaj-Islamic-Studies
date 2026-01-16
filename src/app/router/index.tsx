@@ -24,6 +24,10 @@ const MasterProgramsPage = lazy(() => import('../../features/programs/MasterProg
 // Subject Detail Page
 const SubjectDetailPage = lazy(() => import('../../features/subjects/SubjectDetailPage'));
 
+// Legal Pages
+const TermsOfUsePage = lazy(() => import('../../features/legal/TermsOfUsePage'));
+const PrivacyPolicyPage = lazy(() => import('../../features/legal/PrivacyPolicyPage'));
+
 // Academic Structure Pages
 const DegreesPage = lazy(() => import('../../features/academics/DegreesPage'));
 const CommonCorePage = lazy(() => import('../../features/academics/CommonCorePage'));
@@ -254,6 +258,26 @@ const router = createBrowserRouter([
         element: (
           <Suspense fallback={<PageLoader />}>
             <AboutPage />
+          </Suspense>
+        ),
+      },
+      
+      // ========== Legal Pages ==========
+      
+      {
+        path: 'terms-of-use',
+        element: (
+          <Suspense fallback={<PageLoader />}>
+            <TermsOfUsePage />
+          </Suspense>
+        ),
+      },
+      
+      {
+        path: 'privacy-policy',
+        element: (
+          <Suspense fallback={<PageLoader />}>
+            <PrivacyPolicyPage />
           </Suspense>
         ),
       },

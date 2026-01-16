@@ -147,12 +147,12 @@ function Footer() {
                 </p>
               </div>
               <div className="flex items-center gap-6 text-sm">
-                <a href="#" className="text-muted-foreground hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                <Link to="/privacy-policy" className="text-muted-foreground hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
                   سياسة الخصوصية
-                </a>
-                <a href="#" className="text-muted-foreground hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
+                </Link>
+                <Link to="/terms-of-use" className="text-muted-foreground hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">
                   شروط الاستخدام
-                </a>
+                </Link>
               </div>
             </div>
           </div>
