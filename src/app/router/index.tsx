@@ -13,6 +13,7 @@ const EnglishModulePage = lazy(() => import('../../features/lessons/EnglishModul
 const LessonPage = lazy(() => import('../../features/lessons/LessonPage'));
 const ManhajOverviewPage = lazy(() => import('../../features/manhaj/ManhajOverviewPage'));
 const CurriculumMapPage = lazy(() => import('../../features/manhaj/CurriculumMapPage'));
+const EnhancedCurriculumMap = lazy(() => import('../../features/manhaj/EnhancedCurriculumMap'));
 const ScienceDetailPage = lazy(() => import('../../features/manhaj/ScienceDetailPage'));
 
 // New Programs Pages
@@ -117,7 +118,7 @@ const router = createBrowserRouter([
         path: 'curriculum',
         element: (
           <Suspense fallback={<PageLoader />}>
-            <CurriculumMapPage />
+            <EnhancedCurriculumMap />
           </Suspense>
         ),
       },
