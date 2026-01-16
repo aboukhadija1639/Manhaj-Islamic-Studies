@@ -28,16 +28,16 @@ function Header() {
               الرئيسية
             </Link>
             <Link
+              to="/academics"
+              className="text-sm font-medium transition-colors hover:text-primary-600"
+            >
+              البرامج الأكاديمية
+            </Link>
+            <Link
               to="/manhaj"
               className="text-sm font-medium transition-colors hover:text-primary-600"
             >
-              المنهج
-            </Link>
-            <Link
-              to="/subjects"
-              className="text-sm font-medium transition-colors hover:text-primary-600"
-            >
-              المواد الدراسية
+              خريطة المنهج
             </Link>
             <Link
               to="/about"

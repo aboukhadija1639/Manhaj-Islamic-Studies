@@ -1,5 +1,5 @@
 import { lazy, Suspense } from 'react';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider, Navigate } from 'react-router-dom';
 import RootLayout from '../layout/RootLayout';
 import { Container, Skeleton } from '../../shared/ui';
 
@@ -14,7 +14,15 @@ const LessonPage = lazy(() => import('../../features/lessons/LessonPage'));
 const ManhajOverviewPage = lazy(() => import('../../features/manhaj/ManhajOverviewPage'));
 const CurriculumMapPage = lazy(() => import('../../features/manhaj/CurriculumMapPage'));
 const ScienceDetailPage = lazy(() => import('../../features/manhaj/ScienceDetailPage'));
-const UlumAlQuranPage = lazy(() => import('../../features/modules/UlumAlQuranPage'));
+// const UlumAlQuranPage = lazy(() => import('../../features/modules/UlumAlQuranPage'));
+
+// New Academic Structure Pages
+const DegreesPage = lazy(() => import('../../features/academics/DegreesPage'));
+const DegreeDetailPage = lazy(() => import('../../features/academics/DegreeDetailPage'));
+const SpecialtyDetailPage = lazy(() => import('../../features/academics/SpecialtyDetailPage'));
+const AcademicYearPage = lazy(() => import('../../features/academics/AcademicYearPage'));
+const SemesterPage = lazy(() => import('../../features/academics/SemesterPage'));
+const AcademicModulePage = lazy(() => import('../../features/academics/AcademicModulePage'));
 
 // Loading component
 function PageLoader() {
@@ -48,6 +56,71 @@ const router = createBrowserRouter([
           </Suspense>
         ),
       },
+      
+      // ========== New Academic Structure Routes ==========
+      
+      // 1. Degrees List (Licence, Master)
+      {
+        path: 'academics',
+        element: (
+          <Suspense fallback={<PageLoader />}>
+            <DegreesPage />
+          </Suspense>
+        ),
+      },
+      
+      // 2. Degree Detail (e.g., /academics/licence)
+      {
+        path: 'academics/:degreeId',
+        element: (
+          <Suspense fallback={<PageLoader />}>
+            <DegreeDetailPage />
+          </Suspense>
+        ),
+      },
+      
+      // 3. Specialty Detail (e.g., /academics/licence/quran-sciences)
+      {
+        path: 'academics/:degreeId/:specialtyId',
+        element: (
+          <Suspense fallback={<PageLoader />}>
+            <SpecialtyDetailPage />
+          </Suspense>
+        ),
+      },
+      
+      // 4. Academic Year (e.g., /academics/licence/quran-sciences/year-1)
+      {
+        path: 'academics/:degreeId/:specialtyId/:yearId',
+        element: (
+          <Suspense fallback={<PageLoader />}>
+            <AcademicYearPage />
+          </Suspense>
+        ),
+      },
+      
+      // 5. Semester (e.g., /academics/licence/quran-sciences/year-1/s1)
+      {
+        path: 'academics/:degreeId/:specialtyId/:yearId/:semesterId',
+        element: (
+          <Suspense fallback={<PageLoader />}>
+            <SemesterPage />
+          </Suspense>
+        ),
+      },
+      
+      // 6. Module (e.g., /academics/licence/quran-sciences/year-1/s1/ulum-al-quran)
+      {
+        path: 'academics/:degreeId/:specialtyId/:yearId/:semesterId/:moduleId',
+        element: (
+          <Suspense fallback={<PageLoader />}>
+            <AcademicModulePage />
+          </Suspense>
+        ),
+      },
+      
+      // ========== Legacy & Utility Routes ==========
+      
       {
         path: 'subjects',
         element: (
@@ -112,22 +185,17 @@ const router = createBrowserRouter([
           </Suspense>
         ),
       },
+      
+      // Redirect old Ulum Al Quran routes to new structure
       {
         path: 'modules/ulum-al-quran',
-        element: (
-          <Suspense fallback={<PageLoader />}>
-            <UlumAlQuranPage />
-          </Suspense>
-        ),
+        element: <Navigate to="/academics/licence-islamic-sciences/quran-sciences/licence-1/licence-1-s1/ulum-al-quran" replace />,
       },
       {
         path: 'modules/ulum-al-quran/:lessonId',
-        element: (
-          <Suspense fallback={<PageLoader />}>
-            <UlumAlQuranPage />
-          </Suspense>
-        ),
+        element: <Navigate to="/academics/licence-islamic-sciences/quran-sciences/licence-1/licence-1-s1/ulum-al-quran" replace />,
       },
+      
       {
         path: '*',
         element: (
