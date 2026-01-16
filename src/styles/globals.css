@@ -1,11 +1,11 @@
 @import "tailwindcss";
-@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=Tajawal:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Tajawal:wght@400;500;600;700&display=swap");
 
 html { color-scheme: light; }
 html.dark { color-scheme: dark; }
 
 /* ============================================================================
-   THEME TOKENS - Complete Semantic Color System
+   THEME TOKENS - Complete Semantic Color System (Enhanced Green Theme)
    ============================================================================
    
    All colors use HSL format for Tailwind opacity support (e.g., bg-primary/50)
@@ -26,13 +26,13 @@ html.dark { color-scheme: dark; }
     --popover: 0 0% 100%;              /* #ffffff - Dropdown/tooltip background */
     --popover-foreground: 0 0% 10%;    /* #1a1a1a - Text in popovers */
 
-    /* ===== INTERACTIVE TOKENS ===== */
-    --primary: 173 80% 40%;            /* #14b8a6 - Teal 500 - Primary brand */
+    /* ===== INTERACTIVE TOKENS (Enhanced Green) ===== */
+    --primary: 160 84% 39%;            /* #10b981 - Emerald 500 - Primary brand */
     --primary-foreground: 0 0% 100%;   /* #ffffff - Text on primary */
-    --secondary: 36 10% 85%;           /* #e8e4db - Beige 200 - Secondary actions */
-    --secondary-foreground: 36 20% 25%; /* #5a5346 - Dark beige text */
-    --accent: 48 96% 53%;              /* #facc15 - Yellow 400 - Highlights */
-    --accent-foreground: 48 100% 10%;  /* #422006 - Dark text on yellow */
+    --secondary: 142 76% 94%;          /* #d1fae5 - Emerald 100 - Secondary actions */
+    --secondary-foreground: 160 84% 25%; /* #065f46 - Emerald 900 text */
+    --accent: 160 84% 45%;             /* #34d399 - Emerald 400 - Highlights */
+    --accent-foreground: 0 0% 100%;    /* #ffffff - Text on accent */
 
     /* ===== STATE TOKENS ===== */
     --destructive: 0 84% 60%;          /* #ef4444 - Red 500 - Errors/delete */
@@ -47,14 +47,14 @@ html.dark { color-scheme: dark; }
     --muted-foreground: 220 9% 46%;    /* #6b7280 - Gray 600 - Subtle text */
     --border: 220 13% 91%;             /* #e5e7eb - Gray 200 - Borders */
     --input: 220 13% 91%;              /* #e5e7eb - Gray 200 - Input backgrounds */
-    --ring: 173 80% 40%;               /* #14b8a6 - Teal 500 - Focus rings */
+    --ring: 160 84% 39%;               /* #10b981 - Emerald 500 - Focus rings */
 
     /* ===== RADIUS ===== */
-    --radius: 0.5rem;                  /* 8px - Consistent border radius */
+    --radius: 0.75rem;                 /* 12px - Consistent border radius (increased for modern look) */
   }
 
   /* ============================================================================
-     DARK MODE THEME
+     DARK MODE THEME (Enhanced Green)
      ============================================================================
      
      True dark (#0a0a0a) for OLED optimization and reduced eye strain
@@ -72,13 +72,13 @@ html.dark { color-scheme: dark; }
     --popover: 0 0% 10%;               /* #1a1a1a - Same as card */
     --popover-foreground: 0 0% 98%;    /* #fafafa - Near white text in popovers */
 
-    /* ===== INTERACTIVE TOKENS ===== */
-    --primary: 173 80% 40%;            /* #14b8a6 - Teal 500 (same as light) */
-    --primary-foreground: 0 0% 100%;   /* #ffffff - White text on teal */
-    --secondary: 36 10% 25%;           /* #3d3730 - Dark beige */
-    --secondary-foreground: 0 0% 98%;  /* #fafafa - Light text on dark beige */
-    --accent: 48 96% 53%;              /* #facc15 - Yellow 400 (same as light) */
-    --accent-foreground: 0 0% 10%;     /* #1a1a1a - Dark text on yellow */
+    /* ===== INTERACTIVE TOKENS (Enhanced Green) ===== */
+    --primary: 160 84% 39%;            /* #10b981 - Emerald 500 (same as light) */
+    --primary-foreground: 0 0% 100%;   /* #ffffff - White text on emerald */
+    --secondary: 160 84% 15%;          /* #064e3b - Dark emerald */
+    --secondary-foreground: 0 0% 98%;  /* #fafafa - Light text on dark emerald */
+    --accent: 160 84% 45%;             /* #34d399 - Emerald 400 (same as light) */
+    --accent-foreground: 0 0% 10%;     /* #1a1a1a - Dark text on accent */
 
     /* ===== STATE TOKENS ===== */
     --destructive: 0 84% 60%;          /* #ef4444 - Red 500 (same as light) */
@@ -93,7 +93,7 @@ html.dark { color-scheme: dark; }
     --muted-foreground: 0 0% 64%;      /* #a1a1aa - Gray 400 - Subtle text */
     --border: 0 0% 16%;                /* #2a2a2a - Subtle border */
     --input: 0 0% 16%;                 /* #2a2a2a - Input backgrounds */
-    --ring: 173 80% 40%;               /* #14b8a6 - Teal 500 - Focus rings */
+    --ring: 160 84% 39%;               /* #10b981 - Emerald 500 - Focus rings */
   }
 
   /* ============================================================================
@@ -168,8 +168,8 @@ html.dark { color-scheme: dark; }
      ========================================================================= */
 
   ::-webkit-scrollbar {
-    width: 8px;
-    height: 8px;
+    width: 10px;
+    height: 10px;
   }
 
   ::-webkit-scrollbar-track {
@@ -177,12 +177,36 @@ html.dark { color-scheme: dark; }
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: hsl(var(--border));
+    background: linear-gradient(to bottom, hsl(160 84% 39%), hsl(173 80% 40%));
     border-radius: var(--radius);
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background-color: hsl(var(--muted-foreground));
+    background: linear-gradient(to bottom, hsl(160 84% 35%), hsl(173 80% 35%));
+  }
+
+  /* ============================================================================
+     CUSTOM ANIMATIONS
+     ========================================================================= */
+
+  @keyframes shimmer {
+    0% {
+      background-position: -1000px 0;
+    }
+    100% {
+      background-position: 1000px 0;
+    }
+  }
+
+  .animate-shimmer {
+    animation: shimmer 2s infinite linear;
+    background: linear-gradient(
+      to right,
+      transparent 0%,
+      rgba(16, 185, 129, 0.1) 50%,
+      transparent 100%
+    );
+    background-size: 1000px 100%;
   }
 }
 
@@ -202,5 +226,24 @@ html.dark { color-scheme: dark; }
   /* RTL-aware utilities */
   .rtl\:space-x-reverse > :not([hidden]) ~ :not([hidden]) {
     --tw-space-x-reverse: 1;
+  }
+
+  /* Gradient text utilities */
+  .gradient-text-emerald {
+    @apply bg-gradient-to-r from-emerald-600 to-teal-600 dark:from-emerald-400 dark:to-teal-400 bg-clip-text text-transparent;
+  }
+
+  /* Glass morphism utilities */
+  .glass {
+    background-color: hsl(var(--background) / 0.8);
+    backdrop-filter: blur(24px);
+    border: 1px solid hsl(var(--border) / 0.4);
+  }
+
+  .glass-card {
+    background-color: hsl(var(--card) / 0.8);
+    backdrop-filter: blur(24px);
+    border: 1px solid hsl(var(--border) / 0.4);
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
   }
 }
