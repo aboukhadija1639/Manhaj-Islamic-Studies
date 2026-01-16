@@ -46,10 +46,12 @@ export const degreesData: Degree[] = [
       semesters: 4,
     },
     specialtyIds: [
-      'quran-sciences-master',
-      'hadith-sciences-master',
+      'tafsir-quran-master',
+      'hadith-master',
       'fiqh-master',
       'aqidah-master',
+      'dawah-master',
+      'sharia-law-master',
     ],
     metadata: {
       faculty: 'كلية العلوم الإسلامية',
