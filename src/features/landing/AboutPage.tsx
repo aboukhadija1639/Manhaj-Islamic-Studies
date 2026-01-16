@@ -9,104 +9,131 @@ import {
   Badge,
   Separator,
 } from '../../shared/ui';
+import { BookOpen, Target, Users, Lightbulb, MessageCircle, Mail, Github, Linkedin, Send } from 'lucide-react';
 
 const TELEGRAM_LINK = 'https://t.me/just_contactbot';
+const DEVELOPER_EMAIL = 'moussaouiaboubaker.sn@gmail.com';
+const DEVELOPER_GITHUB = 'https://github.com/Aboubaker001';
+const DEVELOPER_LINKEDIN = 'https://www.linkedin.com/in/moussaoui-aboubaker-389a41249/';
 
 type SectionId = 'vision' | 'goals' | 'how' | 'who' | 'faq' | 'contact';
 
 function AboutPage() {
-  const highlights = ['منظم حسب المنهج الدراسي', 'تجربة حديثة وسهلة', 'محتوى سريع الوصول', 'دعم متعدد الأجهزة'];
   const features = [
-    { icon: '🚀', title: 'سرعة الأداء', desc: 'تحميل فوري للمحتوى وتصميم خفيف الوزن' },
-    { icon: '🎨', title: 'تصميم متجاوب', desc: 'تتوافق مع جميع أحجام الشاشات' },
-    { icon: '🌓', title: 'الوضع الداكن', desc: 'تجربة مريحة للعين في أي وقت' },
-    { icon: '🔍', title: 'بحث ذكي', desc: 'العثور على المحتوى بسهولة' },
+    { 
+      icon: BookOpen, 
+      title: 'محتوى منظم', 
+      desc: 'تنظيم شامل للمواد الدراسية وفق نظام LMD المعتمد في الجامعة',
+      gradient: 'from-emerald-500 to-teal-600'
+    },
+    { 
+      icon: Target, 
+      title: 'أهداف واضحة', 
+      desc: 'تحديد دقيق لأهداف كل مقياس ومخرجات التعلم المتوقعة',
+      gradient: 'from-blue-500 to-cyan-600'
+    },
+    { 
+      icon: Users, 
+      title: 'تجربة متميزة', 
+      desc: 'واجهة عصرية سهلة الاستخدام مع دعم الوضع الداكن والفاتح',
+      gradient: 'from-purple-500 to-pink-600'
+    },
+    { 
+      icon: Lightbulb, 
+      title: 'تطوير مستمر', 
+      desc: 'تحديثات دورية بناءً على ملاحظات الطلاب واحتياجاتهم',
+      gradient: 'from-amber-500 to-orange-600'
+    },
   ];
 
   const goals = [
     { 
-      title: 'تنظيم المحتوى', 
-      desc: 'تجميع المواد والملخصات والمراجع في مسار واضح حسب السنة والمقياس.',
-      icon: '📚',
-      color: 'bg-blue-500/10'
+      title: 'تنظيم المحتوى الأكاديمي', 
+      desc: 'توفير بنية واضحة ومنظمة للمواد الدراسية عبر جميع المستويات والتخصصات، مما يسهل على الطلاب التنقل والوصول السريع للمعلومات المطلوبة.',
+      icon: BookOpen,
+      color: 'from-emerald-500/10 to-teal-500/10',
+      iconColor: 'text-emerald-600 dark:text-emerald-400'
     },
     { 
-      title: 'تسهيل الوصول', 
-      desc: 'تقليل الوقت الضائع في البحث وتوحيد المصادر داخل واجهة واحدة.',
-      icon: '⚡',
-      color: 'bg-amber-500/10'
+      title: 'تسهيل الوصول للمعلومات', 
+      desc: 'تقليل الوقت والجهد المبذول في البحث عن المراجع والملخصات من خلال توحيد جميع المصادر في منصة واحدة سهلة الاستخدام.',
+      icon: Target,
+      color: 'from-blue-500/10 to-cyan-500/10',
+      iconColor: 'text-blue-600 dark:text-blue-400'
     },
     { 
       title: 'تحسين تجربة التعلم', 
-      desc: 'تصميم مناسب للجوال مع واجهة واضحة تساعد على التركيز.',
-      icon: '🧭',
-      color: 'bg-emerald-500/10'
+      desc: 'تقديم واجهة عصرية ومريحة للعين تدعم جميع الأجهزة وتساعد الطلاب على التركيز على المحتوى العلمي دون تشتيت.',
+      icon: Lightbulb,
+      color: 'from-purple-500/10 to-pink-500/10',
+      iconColor: 'text-purple-600 dark:text-purple-400'
     },
     { 
-      title: 'دعم الطالب', 
-      desc: 'إتاحة قنوات تواصل للاقتراحات والتحسين المستمر.',
-      icon: '🤝',
-      color: 'bg-violet-500/10'
+      title: 'دعم الطلاب والتواصل', 
+      desc: 'إتاحة قنوات تواصل فعالة للاستفسارات والاقتراحات، مع الالتزام بالتحسين المستمر بناءً على احتياجات المجتمع الطلابي.',
+      icon: MessageCircle,
+      color: 'from-amber-500/10 to-orange-500/10',
+      iconColor: 'text-amber-600 dark:text-amber-400'
     },
   ];
 
   const steps = [
     { 
-      title: 'اختر سنتك', 
-      desc: 'حدد المستوى الدراسي للوصول للمسار الصحيح.',
-      icon: '1️⃣'
+      number: '01',
+      title: 'اختر البرنامج الدراسي', 
+      desc: 'حدد مستوى الدراسة (ليسانس، ماستر، دكتوراه) والتخصص المناسب للوصول إلى المسار الأكاديمي الصحيح.',
     },
     { 
-      title: 'اختر المادة', 
-      desc: 'تصفح المواد مرتبة حسب المنهج المعتمد.',
-      icon: '2️⃣'
+      number: '02',
+      title: 'تصفح المقاييس والمواد', 
+      desc: 'استعرض جميع المقاييس المرتبة حسب السداسيات مع تفاصيل الرصيد والمعامل ونوع المقياس.',
     },
     { 
-      title: 'ابدأ التعلّم', 
-      desc: 'ملخصات، مراجع، وروابط مساعدة في مكان واحد.',
-      icon: '3️⃣'
+      number: '03',
+      title: 'ابدأ رحلة التعلم', 
+      desc: 'اطلع على الملخصات والأهداف والمراجع المعتمدة والمحاضرات المتاحة لكل مقياس في مكان واحد.',
     },
   ];
 
   const stats = [
-    { value: '24/7', label: 'متاحة على مدار الساعة' },
-    { value: '100%', label: 'مجانية تمامًا' },
-    { value: '🎯', label: 'موجهة للطلاب' },
-    { value: '🚀', label: 'تطوير مستمر' },
+    { value: '24/7', label: 'متاحة على مدار الساعة', gradient: 'from-emerald-500 to-teal-600' },
+    { value: '100%', label: 'مجانية تمامًا', gradient: 'from-blue-500 to-cyan-600' },
+    { value: '3', label: 'مستويات أكاديمية', gradient: 'from-purple-500 to-pink-600' },
+    { value: '5', label: 'تخصصات ماستر', gradient: 'from-amber-500 to-orange-600' },
   ];
 
   const faqs = [
     { 
       q: 'هل المنصة مخصصة لطلاب كلية العلوم الإسلامية بجامعة الوادي؟', 
-      a: 'نعم، تم تصميم "منهاج" أساسًا لدعم طلاب الكلية عبر تنظيم المحتوى وفق المسار الدراسي.',
-      expanded: false 
+      a: 'نعم، تم تصميم منصة منهاج خصيصًا لدعم طلاب كلية العلوم الإسلامية بجامعة حمه لخضر بالوادي، حيث تنظم المحتوى الأكاديمي وفق نظام LMD المعتمد في الكلية.',
     },
     { 
-      q: 'هل المحتوى يتم تحديثه؟', 
-      a: 'نعم، نعتمد التحسين المستمر بناءً على ملاحظات الطلاب وتحديثات المنهج قدر الإمكان.',
-      expanded: false 
+      q: 'هل المحتوى يتم تحديثه بشكل دوري؟', 
+      a: 'نعم، نلتزم بالتحسين المستمر وتحديث المحتوى بناءً على ملاحظات الطلاب وتحديثات المنهج الدراسي الرسمي، لضمان توفير معلومات دقيقة ومحدثة.',
     },
     { 
-      q: 'كيف أرسل اقتراحًا أو أبلّغ عن خطأ؟', 
-      a: 'يمكنك التواصل عبر بوت التلغرام، ونرحب بأي اقتراحات لتحسين التجربة والمحتوى.',
-      expanded: false 
+      q: 'كيف يمكنني إرسال اقتراح أو الإبلاغ عن مشكلة؟', 
+      a: 'يمكنك التواصل معنا عبر بوت التلغرام الخاص بالدعم الفني، أو مراسلتنا عبر البريد الإلكتروني. نرحب بجميع الاقتراحات والملاحظات لتحسين تجربة الاستخدام.',
+    },
+    { 
+      q: 'هل يمكن استخدام المنصة على الهاتف المحمول؟', 
+      a: 'بالتأكيد، المنصة مصممة بتقنية responsive design لتعمل بكفاءة على جميع الأجهزة بما في ذلك الهواتف الذكية والأجهزة اللوحية وأجهزة الكمبيوتر.',
     },
   ];
 
   const sections = React.useMemo(() => [
-  { id: 'vision', label: 'الرؤية' },
-  { id: 'goals', label: 'الأهداف' },
-  { id: 'how', label: 'كيف تعمل' },
-  { id: 'who', label: 'من نحن' },
-  { id: 'faq', label: 'الأسئلة' },
-  { id: 'contact', label: 'التواصل' },
-], []);
+    { id: 'vision', label: 'الرؤية' },
+    { id: 'goals', label: 'الأهداف' },
+    { id: 'how', label: 'كيف تعمل' },
+    { id: 'who', label: 'من نحن' },
+    { id: 'faq', label: 'الأسئلة الشائعة' },
+    { id: 'contact', label: 'التواصل' },
+  ], []);
 
   const [activeSection, setActiveSection] = React.useState<SectionId>('vision');
   const [showTop, setShowTop] = React.useState(false);
   const [copied, setCopied] = React.useState(false);
   const [progress, setProgress] = React.useState(0);
-  const [bannerClosed, setBannerClosed] = React.useState(false);
   const [expandedFaqs, setExpandedFaqs] = React.useState<boolean[]>(faqs.map(() => false));
 
   // Smooth anchor scrolling
@@ -186,636 +213,417 @@ function AboutPage() {
   };
 
   return (
-    <div dir="rtl" className="relative min-h-screen">
+    <div dir="rtl" className="relative min-h-screen bg-gradient-to-b from-background via-background to-muted/20">
       {/* Scroll progress bar */}
       <div className="fixed top-0 left-0 right-0 z-50 h-1 bg-background/50 backdrop-blur-md">
         <div
-          className="h-full transition-[width] duration-200 ease-out
-                     bg-linear-to-r from-primary via-primary/80 to-primary"
+          className="h-full transition-[width] duration-200 ease-out bg-gradient-to-r from-emerald-500 via-teal-500 to-cyan-500"
           style={{ width: `${progress}%` }}
         />
       </div>
 
-      {/* Announcement Banner */}
-      {!bannerClosed && (
-        <div className="relative z-40">
-          <div className="absolute inset-x-0 top-0">
-            <div className="bg-linear-to-r from-primary/20 via-primary/10 to-transparent">
-              <div className="mx-auto max-w-7xl px-4 py-3 sm:px-6 lg:px-8">
-                <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
-                  <div className="flex items-center gap-3">
-                    <div className="flex h-6 w-6 items-center justify-center rounded-full bg-primary/20">
-                      <span className="text-xs">✨</span>
-                    </div>
-                    <p className="text-sm font-medium">
-                      تحسينات تجربة المستخدم وتحديثات المحتوى بشكل مستمر
-                    </p>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      className="rounded-lg"
-                      asChild
-                    >
-                      <a href="#contact">تواصل الآن</a>
-                    </Button>
-                    <Button
-                      size="sm"
-                      variant="ghost"
-                      className="h-8 w-8 p-0"
-                      onClick={() => setBannerClosed(true)}
-                      aria-label="إغلاق"
-                    >
-                      ×
-                    </Button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
       <Container size="lg" className="relative pt-24 pb-20">
         {/* Hero Section */}
-        <div className="relative mb-16">
-          {/* Floating Elements */}
-          <div className="absolute -top-10 -right-10 w-40 h-40 bg-primary/5 rounded-full blur-3xl" />
-          <div className="absolute top-20 -left-10 w-60 h-60 bg-emerald-500/5 rounded-full blur-3xl" />
+        <div className="relative mb-20">
+          {/* Floating Background Elements */}
+          <div className="absolute -top-20 -right-20 w-72 h-72 bg-gradient-to-br from-emerald-500/10 to-teal-500/10 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute top-40 -left-20 w-96 h-96 bg-gradient-to-br from-blue-500/10 to-cyan-500/10 rounded-full blur-3xl animate-pulse delay-1000" />
           
           <div className="relative">
-            <div className="flex flex-wrap items-center gap-3 mb-4">
+            <div className="flex flex-wrap items-center gap-3 mb-6">
               <Badge 
                 variant="secondary" 
-                className="rounded-full px-4 py-1.5 backdrop-blur-sm bg-background/80"
+                className="rounded-full px-5 py-2 backdrop-blur-sm bg-gradient-to-r from-emerald-500/10 to-teal-500/10 border-emerald-500/20"
               >
-                <span className="text-xs ml-1">✨</span>
-                منصة طلابية متكاملة
+                منصة تعليمية متكاملة
               </Badge>
-              <span className="text-sm text-muted-foreground flex items-center gap-1">
-                <span>🌐</span>
-                جامعة الوادي • كلية العلوم الإسلامية
+              <span className="text-sm text-muted-foreground">
+                جامعة حمه لخضر بالوادي • كلية العلوم الإسلامية
               </span>
             </div>
 
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight">
+            <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight mb-6">
               عن منصة{' '}
-              <span className="bg-linear-to-r from-primary via-primary/80 to-primary bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-emerald-600 via-teal-600 to-cyan-600 bg-clip-text text-transparent">
                 منهاج
               </span>
             </h1>
 
-            <p className="mt-6 text-xl text-muted-foreground leading-relaxed max-w-3xl">
-              منصة تعليمية رقمية تنظّم المسار الدراسي وتُسهّل الوصول للمحتوى العلمي بأقل جهد وأعلى وضوح،
-              بتجربة حديثة تدعم الوضع الداكن والفاتح وتواكب تطلعات الطلاب في العصر الرقمي.
+            <p className="text-xl md:text-2xl text-muted-foreground leading-relaxed max-w-4xl font-['Cairo']">
+              منصة تعليمية رقمية متخصصة في تنظيم المسار الأكاديمي لطلاب العلوم الإسلامية، توفر محتوى علميًا منظمًا وفق نظام LMD مع تجربة استخدام عصرية وسهلة تواكب احتياجات الطلاب في العصر الرقمي.
             </p>
 
-            {/* Highlights */}
-            <div className="mt-8 flex flex-wrap gap-3">
-              {highlights.map((h) => (
-                <Badge
-                  key={h}
-                  variant="outline"
-                  className="rounded-full px-4 py-2 border-border/50
-                           bg-background/70 backdrop-blur-sm
-                           transition-all duration-300 hover:scale-105 hover:shadow-md"
-                >
-                  <span className="text-xs ml-2">✅</span>
-                  {h}
-                </Badge>
-              ))}
-            </div>
-
-            {/* CTA Buttons */}
-            <div className="mt-10 flex flex-wrap gap-4">
-              <Button
-                size="lg"
-                className="rounded-xl px-8 py-6 text-base font-semibold
-                         transition-all duration-300 hover:scale-105 hover:shadow-xl
-                         bg-linear-to-r from-primary to-primary/90"
-                asChild
-              >
-                <a href="/subjects" className="flex items-center gap-2">
-                  <span>📖</span>
-                  ابدأ الاستكشاف الآن
-                  <span>›</span>
-                </a>
-              </Button>
-
-              <Button
-                size="lg"
-                variant="outline"
-                className="rounded-xl px-8 py-6 text-base font-semibold
-                         transition-all duration-300 hover:scale-105 hover:shadow-md
-                         border-primary/30 hover:border-primary"
-                asChild
-              >
-                <a href="#contact" className="flex items-center gap-2">
-                  <span>💬</span>
-                  تواصل مع الفريق
-                </a>
-              </Button>
-
-              <Button
-                size="lg"
-                variant="ghost"
-                className="rounded-xl px-8 py-6 text-base font-semibold
-                         transition-all duration-300 hover:scale-105"
-                asChild
-              >
-                <a
-                  href={TELEGRAM_LINK}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex items-center gap-2"
-                >
-                  <span>↗</span>
-                  قناة التلغرام
-                </a>
-              </Button>
-            </div>
-
-            {/* Quick Stats */}
+            {/* Statistics Cards */}
             <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4">
-              {stats.map((stat) => (
-                <div
-                  key={stat.label}
-                  className="group rounded-2xl border p-6
-                           bg-background/60 backdrop-blur-sm
-                           transition-all duration-300 hover:scale-[1.02] hover:shadow-lg"
+              {stats.map((stat, idx) => (
+                <div 
+                  key={idx}
+                  className="relative group"
+                  style={{ animationDelay: `${idx * 100}ms` }}
                 >
-                  <div className="text-2xl font-bold text-primary mb-2">{stat.value}</div>
-                  <div className="text-sm text-muted-foreground">{stat.label}</div>
-                  <div className="mt-3 h-0.5 w-0 bg-primary group-hover:w-full transition-all duration-500" />
+                  <div className={`absolute inset-0 bg-gradient-to-br ${stat.gradient} opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity duration-300`} />
+                  <Card className="relative border-border/50 bg-background/50 backdrop-blur-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                    <CardContent className="p-6 text-center">
+                      <div className={`text-3xl md:text-4xl font-bold bg-gradient-to-r ${stat.gradient} bg-clip-text text-transparent mb-2`}>
+                        {stat.value}
+                      </div>
+                      <div className="text-sm text-muted-foreground font-['Cairo']">
+                        {stat.label}
+                      </div>
+                    </CardContent>
+                  </Card>
                 </div>
               ))}
             </div>
           </div>
         </div>
 
-        {/* Main Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-          {/* Side Navigation */}
-          <aside className="lg:col-span-3 lg:sticky lg:top-32 self-start">
-            <Card
-              className="rounded-2xl border-border/50 bg-background/80 backdrop-blur-xl
-                       shadow-lg shadow-primary/5"
-            >
-              <CardHeader className="pb-4">
-                <CardTitle className="text-lg flex items-center gap-2">
-                  <span>🧭</span>
-                  التنقل بين الأقسام
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="p-4">
-                <nav className="space-y-1">
-                  {sections.map((s) => {
-                    const active = activeSection === s.id;
-                    return (
-                      <a
-                        key={s.id}
-                        href={`#${s.id}`}
-                        className={`flex items-center gap-3 rounded-xl px-4 py-3 transition-all duration-300
-                                  ${active 
-                                    ? 'bg-primary/10 text-primary border-r-4 border-primary' 
-                                    : 'hover:bg-muted/50 text-muted-foreground hover:text-foreground'
-                                  }`}
-                        aria-current={active ? 'page' : undefined}
-                      >
-                        <div className={`p-1.5 rounded-lg ${active ? 'bg-primary/20' : 'bg-muted'}`}>
-                          <span className={`text-sm ${active ? 'text-primary' : 'text-muted-foreground'}`}>
-                            {s.id === 'vision' ? '🌟' : 
-                             s.id === 'goals' ? '🎯' : 
-                             s.id === 'how' ? '⚡' : 
-                             s.id === 'who' ? '👥' : 
-                             s.id === 'faq' ? '💬' : '🌐'}
-                          </span>
-                        </div>
-                        <span className="font-medium">{s.label}</span>
-                        {active && (
-                          <span className="mr-auto text-primary">›</span>
-                        )}
-                      </a>
-                    );
-                  })}
-                </nav>
+        {/* Sticky Navigation */}
+        <div className="sticky top-16 z-40 mb-12 -mx-4 px-4 py-4 bg-background/80 backdrop-blur-md border-y border-border/40">
+          <div className="flex gap-2 overflow-x-auto scrollbar-hide">
+            {sections.map((sec) => (
+              <a
+                key={sec.id}
+                href={`#${sec.id}`}
+                className={`
+                  px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap transition-all duration-300
+                  ${activeSection === sec.id
+                    ? 'bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-lg'
+                    : 'text-muted-foreground hover:text-foreground hover:bg-muted'
+                  }
+                `}
+              >
+                {sec.label}
+              </a>
+            ))}
+          </div>
+        </div>
 
-                <Separator className="my-6" />
+        {/* Vision Section */}
+        <section id="vision" className="mb-20 scroll-mt-32">
+          <div className="mb-8">
+            <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4">
+              رؤيتنا
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl font-['Cairo']">
+              نسعى لتكون منصة منهاج المرجع الأول لطلاب العلوم الإسلامية في جامعة حمه لخضر، من خلال توفير بيئة تعليمية رقمية متكاملة تجمع بين الأصالة العلمية والتقنية الحديثة.
+            </p>
+          </div>
 
-                <div className="p-4 rounded-xl bg-muted/30">
-                  <div className="flex items-center gap-2 text-sm font-medium mb-2">
-                    <span>💡</span>
-                    نصيحة سريعة
-                  </div>
-                  <p className="text-xs text-muted-foreground leading-relaxed">
-                    استخدم قائمة التنقل للوصول السريع لأي قسم. على الهاتف، يمكنك السحب لليمين للعرض.
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* Features Sidebar */}
-            <Card className="mt-6 rounded-2xl bg-linear-to-br from-muted/30 to-background/50">
-              <CardContent className="p-6">
-                <h3 className="font-semibold mb-4 flex items-center gap-2">
-                  <span>⚡</span>
-                  ميزات المنصة
-                </h3>
-                <div className="space-y-3">
-                  {features.map((feature) => (
-                    <div key={feature.title} className="flex items-center gap-3 p-2 rounded-lg hover:bg-muted/30">
-                      <span className="text-xl">{feature.icon}</span>
-                      <div>
-                        <div className="text-sm font-medium">{feature.title}</div>
-                        <div className="text-xs text-muted-foreground">{feature.desc}</div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {features.map((feature, idx) => {
+              const Icon = feature.icon;
+              return (
+                <Card 
+                  key={idx} 
+                  className="group border-border/50 bg-background/50 backdrop-blur-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                  style={{ animationDelay: `${idx * 100}ms` }}
+                >
+                  <CardContent className="p-6">
+                    <div className="flex items-start gap-4">
+                      <div className={`p-3 rounded-xl bg-gradient-to-br ${feature.gradient} text-white shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                        <Icon className="w-6 h-6" />
                       </div>
-                    </div>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          </aside>
-
-          {/* Main Content */}
-          <main className="lg:col-span-9 space-y-8">
-            {/* Vision */}
-            <section id="vision" className="scroll-mt-32">
-              <Card className="rounded-2xl overflow-hidden border-border/50 bg-linear-to-br from-background to-muted/20">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -translate-y-16 translate-x-16 blur-3xl" />
-                <CardHeader className="relative">
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="p-2 rounded-xl bg-primary/10">
-                      <span className="text-primary text-lg">🎯</span>
-                    </div>
-                    <CardTitle className="text-2xl">رؤيتنا</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent className="relative">
-                  <div className="prose prose-lg dark:prose-invert max-w-none">
-                    <p className="text-lg leading-relaxed">
-                      نسعى لتوفير منصة تعليمية متكاملة وحديثة تساعد الطالب على الوصول السهل والمنظم للمحتوى العلمي،
-                      وتقلل الجهد الضائع في البحث، وتدعم تجربة تعلم مركّزة عبر واجهة عصرية وسهلة الاستخدام.
-                    </p>
-                    <div className="mt-8 p-6 rounded-2xl bg-linear-to-r from-primary/5 via-transparent to-primary/5">
-                      <div className="flex items-center gap-3">
-                        <span className="text-primary text-lg">🚀</span>
-                        <h3 className="text-lg font-semibold">نؤمن بأن</h3>
-                      </div>
-                      <p className="mt-2">
-                        التكنولوجيا عندما تُستخدم بشكل صحيح يمكنها تحويل التعليم من عملية معقدة إلى تجربة سلسة وممتعة.
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </section>
-
-            {/* Goals */}
-            <section id="goals" className="scroll-mt-32">
-              <Card className="rounded-2xl border-border/50">
-                <CardHeader>
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="p-2 rounded-xl bg-emerald-500/10">
-                      <span className="text-emerald-500 text-lg">🎯</span>
-                    </div>
-                    <CardTitle className="text-2xl">أهدافنا</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    {goals.map((goal) => (
-                      <div
-                        key={goal.title}
-                        className="group relative overflow-hidden rounded-2xl p-6
-                                 bg-linear-to-br from-background to-muted/30
-                                 border transition-all duration-500
-                                 hover:scale-[1.02] hover:shadow-2xl"
-                      >
-                        <div className="absolute inset-0 bg-linear-to-br from-transparent via-transparent to-primary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                        <div className="relative">
-                          <div className="flex items-start gap-4">
-                            <div className={`p-3 rounded-xl ${goal.color} backdrop-blur-sm`}>
-                              <span className="text-2xl">{goal.icon}</span>
-                            </div>
-                            <div className="flex-1">
-                              <h3 className="text-xl font-semibold mb-2">{goal.title}</h3>
-                              <p className="text-muted-foreground leading-relaxed">
-                                {goal.desc}
-                              </p>
-                            </div>
-                          </div>
-                          <div className="mt-6 pt-4 border-t border-border/50 group-hover:border-primary/30 transition-colors duration-300">
-                            <div className="flex items-center text-sm text-muted-foreground">
-                              <span className="inline-flex items-center gap-1">
-                                <span>✅</span>
-                                قيد التنفيذ
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            </section>
-
-            {/* How it Works */}
-            <section id="how" className="scroll-mt-32">
-              <Card className="rounded-2xl overflow-hidden bg-linear-to-b from-background to-muted/10">
-                <CardHeader>
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="p-2 rounded-xl bg-amber-500/10">
-                      <span className="text-amber-500 text-lg">⚡</span>
-                    </div>
-                    <CardTitle className="text-2xl">كيف تعمل المنصة؟</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="relative">
-                    {/* Connection Lines */}
-                    <div className="hidden md:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-1 bg-linear-to-r from-transparent via-primary/20 to-transparent" />
-                    
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                      {steps.map((step, index) => (
-                        <div
-                          key={step.title}
-                          className="group relative"
-                        >
-                          <div className="relative z-10">
-                            <div className="absolute -top-4 -right-4 w-20 h-20 bg-primary/5 rounded-full blur-xl group-hover:bg-primary/10 transition-colors duration-300" />
-                            <div className="relative bg-background border rounded-2xl p-6
-                                         transition-all duration-300 group-hover:scale-105 group-hover:shadow-xl">
-                              <div className="flex items-center gap-4 mb-4">
-                                <div className="w-12 h-12 rounded-xl bg-linear-to-br from-primary/20 to-primary/10
-                                              flex items-center justify-center text-xl font-bold">
-                                  {step.icon}
-                                </div>
-                                <div>
-                                  <h3 className="text-lg font-semibold">{step.title}</h3>
-                                  <p className="text-sm text-muted-foreground mt-1">{step.desc}</p>
-                                </div>
-                              </div>
-                              <div className="mt-4 pt-4 border-t border-border/50">
-                                <Button
-                                  variant="ghost"
-                                  size="sm"
-                                  className="w-full justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                                >
-                                  ابدأ الآن
-                                </Button>
-                              </div>
-                            </div>
-                          </div>
-                          
-                          {/* Step Indicator */}
-                          <div className="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-primary 
-                                        flex items-center justify-center text-white font-bold text-sm
-                                        shadow-lg shadow-primary/30">
-                            {index + 1}
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  <Separator className="my-8" />
-
-                  <div className="text-center p-6 rounded-2xl bg-linear-to-r from-primary/5 to-transparent">
-                    <p className="text-lg font-medium">
-                      هدفنا أن تصل للمعلومة في أقل عدد من النقرات، وبأعلى درجة وضوح وتنظيم.
-                    </p>
-                  </div>
-                </CardContent>
-              </Card>
-            </section>
-
-            {/* About Us */}
-            <section id="who" className="scroll-mt-32">
-              <Card className="rounded-2xl bg-linear-to-br from-muted/20 to-background">
-                <CardHeader>
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="p-2 rounded-xl bg-violet-500/10">
-                      <span className="text-violet-500 text-lg">👥</span>
-                    </div>
-                    <CardTitle className="text-2xl">من نحن</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    <div className="space-y-4">
-                      <p className="text-lg leading-relaxed">
-                        "منهاج" منصة تعليمية تم تطويرها خصيصًا لطلاب كلية العلوم الإسلامية بجامعة الوادي في الجزائر.
-                        نؤمن بأن التكنولوجيا حين تُسخّر لخدمة العلم تُقلّل التشتت وتزيد الفاعلية، لذلك نركز على تجربة
-                        استخدام عملية، بسيطة، ومنظمة.
-                      </p>
-                      <div className="p-4 rounded-xl bg-background/50 border">
-                        <h4 className="font-semibold mb-2">قيمنا الأساسية</h4>
-                        <ul className="space-y-2">
-                          <li className="flex items-center gap-2">
-                            <div className="w-2 h-2 rounded-full bg-primary" />
-                            الشفافية والوضوح
-                          </li>
-                          <li className="flex items-center gap-2">
-                            <div className="w-2 h-2 rounded-full bg-primary" />
-                            التطوير المستمر
-                          </li>
-                          <li className="flex items-center gap-2">
-                            <div className="w-2 h-2 rounded-full bg-primary" />
-                            التركيز على احتياجات الطالب
-                          </li>
-                        </ul>
-                      </div>
-                    </div>
-                    <div className="relative">
-                      <div className="absolute inset-0 bg-linear-to-tr from-primary/10 to-transparent rounded-2xl" />
-                      <div className="relative p-6 rounded-2xl border bg-background/80 backdrop-blur-sm">
-                        <h4 className="font-semibold mb-4">لماذا اختارونا؟</h4>
-                        <div className="space-y-3">
-                          {[
-                            'تصميم مخصص للتعليم الإلكتروني',
-                            'محتوى منظم حسب المنهج الرسمي',
-                            'دعم فني وتقني متواصل',
-                            'تحديثات دورية بناء على الملاحظات'
-                          ].map((item) => (
-                            <div key={item} className="flex items-center gap-3 p-2 rounded-lg hover:bg-muted/30">
-                              <span className="text-emerald-500 shrink-0">✅</span>
-                              <span>{item}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </section>
-
-            {/* FAQ */}
-            <section id="faq" className="scroll-mt-32">
-              <Card className="rounded-2xl">
-                <CardHeader>
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="p-2 rounded-xl bg-blue-500/10">
-                      <span className="text-blue-500 text-lg">💬</span>
-                    </div>
-                    <CardTitle className="text-2xl">أسئلة شائعة</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-4">
-                    {faqs.map((faq, index) => (
-                      <div
-                        key={index}
-                        className="group rounded-2xl border overflow-hidden
-                                 transition-all duration-300 hover:shadow-lg"
-                      >
-                        <button
-                          className="w-full p-6 text-right flex items-center justify-between gap-4
-                                   hover:bg-muted/30 transition-colors duration-300"
-                          onClick={() => toggleFaq(index)}
-                        >
-                          <span className="font-semibold text-lg flex-1">{faq.q}</span>
-                          <div className={`transform transition-transform duration-300 ${expandedFaqs[index] ? 'rotate-180' : ''}`}>
-                            <span className="text-muted-foreground text-lg">›</span>
-                          </div>
-                        </button>
-                        <div
-                          className={`overflow-hidden transition-all duration-300 ${
-                            expandedFaqs[index] ? 'max-h-96' : 'max-h-0'
-                          }`}
-                        >
-                          <div className="p-6 pt-0">
-                            <div className="pl-6 border-r-2 border-primary/30">
-                              <p className="text-muted-foreground leading-relaxed">{faq.a}</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            </section>
-
-            {/* Contact */}
-            <section id="contact" className="scroll-mt-32">
-              <Card className="rounded-2xl overflow-hidden border-0
-                           bg-linear-to-br from-primary/5 via-background to-primary/5">
-                <div className="absolute top-0 left-0 w-full h-1 bg-linear-to-r from-primary via-primary/50 to-primary" />
-                <CardHeader className="relative">
-                  <div className="flex items-center gap-3 mb-2">
-                    <div className="p-2 rounded-xl bg-linear-to-br from-primary to-primary/80">
-                      <span className="text-white text-lg">🌐</span>
-                    </div>
-                    <CardTitle className="text-2xl">تواصل معنا</CardTitle>
-                  </div>
-                </CardHeader>
-                <CardContent className="relative">
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    {/* Contact Info */}
-                    <div className="space-y-6">
-                      <div className="rounded-2xl p-6 bg-background/80 backdrop-blur-sm border">
-                        <h4 className="font-semibold text-lg mb-4">العنوان</h4>
-                        <div className="space-y-2">
-                          <p className="flex items-center gap-2">
-                            <span className="text-primary">📍</span>
-                            جامعة الوادي، كلية العلوم الإسلامية
-                          </p>
-                          <p className="flex items-center gap-2">
-                            <span className="text-primary">🏛️</span>
-                            الوادي، الجزائر
-                          </p>
-                        </div>
-                      </div>
-
-                      <div className="rounded-2xl p-6 bg-background/80 backdrop-blur-sm border">
-                        <h4 className="font-semibold text-lg mb-4">ساعات العمل</h4>
-                        <div className="space-y-2">
-                          <p>👨‍💼 الدعم الفني: 24/7</p>
-                          <p>📧 الرد على الاستفسارات: خلال 24 ساعة</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Contact Form */}
-                    <div className="rounded-2xl p-6 bg-background/80 backdrop-blur-sm border">
-                      <h4 className="font-semibold text-lg mb-6">ملاحظات واقتراحات</h4>
-                      <p className="text-muted-foreground mb-6">
-                        نرحب بملاحظاتكم واقتراحاتكم لتطوير المنصة وتحسين الخدمات المقدمة.
-                        فريقنا دائمًا متاح للاستماع إليكم.
-                      </p>
-
-                      <div className="space-y-4">
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                          <Button
-                            className="rounded-xl h-12 justify-start px-6
-                                     transition-all duration-300 hover:scale-105"
-                            variant="outline"
-                            asChild
-                          >
-                            <a href="/support" className="flex items-center gap-3">
-                              <span>💬</span>
-                              مركز الدعم
-                            </a>
-                          </Button>
-
-                          <Button
-                            className="rounded-xl h-12 justify-start px-6
-                                     transition-all duration-300 hover:scale-105"
-                            variant="outline"
-                            onClick={handleCopyTelegram}
-                          >
-                            <span className="text-xs ml-2">📋</span>
-                            {copied ? 'تم النسخ!' : 'نسخ الرابط'}
-                          </Button>
-                        </div>
-
-                        <div className="mt-6">
-                          <Button
-                            size="lg"
-                            className="w-full rounded-xl h-14 text-base font-semibold
-                                     bg-linear-to-r from-primary to-primary/90
-                                     hover:shadow-xl transition-all duration-300 hover:scale-[1.02]"
-                            asChild
-                          >
-                            <a href={TELEGRAM_LINK} target="_blank" rel="noreferrer">
-                              <span className="text-xs ml-2">💬</span>
-                              مراسلتنا عبر تيليغرام
-                              <span className="text-xs mr-2">↗</span>
-                            </a>
-                          </Button>
-                        </div>
-
-                        <p className="text-xs text-muted-foreground mt-4 text-center">
-                          {TELEGRAM_LINK.replace('https://', '')}
+                      <div className="flex-1">
+                        <h3 className="font-heading text-xl font-bold mb-2">
+                          {feature.title}
+                        </h3>
+                        <p className="text-muted-foreground font-['Cairo']">
+                          {feature.desc}
                         </p>
                       </div>
                     </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </section>
-          </main>
-        </div>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        </section>
 
-        {/* Back to Top */}
-        {showTop && (
-          <Button
-            variant="outline"
-            size="icon"
-            className="fixed bottom-8 left-8 z-50 rounded-full w-12 h-12
-                     backdrop-blur-sm border-border/50 shadow-lg
-                     transition-all duration-300 hover:scale-110 hover:shadow-xl
-                     animate-bounce"
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            aria-label="العودة للأعلى"
-          >
-            ↑
-          </Button>
-        )}
+        {/* Goals Section */}
+        <section id="goals" className="mb-20 scroll-mt-32">
+          <div className="mb-8">
+            <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4">
+              أهدافنا
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl font-['Cairo']">
+              نعمل على تحقيق مجموعة من الأهداف الاستراتيجية لتحسين تجربة التعلم وتسهيل الوصول للمحتوى الأكاديمي.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {goals.map((goal, idx) => {
+              const Icon = goal.icon;
+              return (
+                <Card 
+                  key={idx}
+                  className="group border-border/50 hover:shadow-xl transition-all duration-300"
+                  style={{ animationDelay: `${idx * 100}ms` }}
+                >
+                  <CardContent className="p-6">
+                    <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${goal.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                      <Icon className={`w-7 h-7 ${goal.iconColor}`} />
+                    </div>
+                    <h3 className="font-heading text-xl font-bold mb-3">
+                      {goal.title}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed font-['Cairo']">
+                      {goal.desc}
+                    </p>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        </section>
+
+        {/* How It Works Section */}
+        <section id="how" className="mb-20 scroll-mt-32">
+          <div className="mb-8">
+            <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4">
+              كيف تعمل المنصة
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl font-['Cairo']">
+              ثلاث خطوات بسيطة للوصول إلى جميع المواد الدراسية والمحتوى الأكاديمي المنظم.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {steps.map((step, idx) => (
+              <div 
+                key={idx}
+                className="relative"
+                style={{ animationDelay: `${idx * 150}ms` }}
+              >
+                {idx < steps.length - 1 && (
+                  <div className="hidden md:block absolute top-12 right-0 w-full h-0.5 bg-gradient-to-l from-emerald-500/50 to-transparent -z-10" />
+                )}
+                <Card className="group border-border/50 bg-background/50 backdrop-blur-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 h-full">
+                  <CardContent className="p-6">
+                    <div className="text-6xl font-bold bg-gradient-to-br from-emerald-600 to-teal-600 bg-clip-text text-transparent mb-4 opacity-20 group-hover:opacity-30 transition-opacity">
+                      {step.number}
+                    </div>
+                    <h3 className="font-heading text-xl font-bold mb-3">
+                      {step.title}
+                    </h3>
+                    <p className="text-muted-foreground font-['Cairo']">
+                      {step.desc}
+                    </p>
+                  </CardContent>
+                </Card>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Who We Are Section */}
+        <section id="who" className="mb-20 scroll-mt-32">
+          <div className="mb-8">
+            <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4">
+              من نحن
+            </h2>
+          </div>
+
+          <Card className="border-border/50 bg-gradient-to-br from-background to-muted/30">
+            <CardContent className="p-8 md:p-10">
+              <div className="prose prose-lg dark:prose-invert max-w-none">
+                <p className="text-lg text-muted-foreground leading-relaxed mb-6 font-['Cairo']">
+                  منصة منهاج هي مبادرة طلابية تهدف إلى تنظيم وتسهيل الوصول للمحتوى الأكاديمي لطلاب كلية العلوم الإسلامية بجامعة حمه لخضر بالوادي. تم تطوير المنصة بعناية فائقة لتلبية احتياجات الطلاب وتوفير تجربة تعليمية متميزة.
+                </p>
+                <p className="text-lg text-muted-foreground leading-relaxed mb-6 font-['Cairo']">
+                  نؤمن بأهمية التكنولوجيا في تحسين جودة التعليم، ونسعى لتوفير أدوات عصرية تساعد الطلاب على التفوق الأكاديمي من خلال الوصول السريع والمنظم للمعلومات والمراجع العلمية.
+                </p>
+                <p className="text-lg text-muted-foreground leading-relaxed font-['Cairo']">
+                  المنصة في تطور مستمر بفضل ملاحظات واقتراحات الطلاب، ونرحب بجميع المساهمات التي تساعد في تحسين تجربة الاستخدام وإثراء المحتوى الأكاديمي.
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+        </section>
+
+        {/* FAQ Section */}
+        <section id="faq" className="mb-20 scroll-mt-32">
+          <div className="mb-8">
+            <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4">
+              الأسئلة الشائعة
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl font-['Cairo']">
+              إجابات على أكثر الأسئلة شيوعًا حول المنصة وكيفية استخدامها.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {faqs.map((faq, idx) => (
+              <Card 
+                key={idx}
+                className="border-border/50 hover:shadow-lg transition-all duration-300"
+              >
+                <CardHeader 
+                  className="cursor-pointer p-6 hover:bg-muted/30 transition-colors"
+                  onClick={() => toggleFaq(idx)}
+                >
+                  <div className="flex items-start justify-between gap-4">
+                    <CardTitle className="text-lg font-bold text-right flex-1">
+                      {faq.q}
+                    </CardTitle>
+                    <div className={`text-2xl transition-transform duration-300 ${expandedFaqs[idx] ? 'rotate-180' : ''}`}>
+                      ↓
+                    </div>
+                  </div>
+                </CardHeader>
+                {expandedFaqs[idx] && (
+                  <CardContent className="px-6 pb-6 pt-0">
+                    <Separator className="mb-4" />
+                    <p className="text-muted-foreground leading-relaxed font-['Cairo']">
+                      {faq.a}
+                    </p>
+                  </CardContent>
+                )}
+              </Card>
+            ))}
+          </div>
+        </section>
+
+        {/* Contact Section */}
+        <section id="contact" className="scroll-mt-32">
+          <div className="mb-8">
+            <h2 className="font-heading text-3xl md:text-4xl font-bold mb-4">
+              تواصل معنا
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-3xl font-['Cairo']">
+              نرحب بجميع الاستفسارات والاقتراحات والملاحظات لتحسين المنصة.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Telegram Contact */}
+            <Card className="group border-border/50 bg-gradient-to-br from-background to-blue-500/5 hover:shadow-xl transition-all duration-300">
+              <CardContent className="p-8">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="p-3 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-600 text-white shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <Send className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h3 className="font-heading text-xl font-bold">
+                      بوت الدعم الفني
+                    </h3>
+                    <p className="text-sm text-muted-foreground">
+                      تلغرام
+                    </p>
+                  </div>
+                </div>
+                <p className="text-muted-foreground mb-4 font-['Cairo']">
+                  تواصل معنا مباشرة عبر بوت التلغرام للحصول على الدعم الفني والإجابة على استفساراتك.
+                </p>
+                <div className="flex gap-2">
+                  <Button
+                    asChild
+                    className="flex-1 bg-gradient-to-r from-blue-500 to-cyan-600 hover:from-blue-600 hover:to-cyan-700"
+                  >
+                    <a href={TELEGRAM_LINK} target="_blank" rel="noopener noreferrer">
+                      فتح المحادثة
+                    </a>
+                  </Button>
+                  <Button
+                    variant="outline"
+                    onClick={handleCopyTelegram}
+                    className="px-4"
+                  >
+                    {copied ? '✓' : 'نسخ'}
+                  </Button>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Email Contact */}
+            <Card className="group border-border/50 bg-gradient-to-br from-background to-emerald-500/5 hover:shadow-xl transition-all duration-300">
+              <CardContent className="p-8">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="p-3 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 text-white shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <Mail className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h3 className="font-heading text-xl font-bold">
+                      البريد الإلكتروني
+                    </h3>
+                    <p className="text-sm text-muted-foreground">
+                      للتواصل المباشر
+                    </p>
+                  </div>
+                </div>
+                <p className="text-muted-foreground mb-4 font-['Cairo']">
+                  راسلنا عبر البريد الإلكتروني لأي استفسارات أو اقتراحات أو ملاحظات.
+                </p>
+                <Button
+                  asChild
+                  variant="outline"
+                  className="w-full border-emerald-500/50 hover:bg-emerald-500/10"
+                >
+                  <a href={`mailto:${DEVELOPER_EMAIL}`}>
+                    {DEVELOPER_EMAIL}
+                  </a>
+                </Button>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Developer Info */}
+          <Card className="mt-8 border-border/50 bg-gradient-to-br from-background to-purple-500/5">
+            <CardContent className="p-8">
+              <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                <div>
+                  <h3 className="font-heading text-xl font-bold mb-2">
+                    المطور
+                  </h3>
+                  <p className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-2">
+                    أبو البراء
+                  </p>
+                  <p className="text-sm text-muted-foreground font-['Cairo']">
+                    مطور ومصمم المنصة
+                  </p>
+                </div>
+                <div className="flex gap-3">
+                  <Button
+                    asChild
+                    variant="outline"
+                    size="lg"
+                    className="gap-2"
+                  >
+                    <a href={DEVELOPER_GITHUB} target="_blank" rel="noopener noreferrer">
+                      <Github className="w-5 h-5" />
+                      GitHub
+                    </a>
+                  </Button>
+                  <Button
+                    asChild
+                    variant="outline"
+                    size="lg"
+                    className="gap-2"
+                  >
+                    <a href={DEVELOPER_LINKEDIN} target="_blank" rel="noopener noreferrer">
+                      <Linkedin className="w-5 h-5" />
+                      LinkedIn
+                    </a>
+                  </Button>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        </section>
       </Container>
+
+      {/* Back to Top Button */}
+      {showTop && (
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+          className="fixed bottom-8 left-8 z-50 p-4 rounded-full bg-gradient-to-r from-emerald-600 to-teal-600 text-white shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-110"
+          aria-label="العودة للأعلى"
+        >
+          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
+          </svg>
+        </button>
+      )}
     </div>
   );
 }
