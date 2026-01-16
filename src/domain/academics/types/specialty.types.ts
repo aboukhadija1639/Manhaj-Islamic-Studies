@@ -50,6 +50,22 @@ export interface Specialty {
   /** المسارات المهنية */
   careerPaths: string[];
   
+  /** المسارات الممكنة للماستر (للتخصصات في الليسانس) */
+  masterPathways?: string[];
+  
+  /** المتطلبات من الليسانس (لتخصصات الماستر) */
+  licencePrerequisites?: string[];
+  
+  /** الآفاق البحثية */
+  researchAreas?: string[];
+  
+  /** الآفاق المهنية التفصيلية */
+  detailedCareerOutlooks?: {
+    title: string;
+    description: string;
+    sectors: string[];
+  }[];
+  
   /** الأيقونة */
   icon: string;
   

@@ -36,3 +36,18 @@ export type {
   UnitContent,
   UnitContentType,
 } from './unit.types';
+
+// Academic Path Types
+export type {
+  YearLevel,
+  AcademicModuleType,
+  StudyPhase,
+  AcademicPathway,
+  CareerOutlook,
+  TransitionPoint,
+  SpecializationChoice,
+  StudentAcademicPath,
+  CommonCoreInfo,
+  ExtendedSpecialtyInfo,
+  AcademicPathStats,
+} from './academic-path.types';
