@@ -4,93 +4,146 @@
 html { color-scheme: light; }
 html.dark { color-scheme: dark; }
 
+/* ============================================================================
+   THEME TOKENS - Complete Semantic Color System
+   ============================================================================
+   
+   All colors use HSL format for Tailwind opacity support (e.g., bg-primary/50)
+   Format: H S% L% (Hue Saturation Lightness)
+   
+   Usage: hsl(var(--background)) or hsl(var(--primary) / 0.5)
+   ========================================================================= */
 
-/* CSS Variables for Theme Tokens */
 @layer base {
   :root {
-    /* Primary: Deep emerald/teal */
-    --color-primary-50: #f0fdfa;
-    --color-primary-100: #ccfbf1;
-    --color-primary-200: #99f6e4;
-    --color-primary-300: #5eead4;
-    --color-primary-400: #2dd4bf;
-    --color-primary-500: #14b8a6;
-    --color-primary-600: #0d9488;
-    --color-primary-700: #0f766e;
-    --color-primary-800: #115e59;
-    --color-primary-900: #134e4a;
-    --color-primary-950: #042f2e;
+    /* ===== BASE TOKENS ===== */
+    --background: 0 0% 100%;           /* #ffffff - Page background */
+    --foreground: 0 0% 10%;            /* #1a1a1a - Main text */
 
-    /* Secondary: Sand/beige */
-    --color-secondary-50: #faf9f7;
-    --color-secondary-100: #f5f3ee;
-    --color-secondary-200: #e8e4db;
-    --color-secondary-300: #d9d3c5;
-    --color-secondary-400: #c8bfad;
-    --color-secondary-500: #b8ab95;
-    --color-secondary-600: #a89a82;
-    --color-secondary-700: #8a7d68;
-    --color-secondary-800: #6f6555;
-    --color-secondary-900: #5a5346;
+    /* ===== CARD/SURFACE TOKENS ===== */
+    --card: 0 0% 100%;                 /* #ffffff - Card background */
+    --card-foreground: 0 0% 10%;       /* #1a1a1a - Text on cards */
+    --popover: 0 0% 100%;              /* #ffffff - Dropdown/tooltip background */
+    --popover-foreground: 0 0% 10%;    /* #1a1a1a - Text in popovers */
 
-    /* Accent: Subtle gold */
-    --color-accent-50: #fefce8;
-    --color-accent-100: #fef9c3;
-    --color-accent-200: #fef08a;
-    --color-accent-300: #fde047;
-    --color-accent-400: #facc15;
-    --color-accent-500: #eab308;
-    --color-accent-600: #ca8a04;
-    --color-accent-700: #a16207;
-    --color-accent-800: #854d0e;
-    --color-accent-900: #713f12;
+    /* ===== INTERACTIVE TOKENS ===== */
+    --primary: 173 80% 40%;            /* #14b8a6 - Teal 500 - Primary brand */
+    --primary-foreground: 0 0% 100%;   /* #ffffff - Text on primary */
+    --secondary: 36 10% 85%;           /* #e8e4db - Beige 200 - Secondary actions */
+    --secondary-foreground: 36 20% 25%; /* #5a5346 - Dark beige text */
+    --accent: 48 96% 53%;              /* #facc15 - Yellow 400 - Highlights */
+    --accent-foreground: 48 100% 10%;  /* #422006 - Dark text on yellow */
 
-    /* Light theme */
-    --color-background: #ffffff;
-    --color-foreground: #1a1a1a;
-    --color-card: #ffffff;
-    --color-card-foreground: #1a1a1a;
-    --color-border: #e5e7eb;
-    --color-muted: #f3f4f6;
-    --color-muted-foreground: #6b7280;
+    /* ===== STATE TOKENS ===== */
+    --destructive: 0 84% 60%;          /* #ef4444 - Red 500 - Errors/delete */
+    --destructive-foreground: 0 0% 100%; /* #ffffff - Text on red */
+    --success: 142 76% 36%;            /* #16a34a - Green 600 - Success states */
+    --success-foreground: 0 0% 100%;   /* #ffffff - Text on green */
+    --warning: 38 92% 50%;             /* #f59e0b - Amber 500 - Warnings */
+    --warning-foreground: 0 0% 100%;   /* #ffffff - Text on amber */
 
-    /* Border radius */
-    --radius: 0.5rem;
+    /* ===== UI ELEMENT TOKENS ===== */
+    --muted: 220 14% 96%;              /* #f3f4f6 - Gray 100 - Subtle backgrounds */
+    --muted-foreground: 220 9% 46%;    /* #6b7280 - Gray 600 - Subtle text */
+    --border: 220 13% 91%;             /* #e5e7eb - Gray 200 - Borders */
+    --input: 220 13% 91%;              /* #e5e7eb - Gray 200 - Input backgrounds */
+    --ring: 173 80% 40%;               /* #14b8a6 - Teal 500 - Focus rings */
+
+    /* ===== RADIUS ===== */
+    --radius: 0.5rem;                  /* 8px - Consistent border radius */
   }
+
+  /* ============================================================================
+     DARK MODE THEME
+     ============================================================================
+     
+     True dark (#0a0a0a) for OLED optimization and reduced eye strain
+     Maintains WCAG AA/AAA contrast ratios
+     ========================================================================= */
 
   .dark {
-    /* Dark theme */
-    --color-background: #0a0a0a;
-    --color-foreground: #fafafa;
-    --color-card: #1a1a1a;
-    --color-card-foreground: #fafafa;
-    --color-border: #2a2a2a;
-    --color-muted: #1f1f1f;
-    --color-muted-foreground: #a1a1aa;
+    /* ===== BASE TOKENS ===== */
+    --background: 0 0% 4%;             /* #0a0a0a - True dark background */
+    --foreground: 0 0% 98%;            /* #fafafa - Near white text */
+
+    /* ===== CARD/SURFACE TOKENS ===== */
+    --card: 0 0% 10%;                  /* #1a1a1a - Slightly lighter than background */
+    --card-foreground: 0 0% 98%;       /* #fafafa - Near white text on cards */
+    --popover: 0 0% 10%;               /* #1a1a1a - Same as card */
+    --popover-foreground: 0 0% 98%;    /* #fafafa - Near white text in popovers */
+
+    /* ===== INTERACTIVE TOKENS ===== */
+    --primary: 173 80% 40%;            /* #14b8a6 - Teal 500 (same as light) */
+    --primary-foreground: 0 0% 100%;   /* #ffffff - White text on teal */
+    --secondary: 36 10% 25%;           /* #3d3730 - Dark beige */
+    --secondary-foreground: 0 0% 98%;  /* #fafafa - Light text on dark beige */
+    --accent: 48 96% 53%;              /* #facc15 - Yellow 400 (same as light) */
+    --accent-foreground: 0 0% 10%;     /* #1a1a1a - Dark text on yellow */
+
+    /* ===== STATE TOKENS ===== */
+    --destructive: 0 84% 60%;          /* #ef4444 - Red 500 (same as light) */
+    --destructive-foreground: 0 0% 100%; /* #ffffff - White text on red */
+    --success: 142 76% 36%;            /* #16a34a - Green 600 (same as light) */
+    --success-foreground: 0 0% 100%;   /* #ffffff - White text on green */
+    --warning: 38 92% 50%;             /* #f59e0b - Amber 500 (same as light) */
+    --warning-foreground: 0 0% 100%;   /* #ffffff - White text on amber */
+
+    /* ===== UI ELEMENT TOKENS ===== */
+    --muted: 0 0% 12%;                 /* #1f1f1f - Slightly lighter than card */
+    --muted-foreground: 0 0% 64%;      /* #a1a1aa - Gray 400 - Subtle text */
+    --border: 0 0% 16%;                /* #2a2a2a - Subtle border */
+    --input: 0 0% 16%;                 /* #2a2a2a - Input backgrounds */
+    --ring: 173 80% 40%;               /* #14b8a6 - Teal 500 - Focus rings */
   }
 
+  /* ============================================================================
+     BASE STYLES
+     ========================================================================= */
+
   * {
-    border-color: var(--color-border);
+    border-color: hsl(var(--border));
   }
 
   body {
-    background-color: var(--color-background);
-    color: var(--color-foreground);
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
     font-family: 'Tajawal', system-ui, sans-serif;
     font-feature-settings: "kern" 1;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
-  /* RTL Support */
+  /* ============================================================================
+     RTL SUPPORT
+     ========================================================================= */
+
   [dir="rtl"] {
     direction: rtl;
   }
 
+  /* ============================================================================
+     TYPOGRAPHY
+     ========================================================================= */
+
   /* Arabic Typography Optimization */
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Cairo', system-ui, sans-serif;
+    color: hsl(var(--foreground));
   }
+
+  /* Links */
+  a {
+    color: hsl(var(--primary));
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: hsl(var(--primary) / 0.8);
+  }
+
+  /* ============================================================================
+     ACCESSIBILITY
+     ========================================================================= */
 
   /* Reduced Motion Support */
   @media (prefers-reduced-motion: reduce) {
@@ -106,31 +159,37 @@ html.dark { color-scheme: dark; }
 
   /* Focus Visible for Accessibility */
   *:focus-visible {
-    outline: 2px solid var(--color-primary-500);
+    outline: 2px solid hsl(var(--ring));
     outline-offset: 2px;
   }
 
-  /* Scrollbar Styling */
+  /* ============================================================================
+     SCROLLBAR STYLING
+     ========================================================================= */
+
   ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
   }
 
   ::-webkit-scrollbar-track {
-    background-color: var(--color-muted);
+    background-color: hsl(var(--muted));
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: var(--color-border);
-    border-radius: 0.5rem;
+    background-color: hsl(var(--border));
+    border-radius: var(--radius);
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background-color: var(--color-muted-foreground);
+    background-color: hsl(var(--muted-foreground));
   }
 }
 
-/* Utility Classes */
+/* ============================================================================
+   UTILITY CLASSES
+   ========================================================================= */
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

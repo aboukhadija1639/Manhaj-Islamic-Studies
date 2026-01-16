@@ -8,50 +8,59 @@ export default {
   theme: {
     extend: {
       colors: {
+        /* ===== SEMANTIC TOKENS ===== */
+        /* Use these instead of hardcoded colors */
+        
+        /* Base */
+        background: 'hsl(var(--background))',
+        foreground: 'hsl(var(--foreground))',
+
+        /* Card/Surface */
+        card: {
+          DEFAULT: 'hsl(var(--card))',
+          foreground: 'hsl(var(--card-foreground))',
+        },
+        popover: {
+          DEFAULT: 'hsl(var(--popover))',
+          foreground: 'hsl(var(--popover-foreground))',
+        },
+
+        /* Interactive */
         primary: {
-          50: 'var(--color-primary-50)',
-          100: 'var(--color-primary-100)',
-          200: 'var(--color-primary-200)',
-          300: 'var(--color-primary-300)',
-          400: 'var(--color-primary-400)',
-          500: 'var(--color-primary-500)',
-          600: 'var(--color-primary-600)',
-          700: 'var(--color-primary-700)',
-          800: 'var(--color-primary-800)',
-          900: 'var(--color-primary-900)',
-          950: 'var(--color-primary-950)',
+          DEFAULT: 'hsl(var(--primary))',
+          foreground: 'hsl(var(--primary-foreground))',
         },
         secondary: {
-          50: 'var(--color-secondary-50)',
-          100: 'var(--color-secondary-100)',
-          200: 'var(--color-secondary-200)',
-          300: 'var(--color-secondary-300)',
-          400: 'var(--color-secondary-400)',
-          500: 'var(--color-secondary-500)',
-          600: 'var(--color-secondary-600)',
-          700: 'var(--color-secondary-700)',
-          800: 'var(--color-secondary-800)',
-          900: 'var(--color-secondary-900)',
+          DEFAULT: 'hsl(var(--secondary))',
+          foreground: 'hsl(var(--secondary-foreground))',
         },
         accent: {
-          50: 'var(--color-accent-50)',
-          100: 'var(--color-accent-100)',
-          200: 'var(--color-accent-200)',
-          300: 'var(--color-accent-300)',
-          400: 'var(--color-accent-400)',
-          500: 'var(--color-accent-500)',
-          600: 'var(--color-accent-600)',
-          700: 'var(--color-accent-700)',
-          800: 'var(--color-accent-800)',
-          900: 'var(--color-accent-900)',
+          DEFAULT: 'hsl(var(--accent))',
+          foreground: 'hsl(var(--accent-foreground))',
         },
-        background: 'var(--color-background)',
-        foreground: 'var(--color-foreground)',
-        card: 'var(--color-card)',
-        'card-foreground': 'var(--color-card-foreground)',
-        border: 'var(--color-border)',
-        muted: 'var(--color-muted)',
-        'muted-foreground': 'var(--color-muted-foreground)',
+
+        /* State */
+        destructive: {
+          DEFAULT: 'hsl(var(--destructive))',
+          foreground: 'hsl(var(--destructive-foreground))',
+        },
+        success: {
+          DEFAULT: 'hsl(var(--success))',
+          foreground: 'hsl(var(--success-foreground))',
+        },
+        warning: {
+          DEFAULT: 'hsl(var(--warning))',
+          foreground: 'hsl(var(--warning-foreground))',
+        },
+
+        /* UI Elements */
+        muted: {
+          DEFAULT: 'hsl(var(--muted))',
+          foreground: 'hsl(var(--muted-foreground))',
+        },
+        border: 'hsl(var(--border))',
+        input: 'hsl(var(--input))',
+        ring: 'hsl(var(--ring))',
       },
       fontFamily: {
         heading: ['Cairo', 'system-ui', 'sans-serif'],
@@ -102,4 +111,3 @@ export default {
   },
   plugins: [],
 }
-

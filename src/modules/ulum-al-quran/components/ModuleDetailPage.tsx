@@ -81,17 +81,17 @@ export function ModuleDetailPage({
   };
 
   return (
-    <div className="min-h-screen bg-gray-50" dir="rtl">
+    <div className="min-h-screen bg-background" dir="rtl">
       {/* Header Section */}
-      <div className="bg-gradient-to-l from-emerald-600 to-teal-700 text-white">
+      <div className="bg-gradient-to-l from-primary to-primary/90 text-primary-foreground">
         <div className="container mx-auto px-4 py-8">
           <div className="flex items-start justify-between">
             <div className="flex-1">
-              <Badge className="mb-2 bg-white/20 text-white hover:bg-white/30">
+              <Badge className="mb-2 bg-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/30">
                 UEF-111
               </Badge>
               <h1 className="text-3xl font-bold mb-2">علوم القرآن</h1>
-              <p className="text-emerald-100 text-lg">
+              <p className="text-primary-foreground/80 text-lg">
                 Quranic Sciences
               </p>
               <div className="flex items-center gap-6 mt-4 text-sm">
@@ -109,7 +109,7 @@ export function ModuleDetailPage({
                 </div>
               </div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 min-w-[200px]">
+            <div className="bg-primary-foreground/10 backdrop-blur-sm rounded-lg p-4 min-w-[200px]">
               <div className="text-sm mb-2">التقدم الإجمالي</div>
               <div className="text-3xl font-bold mb-2">
                 {completionPercentage}%
@@ -156,7 +156,7 @@ export function ModuleDetailPage({
                 <CardTitle>أهمية المقياس</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-700 leading-relaxed">
+                <p className="text-foreground leading-relaxed">
                   {quranModuleOverview.importance}
                 </p>
               </CardContent>
@@ -173,8 +173,8 @@ export function ModuleDetailPage({
                 <ul className="space-y-2">
                   {quranModuleOverview.prerequisites.map((prereq, index) => (
                     <li key={index} className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-emerald-600 flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-700">{prereq}</span>
+                      <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-foreground">{prereq}</span>
                     </li>
                   ))}
                 </ul>
@@ -190,8 +190,8 @@ export function ModuleDetailPage({
                   {quranModuleOverview.assessmentCriteria.map(
                     (criterion, index) => (
                       <li key={index} className="flex items-start gap-2">
-                        <div className="h-2 w-2 rounded-full bg-emerald-600 flex-shrink-0 mt-2" />
-                        <span className="text-gray-700">{criterion}</span>
+                        <div className="h-2 w-2 rounded-full bg-primary flex-shrink-0 mt-2" />
+                        <span className="text-foreground">{criterion}</span>
                       </li>
                     )
                   )}
@@ -205,17 +205,17 @@ export function ModuleDetailPage({
               </CardHeader>
               <CardContent>
                 <div className="space-y-2">
-                  <p className="text-gray-700">
+                  <p className="text-foreground">
                     <span className="font-semibold">الاسم:</span> د. محمد العربي
                   </p>
-                  <p className="text-gray-700">
+                  <p className="text-foreground">
                     <span className="font-semibold">اللقب:</span> أستاذ محاضر
                   </p>
-                  <p className="text-gray-700">
+                  <p className="text-foreground">
                     <span className="font-semibold">البريد الإلكتروني:</span>{' '}
                     <a
                       href="mailto:mohamed.arabi@univ-eloued.dz"
-                      className="text-emerald-600 hover:underline"
+                      className="text-primary hover:underline"
                     >
                       mohamed.arabi@univ-eloued.dz
                     </a>
@@ -238,10 +238,10 @@ export function ModuleDetailPage({
                 <ul className="space-y-3">
                   {quranModuleOverview.objectives.map((objective, index) => (
                     <li key={index} className="flex items-start gap-3">
-                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-semibold text-sm">
+                      <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-semibold text-sm">
                         {index + 1}
                       </div>
-                      <span className="text-gray-700 pt-1">{objective}</span>
+                      <span className="text-foreground pt-1">{objective}</span>
                     </li>
                   ))}
                 </ul>
@@ -259,8 +259,8 @@ export function ModuleDetailPage({
                 <ul className="space-y-3">
                   {quranModuleOverview.outcomes.map((outcome, index) => (
                     <li key={index} className="flex items-start gap-2">
-                      <CheckCircle2 className="h-5 w-5 text-emerald-600 flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-700">{outcome}</span>
+                      <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-foreground">{outcome}</span>
                     </li>
                   ))}
                 </ul>
@@ -298,23 +298,23 @@ export function ModuleDetailPage({
               </CardHeader>
               <CardContent>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <div className="bg-emerald-50 p-4 rounded-lg">
-                    <div className="text-2xl font-bold text-emerald-700">
+                  <div className="bg-primary/10 p-4 rounded-lg">
+                    <div className="text-2xl font-bold text-primary">
                       {completedLessons.size}
                     </div>
-                    <div className="text-sm text-gray-600">دروس مكتملة</div>
+                    <div className="text-sm text-muted-foreground">دروس مكتملة</div>
                   </div>
-                  <div className="bg-blue-50 p-4 rounded-lg">
-                    <div className="text-2xl font-bold text-blue-700">
+                  <div className="bg-accent/10 p-4 rounded-lg">
+                    <div className="text-2xl font-bold text-accent-foreground">
                       {totalLessons - completedLessons.size}
                     </div>
-                    <div className="text-sm text-gray-600">دروس متبقية</div>
+                    <div className="text-sm text-muted-foreground">دروس متبقية</div>
                   </div>
-                  <div className="bg-purple-50 p-4 rounded-lg">
-                    <div className="text-2xl font-bold text-purple-700">
+                  <div className="bg-secondary p-4 rounded-lg">
+                    <div className="text-2xl font-bold text-secondary-foreground">
                       {completionPercentage}%
                     </div>
-                    <div className="text-sm text-gray-600">نسبة الإنجاز</div>
+                    <div className="text-sm text-muted-foreground">نسبة الإنجاز</div>
                   </div>
                 </div>
               </CardContent>
@@ -336,10 +336,10 @@ export function ModuleDetailPage({
                   return (
                     <div key={unit.id} className="space-y-2">
                       <div className="flex justify-between items-center">
-                        <span className="font-medium text-gray-900">
+                        <span className="font-medium text-foreground">
                           {unit.title}
                         </span>
-                        <span className="text-sm text-gray-600">
+                        <span className="text-sm text-muted-foreground">
                           {unitCompletedCount} / {unit.lessons.length}
                         </span>
                       </div>
@@ -379,7 +379,7 @@ function UnitCard({
   return (
     <Card>
       <CardHeader
-        className="cursor-pointer hover:bg-gray-50"
+        className="cursor-pointer hover:bg-muted/50"
         onClick={() => setIsExpanded(!isExpanded)}
       >
         <div className="flex items-start justify-between">
@@ -388,7 +388,7 @@ function UnitCard({
             <CardDescription className="mt-1">
               {unit.description}
             </CardDescription>
-            <div className="flex items-center gap-4 mt-3 text-sm text-gray-600">
+            <div className="flex items-center gap-4 mt-3 text-sm text-muted-foreground">
               <span>{unit.lessons.length} دروس</span>
               <span>•</span>
               <span>{unit.estimatedDuration} دقيقة</span>
@@ -442,8 +442,8 @@ function LessonItem({
     <div
       className={`flex items-center gap-3 p-3 rounded-lg border transition-colors ${
         isCompleted
-          ? 'bg-emerald-50 border-emerald-200'
-          : 'bg-white border-gray-200 hover:bg-gray-50'
+          ? 'bg-primary/10 border-primary/20'
+          : 'bg-card border-border hover:bg-muted/50'
       }`}
     >
       <button
@@ -454,18 +454,18 @@ function LessonItem({
         className="flex-shrink-0"
       >
         {isCompleted ? (
-          <CheckCircle2 className="h-5 w-5 text-emerald-600" />
+          <CheckCircle2 className="h-5 w-5 text-primary" />
         ) : (
-          <Circle className="h-5 w-5 text-gray-400" />
+          <Circle className="h-5 w-5 text-muted-foreground" />
         )}
       </button>
       <div
         className="flex-1 cursor-pointer"
         onClick={() => onLessonClick(lesson.id)}
       >
-        <div className="font-medium text-gray-900">{lesson.title}</div>
-        <div className="text-sm text-gray-600 mt-1">{lesson.description}</div>
-        <div className="flex items-center gap-3 mt-2 text-xs text-gray-500">
+        <div className="font-medium text-foreground">{lesson.title}</div>
+        <div className="text-sm text-muted-foreground mt-1">{lesson.description}</div>
+        <div className="flex items-center gap-3 mt-2 text-xs text-muted-foreground">
           <span>{lesson.estimatedDuration} دقيقة</span>
           <span>•</span>
           <span>{lesson.type.toUpperCase()}</span>
@@ -496,17 +496,17 @@ function ResourceCard({ resource }: ResourceCardProps) {
   const getCategoryColor = () => {
     switch (resource.category) {
       case 'textbook':
-        return 'bg-blue-100 text-blue-700';
+        return 'bg-primary/10 text-primary';
       case 'reference':
-        return 'bg-purple-100 text-purple-700';
+        return 'bg-secondary text-secondary-foreground';
       case 'supplementary':
-        return 'bg-emerald-100 text-emerald-700';
+        return 'bg-success/10 text-success';
       case 'audio':
-        return 'bg-amber-100 text-amber-700';
+        return 'bg-warning/10 text-warning';
       case 'video':
-        return 'bg-pink-100 text-pink-700';
+        return 'bg-accent/10 text-accent-foreground';
       default:
-        return 'bg-gray-100 text-gray-700';
+        return 'bg-muted text-muted-foreground';
     }
   };
 
@@ -515,7 +515,7 @@ function ResourceCard({ resource }: ResourceCardProps) {
       <CardHeader>
         <div className="flex items-start justify-between">
           <div className="flex items-start gap-3">
-            <div className="p-2 bg-gray-100 rounded-lg">{getResourceIcon()}</div>
+            <div className="p-2 bg-muted rounded-lg">{getResourceIcon()}</div>
             <div>
               <CardTitle className="text-base">{resource.title}</CardTitle>
               {resource.author && (
@@ -529,7 +529,7 @@ function ResourceCard({ resource }: ResourceCardProps) {
         </div>
       </CardHeader>
       <CardContent>
-        <p className="text-sm text-gray-600 mb-4">{resource.description}</p>
+        <p className="text-sm text-muted-foreground mb-4">{resource.description}</p>
         <Button variant="outline" size="sm" className="w-full">
           <Download className="h-4 w-4 ml-2" />
           {resource.type === 'link' ? 'فتح الرابط' : 'تحميل'}
