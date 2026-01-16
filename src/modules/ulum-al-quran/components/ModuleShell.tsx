@@ -17,26 +17,33 @@ import { useModuleProgress } from '../hooks/useLesson';
 
 interface ModuleShellProps {
   manifest: ModuleManifest;
+  initialLessonId?: string;
+  onLessonChange?: (lessonId: string) => void;
 }
 
-export function ModuleShell({ manifest }: ModuleShellProps) {
+export function ModuleShell({ manifest, initialLessonId, onLessonChange }: ModuleShellProps) {
   const [currentLessonId, setCurrentLessonId] = useState<string | null>(null);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const { progress } = useModuleProgress(manifest.moduleId);
 
-  // Set first lesson as default
+  // Set initial or first lesson as default
   useEffect(() => {
-    if (!currentLessonId && manifest.sections.length > 0) {
+    if (initialLessonId) {
+      setCurrentLessonId(initialLessonId);
+    } else if (!currentLessonId && manifest.sections.length > 0) {
       const firstLesson = manifest.sections[0].items[0];
       if (firstLesson) {
         setCurrentLessonId(firstLesson.id);
       }
     }
-  }, [manifest, currentLessonId]);
+  }, [manifest, currentLessonId, initialLessonId]);
 
   const handleSelectLesson = (lessonId: string) => {
     setCurrentLessonId(lessonId);
     setSidebarOpen(false);
+    if (onLessonChange) {
+      onLessonChange(lessonId);
+    }
   };
 
   return (

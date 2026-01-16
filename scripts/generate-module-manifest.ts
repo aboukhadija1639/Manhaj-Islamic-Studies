@@ -46,11 +46,11 @@ interface ModuleManifest {
 }
 
 // Configuration
-const CONTENT_ROOT = path.join(process.cwd(), 'content', 'ulum-al-quran');
+const CONTENT_ROOT = path.join(process.cwd(), 'public', 'content', 'ulum-al-quran');
 const OUTPUT_PATH = path.join(
   process.cwd(),
-  'src',
-  'modules',
+  'public',
+  'content',
   'ulum-al-quran',
   'manifest.generated.json'
 );

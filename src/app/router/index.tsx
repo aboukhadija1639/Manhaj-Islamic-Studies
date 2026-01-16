@@ -14,6 +14,7 @@ const LessonPage = lazy(() => import('../../features/lessons/LessonPage'));
 const ManhajOverviewPage = lazy(() => import('../../features/manhaj/ManhajOverviewPage'));
 const CurriculumMapPage = lazy(() => import('../../features/manhaj/CurriculumMapPage'));
 const ScienceDetailPage = lazy(() => import('../../features/manhaj/ScienceDetailPage'));
+const UlumAlQuranPage = lazy(() => import('../../features/modules/UlumAlQuranPage'));
 
 // Loading component
 function PageLoader() {
@@ -108,6 +109,22 @@ const router = createBrowserRouter([
         element: (
           <Suspense fallback={<PageLoader />}>
             <ScienceDetailPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: 'modules/ulum-al-quran',
+        element: (
+          <Suspense fallback={<PageLoader />}>
+            <UlumAlQuranPage />
+          </Suspense>
+        ),
+      },
+      {
+        path: 'modules/ulum-al-quran/:lessonId',
+        element: (
+          <Suspense fallback={<PageLoader />}>
+            <UlumAlQuranPage />
           </Suspense>
         ),
       },
