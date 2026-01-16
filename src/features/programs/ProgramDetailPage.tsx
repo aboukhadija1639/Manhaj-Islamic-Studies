@@ -104,7 +104,7 @@ export default function ProgramDetailPage() {
       </section>
 
       {/* Program Structure */}
-      {program.semesters && program.semesters.length > 0 && (
+      {((program.semesters && program.semesters.length > 0) || (program.years && program.years.length > 0)) && (
         <section className="py-12 bg-background">
           <div className="container mx-auto px-4">
             <div className="max-w-5xl mx-auto">
@@ -118,7 +118,7 @@ export default function ProgramDetailPage() {
               </div>
 
               <div className="space-y-6">
-                {program.semesters.map((semester: any, index: number) => (
+                {(program.semesters || program.years?.flatMap((year: any) => year.semesters) || []).map((semester: any, index: number) => (
                   <div key={semester.id} className="bg-card border-2 border-border rounded-2xl p-6 hover:border-emerald-500 transition-all">
                     <div className="flex items-center gap-4 mb-6">
                       <div className="w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl flex items-center justify-center text-white font-bold text-lg">
@@ -132,7 +132,11 @@ export default function ProgramDetailPage() {
 
                     <div className="grid md:grid-cols-2 gap-4">
                       {semester.subjects.map((subject: any) => (
-                        <div key={subject.code} className="flex items-start gap-3 p-4 bg-muted rounded-xl hover:bg-muted/80 transition-colors">
+                        <Link 
+                          key={subject.id} 
+                          to={`/subjects/${subject.id}`}
+                          className="flex items-start gap-3 p-4 bg-muted rounded-xl hover:bg-muted/80 hover:border-emerald-500 border-2 border-transparent transition-all cursor-pointer"
+                        >
                           <div className="w-10 h-10 bg-emerald-100 dark:bg-emerald-900/30 rounded-lg flex items-center justify-center flex-shrink-0">
                             <Book className="w-5 h-5 text-emerald-600 dark:text-emerald-400" />
                           </div>
@@ -143,14 +147,14 @@ export default function ProgramDetailPage() {
                                 {subject.type}
                               </span>
                               <span className="px-2 py-1 bg-background rounded">
-                                {subject.credits} رصيد
+                                {subject.credit} رصيد
                               </span>
                               <span className="px-2 py-1 bg-background rounded">
                                 معامل {subject.coefficient}
                               </span>
                             </div>
                           </div>
-                        </div>
+                        </Link>
                       ))}
                     </div>
                   </div>

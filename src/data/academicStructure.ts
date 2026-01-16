@@ -3,14 +3,36 @@
 
 export interface Subject {
   id: string;
+  code?: string;
   name: string;
   nameAr: string;
   type: 'أساسي' | 'منهجي' | 'استكشافي' | 'اختياري';
   credit: number;
   coefficient: number;
   description?: string;
+  descriptionAr?: string;
+  summary?: string;
+  summaryAr?: string;
   objectives?: string[];
+  objectivesAr?: string[];
   references?: string[];
+  referencesAr?: string[];
+  lectures?: Lecture[];
+  programId?: string;
+  semesterId?: string;
+  prerequisites?: string[];
+}
+
+export interface Lecture {
+  id: string;
+  title: string;
+  titleAr: string;
+  description?: string;
+  descriptionAr?: string;
+  duration?: string;
+  fileUrl?: string;
+  videoUrl?: string;
+  order: number;
 }
 
 export interface Semester {

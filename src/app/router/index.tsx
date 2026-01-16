@@ -20,6 +20,9 @@ const ProgramsPage = lazy(() => import('../../features/programs/ProgramsPage'));
 const ProgramDetailPage = lazy(() => import('../../features/programs/ProgramDetailPage'));
 const MasterProgramsPage = lazy(() => import('../../features/programs/MasterProgramsPage'));
 
+// Subject Detail Page
+const SubjectDetailPage = lazy(() => import('../../features/subjects/SubjectDetailPage'));
+
 // Academic Structure Pages
 const DegreesPage = lazy(() => import('../../features/academics/DegreesPage'));
 const CommonCorePage = lazy(() => import('../../features/academics/CommonCorePage'));
@@ -92,6 +95,18 @@ const router = createBrowserRouter([
         element: (
           <Suspense fallback={<PageLoader />}>
             <ProgramDetailPage />
+          </Suspense>
+        ),
+      },
+      
+      // ========== Subject Detail Routes ==========
+      
+      // Subject Detail Page
+      {
+        path: 'subjects/:subjectId',
+        element: (
+          <Suspense fallback={<PageLoader />}>
+            <SubjectDetailPage />
           </Suspense>
         ),
       },
