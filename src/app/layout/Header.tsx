@@ -37,14 +37,14 @@ function Header() {
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-emerald-600 to-teal-600 transition-all duration-300 group-hover:w-full"></span>
             </Link>
             <Link
-              to="/academics"
+              to="/programs"
               className="relative text-sm font-semibold transition-all duration-300 hover:text-emerald-600 dark:hover:text-emerald-400 group"
             >
               البرامج الأكاديمية
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-emerald-600 to-teal-600 transition-all duration-300 group-hover:w-full"></span>
             </Link>
             <Link
-              to="/manhaj"
+              to="/curriculum"
               className="relative text-sm font-semibold transition-all duration-300 hover:text-emerald-600 dark:hover:text-emerald-400 group"
             >
               خريطة المنهج
@@ -107,14 +107,14 @@ function Header() {
                 الرئيسية
               </Link>
               <Link
-                to="/academics"
+                to="/programs"
                 className="px-4 py-3 rounded-lg text-sm font-semibold hover:bg-emerald-50 dark:hover:bg-emerald-950/30 hover:text-emerald-600 dark:hover:text-emerald-400 transition-all"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 البرامج الأكاديمية
               </Link>
               <Link
-                to="/manhaj"
+                to="/curriculum"
                 className="px-4 py-3 rounded-lg text-sm font-semibold hover:bg-emerald-50 dark:hover:bg-emerald-950/30 hover:text-emerald-600 dark:hover:text-emerald-400 transition-all"
                 onClick={() => setIsMobileMenuOpen(false)}
               >

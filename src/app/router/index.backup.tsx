@@ -14,13 +14,9 @@ const LessonPage = lazy(() => import('../../features/lessons/LessonPage'));
 const ManhajOverviewPage = lazy(() => import('../../features/manhaj/ManhajOverviewPage'));
 const CurriculumMapPage = lazy(() => import('../../features/manhaj/CurriculumMapPage'));
 const ScienceDetailPage = lazy(() => import('../../features/manhaj/ScienceDetailPage'));
+// const UlumAlQuranPage = lazy(() => import('../../features/modules/UlumAlQuranPage'));
 
-// New Programs Pages
-const ProgramsPage = lazy(() => import('../../features/programs/ProgramsPage'));
-const ProgramDetailPage = lazy(() => import('../../features/programs/ProgramDetailPage'));
-const MasterProgramsPage = lazy(() => import('../../features/programs/MasterProgramsPage'));
-
-// Academic Structure Pages
+// New Academic Structure Pages
 const DegreesPage = lazy(() => import('../../features/academics/DegreesPage'));
 const CommonCorePage = lazy(() => import('../../features/academics/CommonCorePage'));
 const SpecializationChoicePage = lazy(() => import('../../features/academics/SpecializationChoicePage'));
@@ -64,52 +60,9 @@ const router = createBrowserRouter([
         ),
       },
       
-      // ========== Programs Routes (Main Entry Point) ==========
+      // ========== New Academic Structure Routes ==========
       
-      // Programs Overview
-      {
-        path: 'programs',
-        element: (
-          <Suspense fallback={<PageLoader />}>
-            <ProgramsPage />
-          </Suspense>
-        ),
-      },
-      
-      // Master Programs Overview
-      {
-        path: 'programs/master',
-        element: (
-          <Suspense fallback={<PageLoader />}>
-            <MasterProgramsPage />
-          </Suspense>
-        ),
-      },
-      
-      // Individual Program Detail (Licence, Master specializations, Doctorate)
-      {
-        path: 'programs/:programId',
-        element: (
-          <Suspense fallback={<PageLoader />}>
-            <ProgramDetailPage />
-          </Suspense>
-        ),
-      },
-      
-      // ========== Curriculum Map ==========
-      
-      {
-        path: 'curriculum',
-        element: (
-          <Suspense fallback={<PageLoader />}>
-            <CurriculumMapPage />
-          </Suspense>
-        ),
-      },
-      
-      // ========== Academic Structure Routes (Legacy/Advanced) ==========
-      
-      // Degrees List
+      // 1. Degrees List (Licence, Master)
       {
         path: 'academics',
         element: (
@@ -119,7 +72,7 @@ const router = createBrowserRouter([
         ),
       },
       
-      // Common Core Page
+      // 1.1 Common Core Page
       {
         path: 'academics/licence-islamic-sciences/common-core',
         element: (
@@ -129,7 +82,7 @@ const router = createBrowserRouter([
         ),
       },
       
-      // Specialization Choice Page
+      // 1.2 Specialization Choice Page
       {
         path: 'academics/choose-specialization',
         element: (
@@ -139,7 +92,7 @@ const router = createBrowserRouter([
         ),
       },
       
-      // Academic Pathways Page
+      // 1.3 Academic Pathways Page (Licence → Master)
       {
         path: 'academics/pathways',
         element: (
@@ -149,7 +102,7 @@ const router = createBrowserRouter([
         ),
       },
       
-      // Degree Detail
+      // 2. Degree Detail (e.g., /academics/licence)
       {
         path: 'academics/:degreeId',
         element: (
@@ -159,7 +112,7 @@ const router = createBrowserRouter([
         ),
       },
       
-      // Specialty Detail
+      // 3. Specialty Detail (e.g., /academics/licence/quran-sciences)
       {
         path: 'academics/:degreeId/:specialtyId',
         element: (
@@ -169,7 +122,7 @@ const router = createBrowserRouter([
         ),
       },
       
-      // Academic Year
+      // 4. Academic Year (e.g., /academics/licence/quran-sciences/year-1)
       {
         path: 'academics/:degreeId/:specialtyId/:yearId',
         element: (
@@ -179,7 +132,7 @@ const router = createBrowserRouter([
         ),
       },
       
-      // Semester
+      // 5. Semester (e.g., /academics/licence/quran-sciences/year-1/s1)
       {
         path: 'academics/:degreeId/:specialtyId/:yearId/:semesterId',
         element: (
@@ -189,7 +142,7 @@ const router = createBrowserRouter([
         ),
       },
       
-      // Module
+      // 6. Module (e.g., /academics/licence/quran-sciences/year-1/s1/ulum-al-quran)
       {
         path: 'academics/:degreeId/:specialtyId/:yearId/:semesterId/:moduleId',
         element: (
@@ -266,7 +219,7 @@ const router = createBrowserRouter([
         ),
       },
       
-      // Redirect old routes
+      // Redirect old Ulum Al Quran routes to new structure
       {
         path: 'modules/ulum-al-quran',
         element: <Navigate to="/academics/licence-islamic-sciences/quran-sciences/licence-1/licence-1-s1/ulum-al-quran" replace />,

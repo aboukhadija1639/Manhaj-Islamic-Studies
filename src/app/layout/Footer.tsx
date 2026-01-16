@@ -72,13 +72,13 @@ function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/academics" className="text-muted-foreground hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors inline-flex items-center gap-2 group">
+                  <Link to="/programs" className="text-muted-foreground hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors inline-flex items-center gap-2 group">
                     <span className="w-1 h-1 rounded-full bg-emerald-600 dark:bg-emerald-400 opacity-0 group-hover:opacity-100 transition-opacity"></span>
                     البرامج الأكاديمية
                   </Link>
                 </li>
                 <li>
-                  <Link to="/manhaj" className="text-muted-foreground hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors inline-flex items-center gap-2 group">
+                  <Link to="/curriculum" className="text-muted-foreground hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors inline-flex items-center gap-2 group">
                     <span className="w-1 h-1 rounded-full bg-emerald-600 dark:bg-emerald-400 opacity-0 group-hover:opacity-100 transition-opacity"></span>
                     خريطة المنهج
                   </Link>

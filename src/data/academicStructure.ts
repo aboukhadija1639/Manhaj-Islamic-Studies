@@ -36,7 +36,9 @@ export interface Program {
   duration: string;
   durationAr: string;
   description: string;
-  years: AcademicYear[];
+  years?: AcademicYear[];
+  semesters?: Semester[];
+  credits?: number;
 }
 
 // Licence Program - Common Core (3 years / 6 semesters)
