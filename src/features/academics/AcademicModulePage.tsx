@@ -1,14 +1,24 @@
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { Container, Button } from '@/shared/ui';
 import { academicService } from '@/app/services';
 import { lazy, Suspense } from 'react';
+import { getModuleById } from '../../data/academics/years/licence-year-1.data';
 
-// استيراد ModuleShell من وحدة علوم القرآن لاستخدامه كقالب عام
-const ModuleShell = lazy(() => import('../../modules/ulum-al-quran/components/ModuleShell'));
+// استيراد ModuleDetailPage الجديد لعلوم القرآن
+const ModuleDetailPage = lazy(() => import('../../modules/ulum-al-quran/components/ModuleDetailPage').then(m => ({ default: m.ModuleDetailPage })));
 
 export default function AcademicModulePage() {
-  const { degreeId, specialtyId, yearId, moduleId } = useParams();
-  const module = academicService.getModuleById(moduleId || '');
+  const { degreeId, specialtyId, yearId, semesterId, moduleId } = useParams();
+  const navigate = useNavigate();
+  
+  // Try to get module from new data structure first
+  let module = moduleId ? getModuleById(moduleId) : undefined;
+  
+  // Fallback to academicService if not found (returns null if not found)
+  if (!module) {
+    const fallbackModule = academicService.getModuleById(moduleId || '');
+    module = fallbackModule || undefined;
+  }
 
   if (!module) {
     return (
@@ -19,12 +29,76 @@ export default function AcademicModulePage() {
     );
   }
 
-  // إذا كان المقياس هو علوم القرآن، نستخدم الوحدة المتكاملة
+  // Handle lesson navigation
+  const handleNavigateToLesson = (_lessonId: string) => {
+    // Navigate to lesson within the module
+    const contentTab = document.querySelector('[value="content"]');
+    if (contentTab instanceof HTMLElement) {
+      contentTab.click();
+    }
+  };
+
+  // Handle back navigation
+  const handleBack = () => {
+    navigate(`/academics/${degreeId}/${specialtyId}/${yearId}/${semesterId}`);
+  };
+
+  // إذا كان المقياس هو علوم القرآن، نستخدم الصفحة الجديدة المتكاملة
   if (moduleId === 'ulum-al-quran') {
     return (
-      <Suspense fallback={<div className="p-20 text-center">جاري تحميل المقياس...</div>}>
-        <ModuleShell manifest={undefined as any} />
-      </Suspense>
+      <div>
+        {/* Breadcrumb Navigation */}
+        <div className="bg-white border-b" dir="rtl">
+          <Container className="py-4">
+            <nav className="flex items-center gap-2 text-sm text-gray-600">
+              <button
+                onClick={() => navigate('/academics')}
+                className="hover:text-emerald-600 transition-colors"
+              >
+                الأكاديميات
+              </button>
+              <span>/</span>
+              <button
+                onClick={() => navigate(`/academics/${degreeId}`)}
+                className="hover:text-emerald-600 transition-colors"
+              >
+                ليسانس
+              </button>
+              <span>/</span>
+              <button
+                onClick={() => navigate(`/academics/${degreeId}/${specialtyId}`)}
+                className="hover:text-emerald-600 transition-colors"
+              >
+                علوم القرآن والقراءات
+              </button>
+              <span>/</span>
+              <button
+                onClick={() => navigate(`/academics/${degreeId}/${specialtyId}/${yearId}`)}
+                className="hover:text-emerald-600 transition-colors"
+              >
+                السنة الأولى
+              </button>
+              <span>/</span>
+              <button
+                onClick={handleBack}
+                className="hover:text-emerald-600 transition-colors"
+              >
+                السداسي الأول
+              </button>
+              <span>/</span>
+              <span className="text-gray-900 font-medium">علوم القرآن</span>
+            </nav>
+          </Container>
+        </div>
+
+        {/* Module Detail Page */}
+        <Suspense fallback={<div className="p-20 text-center">جاري تحميل المقياس...</div>}>
+          <ModuleDetailPage
+            moduleId={moduleId}
+            onNavigateToLesson={handleNavigateToLesson}
+          />
+        </Suspense>
+      </div>
     );
   }
 
