@@ -1,7 +1,3 @@
-/**
- * ModuleSidebar - Navigation sidebar with sections and lessons
- */
-
 import React, { useState } from 'react';
 import type { ModuleManifest } from '../types';
 
@@ -34,7 +30,6 @@ export function ModuleSidebar({
 
   return (
     <div className="flex flex-col h-full overflow-hidden bg-white">
-      {/* Progress Summary */}
       {progress && (
         <div className="border-b border-gray-200 p-4">
           <div className="text-sm font-medium text-gray-900">التقدم</div>
@@ -50,12 +45,10 @@ export function ModuleSidebar({
         </div>
       )}
 
-      {/* Sections List */}
       <nav className="flex-1 overflow-y-auto p-4">
         <ul className="space-y-1">
           {manifest.sections.map((section) => (
             <li key={section.id}>
-              {/* Section Header */}
               <button
                 onClick={() => toggleSection(section.id)}
                 className="flex w-full items-center justify-between rounded-lg px-3 py-2 text-sm font-medium text-gray-900 hover:bg-gray-100"
@@ -78,7 +71,6 @@ export function ModuleSidebar({
                 </svg>
               </button>
 
-              {/* Lessons List */}
               {expandedSections.has(section.id) && (
                 <ul className="mt-1 space-y-1 pr-4">
                   {section.items.map((item) => (
@@ -91,4 +83,40 @@ export function ModuleSidebar({
                             : 'text-gray-700 hover:bg-gray-50'
                         }`}
                         aria-current={
-                          currentLessonId === item.id ? 'page' : undefined\n                        }\n                      >\n                        <div className=\"flex items-center justify-between gap-2\">\n                          <span className=\"truncate\">{item.title}</span>\n                          {/* Type Icon */}\n                          <span className=\"flex-shrink-0 text-xs text-gray-500\">\n                            {item.type === 'pdf' && '📄'}\n                            {item.type === 'md' && '📝'}\n                            {item.type === 'mdx' && '✨'}\n                            {item.type === 'image' && '🖼️'}\n                          </span>\n                        </div>\n                        {/* Duration */}\n                        {item.metadata?.duration && (\n                          <div className=\"text-xs text-gray-500 mt-1\">\n                            {item.metadata.duration} دقيقة\n                          </div>\n                        )}\n                      </button>\n                    </li>\n                  ))}\n                </ul>\n              )}\n            </li>\n          ))}\n        </ul>\n      </nav>\n\n      {/* Footer */}\n      <div className=\"border-t border-gray-200 p-4\">\n        <button className=\"w-full rounded-lg bg-blue-50 px-3 py-2 text-sm font-medium text-blue-700 hover:bg-blue-100\">\n          تنزيل جميع الموارد\n        </button>\n      </div>\n    </div>\n  );\n}\n\nexport default ModuleSidebar;\n
+                          currentLessonId === item.id ? 'page' : undefined
+                        }
+                      >
+                        <div className="flex items-center justify-between gap-2">
+                          <span className="truncate">{item.title}</span>
+                          <span className="flex-shrink-0 text-xs text-gray-500">
+                            {item.type === 'pdf' && '📄'}
+                            {item.type === 'md' && '📝'}
+                            {item.type === 'mdx' && '✨'}
+                            {item.type === 'image' && '🖼️'}
+                          </span>
+                        </div>
+                        {item.metadata?.duration && (
+                          <div className="text-xs text-gray-500 mt-1">
+                            {item.metadata.duration} دقيقة
+                          </div>
+                        )}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+          ))}
+        </ul>
+      </nav>
+
+      <div className="border-t border-gray-200 p-4">
+        <button className="w-full rounded-lg bg-blue-50 px-3 py-2 text-sm font-medium text-blue-700 hover:bg-blue-100">
+          تنزيل جميع الموارد
+        </button>
+      </div>
+    </div>
+  );
+}
+
+export default ModuleSidebar;

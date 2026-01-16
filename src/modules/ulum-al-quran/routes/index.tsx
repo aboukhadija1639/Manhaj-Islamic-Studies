@@ -1,1 +1,65 @@
-/**\n * React Router Integration for Quranic Sciences Module\n * \n * Usage:\n * import { ulamAlQuranRoutes } from '@/modules/ulum-al-quran/routes';\n * \n * // In your router config:\n * {\n *   path: '/modules/ulum-al-quran',\n *   ...ulamAlQuranRoutes,\n * }\n */\n\nimport React, { lazy, Suspense } from 'react';\nimport type { RouteObject } from 'react-router-dom';\n\nconst ModuleShell = lazy(() =>\n  import('../components/ModuleShell').then(m => ({\n    default: m.ModuleShell,\n  }))\n);\n\nconst LoadingFallback = () => (\n  <div className=\"flex items-center justify-center h-screen\">\n    <div className=\"text-center\">\n      <div className=\"h-8 w-8 animate-spin rounded-full border-4 border-gray-300 border-t-blue-500 mx-auto\" />\n      <p className=\"mt-4 text-gray-600\">جاري تحميل الوحدة...</p>\n    </div>\n  </div>\n);\n\nconst ModuleWrapper = () => {\n  const [manifest, setManifest] = React.useState(null);\n  const [isLoading, setIsLoading] = React.useState(true);\n  const [error, setError] = React.useState<Error | null>(null);\n\n  React.useEffect(() => {\n    const loadManifest = async () => {\n      try {\n        const response = await fetch('/content/ulum-al-quran/manifest.generated.json');\n        if (!response.ok) throw new Error('Failed to load manifest');\n        const data = await response.json();\n        setManifest(data);\n      } catch (err) {\n        setError(err instanceof Error ? err : new Error('Unknown error'));\n      } finally {\n        setIsLoading(false);\n      }\n    };\n\n    loadManifest();\n  }, []);\n\n  if (isLoading) return <LoadingFallback />;\n  if (error) {\n    return (\n      <div className=\"flex items-center justify-center h-screen\">\n        <div className=\"text-center\">\n          <p className=\"text-red-600 font-medium\">خطأ في تحميل الوحدة</p>\n          <p className=\"text-gray-600 text-sm mt-2\">{error.message}</p>\n        </div>\n      </div>\n    );\n  }\n\n  return manifest ? <ModuleShell manifest={manifest} /> : null;\n};\n\nexport const ulamAlQuranRoutes: RouteObject = {\n  element: (\n    <Suspense fallback={<LoadingFallback />}>\n      <ModuleWrapper />\n    </Suspense>\n  ),\n};\n\n// Alternative: Direct route definition\nexport const ulamAlQuranRoute: RouteObject = {\n  path: 'ulum-al-quran',\n  element: (\n    <Suspense fallback={<LoadingFallback />}>\n      <ModuleWrapper />\n    </Suspense>\n  ),\n};\n\nexport default ulamAlQuranRoutes;\n
+import React, { lazy, Suspense } from 'react';
+import type { RouteObject } from 'react-router-dom';
+
+const ModuleShell = lazy(() =>
+  import('../components/ModuleShell').then(m => ({
+    default: m.ModuleShell,
+  }))
+);
+
+const LoadingFallback = () => (
+  <div className="flex items-center justify-center h-screen">
+    <div className="text-center">
+      <div className="h-8 w-8 animate-spin rounded-full border-4 border-gray-300 border-t-blue-500 mx-auto" />
+      <p className="mt-4 text-gray-600">جاري تحميل الوحدة...</p>
+    </div>
+  </div>
+);
+
+const ModuleWrapper = () => {
+  const [manifest, setManifest] = React.useState(null);
+  const [isLoading, setIsLoading] = React.useState(true);
+  const [error, setError] = React.useState<Error | null>(null);
+
+  React.useEffect(() => {
+    const loadManifest = async () => {
+      try {
+        const response = await fetch('/content/ulum-al-quran/manifest.generated.json');
+        if (!response.ok) throw new Error('Failed to load manifest');
+        const data = await response.json();
+        setManifest(data);
+      } catch (err) {
+        setError(err instanceof Error ? err : new Error('Unknown error'));
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    loadManifest();
+  }, []);
+
+  if (isLoading) return <LoadingFallback />;
+  if (error) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <div className="text-center">
+          <p className="text-red-600 font-medium">خطأ في تحميل الوحدة</p>
+          <p className="text-gray-600 text-sm mt-2">{error.message}</p>
+        </div>
+      </div>
+    );
+  }
+
+  return manifest ? <ModuleShell manifest={manifest} /> : null;
+};
+
+export const ulamAlQuranRoute: RouteObject = {
+  path: 'ulum-al-quran',
+  element: (
+    <Suspense fallback={<LoadingFallback />}>
+      <ModuleWrapper />
+    </Suspense>
+  ),
+};
+
+export default ulamAlQuranRoute;

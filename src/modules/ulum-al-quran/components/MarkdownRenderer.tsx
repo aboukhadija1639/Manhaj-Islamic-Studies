@@ -1,1 +1,37 @@
-/**\n * MarkdownRenderer - Render markdown content with enhanced typography\n * \n * Features:\n * - Syntax highlighting\n * - Custom callout components\n * - Responsive images\n * - RTL-aware typography\n */\n\nimport React from 'react';\n\ninterface MarkdownRendererProps {\n  content: string;\n  onTOCGenerated?: (toc: any[]) => void;\n}\n\n/**\n * Simple markdown to HTML converter\n * In production, use remark + rehype for full markdown support\n */\nfunction markdownToHtml(content: string): string {\n  let html = content;\n\n  // Headers\n  html = html.replace(/^### (.*?)$/gm, '<h3 id=\"$1\">$1</h3>');\n  html = html.replace(/^## (.*?)$/gm, '<h2 id=\"$1\">$1</h2>');\n  html = html.replace(/^# (.*?)$/gm, '<h1 id=\"$1\">$1</h1>');\n\n  // Bold\n  html = html.replace(/\\*\\*(.*?)\\*\\*/g, '<strong>$1</strong>');\n  html = html.replace(/__(.*)__/g, '<strong>$1</strong>');\n\n  // Italic\n  html = html.replace(/\\*(.*?)\\*/g, '<em>$1</em>');\n  html = html.replace(/_(.*)_/g, '<em>$1</em>');\n\n  // Links\n  html = html.replace(/\\[(.*?)\\]\\((.*?)\\)/g, '<a href=\"$2\" target=\"_blank\" rel=\"noopener\">$1</a>');\n\n  // Code blocks\n  html = html.replace(/```([\\s\\S]*?)```/g, '<pre><code>$1</code></pre>');\n\n  // Inline code\n  html = html.replace(/`(.*?)`/g, '<code>$1</code>');\n\n  // Paragraphs\n  html = html.split('\\n\\n').map(p => {\n    if (!p.startsWith('<')) {\n      return `<p>${p}</p>`;\n    }\n    return p;\n  }).join('');\n\n  return html;\n}\n\nexport function MarkdownRenderer({\n  content,\n  onTOCGenerated,\n}: MarkdownRendererProps) {\n  const html = markdownToHtml(content);\n\n  return (\n    <div\n      className=\"prose prose-sm max-w-none dark:prose-invert\"\n      dangerouslySetInnerHTML={{ __html: html }}\n    />\n  );\n}\n\nexport default MarkdownRenderer;\n
+import React from 'react';
+
+interface MarkdownRendererProps {
+  content: string;
+  onTOCGenerated?: (toc: any[]) => void;
+}
+
+function markdownToHtml(content: string): string {
+  let html = content;
+  html = html.replace(/^### (.*?)$/gm, '<h3 id="$1">$1</h3>');
+  html = html.replace(/^## (.*?)$/gm, '<h2 id="$1">$1</h2>');
+  html = html.replace(/^# (.*?)$/gm, '<h1 id="$1">$1</h1>');
+  html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+  html = html.replace(/__(.*)__/g, '<strong>$1</strong>');
+  html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
+  html = html.replace(/_(.*)_/g, '<em>$1</em>');
+  html = html.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>');
+  html = html.replace(/```([\s\S]*?)```/g, '<pre><code>$1</code></pre>');
+  html = html.replace(/`(.*?)`/g, '<code>$1</code>');
+  const paragraphs = html.split('\n\n');
+  html = paragraphs.map(p => {
+    if (!p.startsWith('<')) {
+      return '<p>' + p + '</p>';
+    }
+    return p;
+  }).join('');
+  return html;
+}
+
+export function MarkdownRenderer({ content, onTOCGenerated }: MarkdownRendererProps) {
+  const html = markdownToHtml(content);
+  return (
+    <div className="prose prose-sm max-w-none dark:prose-invert" dangerouslySetInnerHTML={{ __html: html }} />
+  );
+}
+
+export default MarkdownRenderer;
