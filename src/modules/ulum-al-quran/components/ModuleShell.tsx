@@ -7,9 +7,9 @@
  * - Mobile drawer sidebar
  */
 
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import type { ModuleManifest } from '../types';
-import { contentService } from '../services/ContentService';
+
 import { ModuleHeader } from './ModuleHeader';
 import { ModuleSidebar } from './ModuleSidebar';
 import { LessonRenderer } from './LessonRenderer';

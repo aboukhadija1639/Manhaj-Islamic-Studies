@@ -20,7 +20,7 @@ export function useSearch(manifest: ModuleManifest | null): UseSearchState & {
   const [isSearching, setIsSearching] = useState(false);
   const [isIndexing, setIsIndexing] = useState(false);
   const [error, setError] = useState<Error | null>(null);
-  const debounceTimer = useRef<NodeJS.Timeout | null>(null);
+  const debounceTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const isIndexedRef = useRef(false);
 
   // Build index when manifest changes

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useLesson, useMarkLessonComplete } from '../hooks/useLesson';
 import { TableOfContents } from './TableOfContents';
 import { PDFRenderer } from './PDFRenderer';
@@ -15,7 +15,7 @@ export function LessonRenderer({
 }: LessonRendererProps) {
   const { lesson, isLoading, error, isCompleted } = useLesson(lessonId, moduleId);
   const { markComplete, isUpdating } = useMarkLessonComplete(moduleId, lessonId);
-  const [showTOC, setShowTOC] = useState(false);
+  const [_showTOC, _setShowTOC] = useState(false);
 
   if (isLoading) {
     return (

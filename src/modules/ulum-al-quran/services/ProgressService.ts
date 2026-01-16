@@ -18,7 +18,7 @@ interface StoredLessonStatus {
 }
 
 class ProgressService implements IProgressService {
-  private debounceTimers: Map<string, NodeJS.Timeout> = new Map();
+  private debounceTimers: Map<string, ReturnType<typeof setTimeout>> = new Map();
   private backendAdapter: IProgressService | null = null;
 
   /**

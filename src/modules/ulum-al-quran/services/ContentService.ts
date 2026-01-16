@@ -37,8 +37,9 @@ class ContentService implements IContentService {
         throw new Error(`Failed to load manifest: ${response.statusText}`);
       }
 
-      this.manifest = await response.json();
-      return this.manifest;
+      const data = await response.json();
+      this.manifest = data;
+      return data;
     } catch (error) {
       console.error('Error loading manifest:', error);
       throw error;
@@ -215,7 +216,7 @@ class ContentService implements IContentService {
   /**
    * Render PDF content
    */
-  private renderPDF(path: string, title: string): React.ReactNode {
+  private renderPDF(path: string, title: string): any {
     // Return a component reference that will be rendered by the caller
     return {
       type: 'pdf',
@@ -227,7 +228,7 @@ class ContentService implements IContentService {
   /**
    * Render markdown content
    */
-  private renderMarkdown(content: string): React.ReactNode {
+  private renderMarkdown(content: string): any {
     // Return a component reference that will be rendered by the caller
     return {
       type: 'markdown',
@@ -238,7 +239,7 @@ class ContentService implements IContentService {
   /**
    * Render image content
    */
-  private renderImage(path: string): React.ReactNode {
+  private renderImage(path: string): any {
     return {
       type: 'image',
       path,

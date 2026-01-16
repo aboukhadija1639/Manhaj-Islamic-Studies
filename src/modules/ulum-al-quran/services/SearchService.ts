@@ -128,8 +128,8 @@ class SearchService implements ISearchService {
    */
   private async extractContent(
     path: string,
-    type: string,
-    contentRoot: string
+    _type: string,
+    _contentRoot: string
   ): Promise<string> {
     // In a real implementation, this would:
     // - For PDF: use pdfjs to extract text

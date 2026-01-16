@@ -2,7 +2,7 @@
  * SearchResults - Display search results in dropdown
  */
 
-import React from 'react';
+
 import type { SearchResult } from '../types';
 
 interface SearchResultsProps {

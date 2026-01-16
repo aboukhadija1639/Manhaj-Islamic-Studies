@@ -2,7 +2,7 @@
  * ModuleHeader - Top navigation bar with search and module info
  */
 
-import React, { useState, useRef } from 'react';
+import { useState, useRef } from 'react';
 import type { ModuleManifest, SearchResult } from '../types';
 import { SearchBox } from './SearchBox';
 import { SearchResults } from './SearchResults';
@@ -21,16 +21,15 @@ export function ModuleHeader({
 }: ModuleHeaderProps) {
   const [showSearch, setShowSearch] = useState(false);
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
-  const searchInputRef = useRef<HTMLInputElement>(null);
+  const searchInputRef = useRef<HTMLInputElement | null>(null);
 
   useSearchShortcut(() => {
     setShowSearch(true);
     setTimeout(() => searchInputRef.current?.focus(), 0);
   });
 
-  const handleSelectResult = (result: SearchResult) => {
+  const handleSelectResult = (_result: SearchResult) => {
     setShowSearch(false);
-    // Trigger lesson navigation (handled by parent)
   };
 
   return (

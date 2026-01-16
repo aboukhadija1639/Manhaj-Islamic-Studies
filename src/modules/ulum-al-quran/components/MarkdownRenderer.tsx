@@ -1,4 +1,4 @@
-import React from 'react';
+
 
 interface MarkdownRendererProps {
   content: string;
@@ -27,7 +27,7 @@ function markdownToHtml(content: string): string {
   return html;
 }
 
-export function MarkdownRenderer({ content, onTOCGenerated }: MarkdownRendererProps) {
+export function MarkdownRenderer({ content }: MarkdownRendererProps) {
   const html = markdownToHtml(content);
   return (
     <div className="prose prose-sm max-w-none dark:prose-invert" dangerouslySetInnerHTML={{ __html: html }} />

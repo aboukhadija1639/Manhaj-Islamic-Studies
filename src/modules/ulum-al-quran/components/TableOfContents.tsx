@@ -1,4 +1,4 @@
-import React from 'react';
+
 import type { TOCEntry } from '../types';
 
 interface TableOfContentsProps {

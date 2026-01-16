@@ -10,13 +10,12 @@ interface SearchBoxProps {
   manifest: ModuleManifest;
   onSearch: (results: SearchResult[]) => void;
   onSelectResult: (result: SearchResult) => void;
-  inputRef?: React.RefObject<HTMLInputElement>;
+  inputRef?: React.RefObject<HTMLInputElement | null>;
 }
 
 export function SearchBox({
   manifest,
   onSearch,
-  onSelectResult,
   inputRef,
 }: SearchBoxProps) {
   const [query, setQuery] = React.useState('');
