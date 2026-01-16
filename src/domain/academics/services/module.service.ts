@@ -3,7 +3,7 @@
  * خدمة المقاييس الأكاديمية
  */
 
-import type { Module, ModuleSummary, ModuleDetails, ModuleType } from '../types';
+import type { Module, ModuleSummary, ModuleType } from '../types';
 import { ModuleModel } from '../models';
 
 /**

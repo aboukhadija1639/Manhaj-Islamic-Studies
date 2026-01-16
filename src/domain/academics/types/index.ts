@@ -35,5 +35,4 @@ export type {
   UnitSummary,
   UnitContent,
   UnitContentType,
-  UnitProgress,
 } from './unit.types';

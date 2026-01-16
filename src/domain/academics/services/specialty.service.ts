@@ -117,8 +117,7 @@ export class SpecialtyService {
       (specialty) =>
         specialty.nameAr.toLowerCase().includes(lowerQuery) ||
         specialty.nameEn.toLowerCase().includes(lowerQuery) ||
-        specialty.description.toLowerCase().includes(lowerQuery) ||
-        specialty.keywords?.some((k) => k.toLowerCase().includes(lowerQuery))
+        specialty.description.toLowerCase().includes(lowerQuery)
     );
   }
 
