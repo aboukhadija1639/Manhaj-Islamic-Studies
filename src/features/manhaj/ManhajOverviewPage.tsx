@@ -81,7 +81,7 @@ export default function ManhajOverviewPage() {
             {manhajPrinciples.map((principle) => (
               <div
                 key={principle.id}
-                className="bg-white dark:bg-stone-800 rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-stone-200 dark:border-stone-700"
+                className="bg-card rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow border border-stone-200 dark:border-stone-700"
               >
                 <div className="text-5xl mb-4">{principle.icon}</div>
                 <h3 className="text-2xl font-bold mb-2 text-right">
@@ -108,7 +108,7 @@ export default function ManhajOverviewPage() {
               Hierarchical Structure of Knowledge
             </span>
           </h2>
-          <div className="max-w-5xl mx-auto bg-white dark:bg-stone-800 rounded-2xl p-8 shadow-lg">
+          <div className="max-w-5xl mx-auto bg-card rounded-2xl p-8 shadow-lg">
             <img
               src="/docs/diagrams/hierarchy.png"
               alt="Hierarchical Structure of Islamic Knowledge"
@@ -130,7 +130,7 @@ export default function ManhajOverviewPage() {
               Integration Model
             </span>
           </h2>
-          <div className="max-w-5xl mx-auto bg-white dark:bg-stone-800 rounded-2xl p-8 shadow-lg">
+          <div className="max-w-5xl mx-auto bg-card rounded-2xl p-8 shadow-lg">
             <img
               src="/docs/diagrams/integration.png"
               alt="Integration Model - Tawhid Centered"
@@ -154,31 +154,31 @@ export default function ManhajOverviewPage() {
               </span>
             </h2>
             <div className="space-y-6">
-              <div className="bg-white dark:bg-stone-800 rounded-xl p-6 shadow-md border-r-4 border-yellow-500">
+              <div className="bg-card rounded-xl p-6 shadow-md border-r-4 border-yellow-500">
                 <h3 className="text-xl font-bold mb-2 text-right">العقيدة تحكم كل العلوم</h3>
                 <p className="text-stone-700 dark:text-stone-300 text-right">
                   Aqeedah governs all other sciences. It is the lens through which we understand everything.
                 </p>
               </div>
-              <div className="bg-white dark:bg-stone-800 rounded-xl p-6 shadow-md border-r-4 border-emerald-500">
+              <div className="bg-card rounded-xl p-6 shadow-md border-r-4 border-emerald-500">
                 <h3 className="text-xl font-bold mb-2 text-right">العربية تفتح الوحي</h3>
                 <p className="text-stone-700 dark:text-stone-300 text-right">
                   Arabic unlocks the Quran and Hadith. Without it, we depend on translations.
                 </p>
               </div>
-              <div className="bg-white dark:bg-stone-800 rounded-xl p-6 shadow-md border-r-4 border-blue-500">
+              <div className="bg-card rounded-xl p-6 shadow-md border-r-4 border-blue-500">
                 <h3 className="text-xl font-bold mb-2 text-right">السيرة تُسَيِّق النصوص</h3>
                 <p className="text-stone-700 dark:text-stone-300 text-right">
                   Seerah contextualizes texts. We understand revelation through the Prophet's life.
                 </p>
               </div>
-              <div className="bg-white dark:bg-stone-800 rounded-xl p-6 shadow-md border-r-4 border-amber-500">
+              <div className="bg-card rounded-xl p-6 shadow-md border-r-4 border-amber-500">
                 <h3 className="text-xl font-bold mb-2 text-right">أصول الفقه يُنظِّم الفقه</h3>
                 <p className="text-stone-700 dark:text-stone-300 text-right">
                   Usul al-Fiqh structures Fiqh. It provides the methodology for deriving rulings.
                 </p>
               </div>
-              <div className="bg-white dark:bg-stone-800 rounded-xl p-6 shadow-md border-r-4 border-purple-500">
+              <div className="bg-card rounded-xl p-6 shadow-md border-r-4 border-purple-500">
                 <h3 className="text-xl font-bold mb-2 text-right">التزكية تحمي العلم</h3>
                 <p className="text-stone-700 dark:text-stone-300 text-right">
                   Tazkiyah protects knowledge from corrupting the soul. Pure hearts seek knowledge for Allah.
@@ -201,7 +201,7 @@ export default function ManhajOverviewPage() {
             </p>
             <Link
               to="/manhaj/curriculum-map"
-              className="inline-block bg-white text-teal-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-stone-100 transition-colors shadow-lg"
+              className="inline-block bg-card text-primary px-8 py-4 rounded-lg text-lg font-semibold hover:bg-muted transition-colors shadow-lg"
             >
               عرض خريطة المنهج →
             </Link>

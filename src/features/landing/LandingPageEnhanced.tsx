@@ -16,14 +16,14 @@ const LandingPageEnhanced = () => {
       <section className="relative overflow-hidden bg-gradient-to-br from-primary-600 via-primary-700 to-primary-800 text-white py-20 md:py-32">
         {/* Decorative Elements */}
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl" />
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl" />
+          <div className="absolute top-0 right-0 w-96 h-96 bg-primary-foreground rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-primary-foreground rounded-full blur-3xl" />
         </div>
 
         <Container className="relative z-10">
           <div className="max-w-4xl mx-auto text-center space-y-8">
             {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white/20 backdrop-blur-sm text-white text-sm font-semibold">
+            <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-primary-foreground/20 backdrop-blur-sm text-white text-sm font-semibold">
               <span>🎓</span>
               <span>جامعة الوادي - كلية العلوم الإسلامية</span>
             </div>
@@ -41,12 +41,12 @@ const LandingPageEnhanced = () => {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4">
               <Link to="/subjects">
-                <Button size="lg" className="bg-white text-primary-600 hover:bg-gray-100 shadow-lg hover:shadow-xl">
+                <Button size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 shadow-lg hover:shadow-xl">
                   تصفح المواد الدراسية ←
                 </Button>
               </Link>
               <Link to="/about">
-                <Button size="lg" variant="ghost" className="text-white border-2 border-white/30 hover:bg-white/10 backdrop-blur-sm">
+                <Button size="lg" variant="ghost" className="text-white border-2 border-primary-foreground/30 hover:bg-primary-foreground/10 backdrop-blur-sm">
                   تعرف على المنصة
                 </Button>
               </Link>
@@ -72,13 +72,13 @@ const LandingPageEnhanced = () => {
       </section>
 
       {/* Featured Modules Section */}
-      <section className="py-20 bg-gradient-to-b from-white to-gray-50 dark:from-gray-800 dark:to-gray-900">
+      <section className="py-20 bg-gradient-to-b from-background to-muted dark:from-card dark:to-background">
         <Container>
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
               المواد الدراسية المميزة
             </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               استكشف المواد الدراسية للسداسي الأول 2025/2026
             </p>
           </div>
@@ -100,13 +100,13 @@ const LandingPageEnhanced = () => {
       </section>
 
       {/* Categories Section */}
-      <section className="py-20 bg-white dark:bg-gray-800">
+      <section className="py-20 bg-card">
         <Container>
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
               التصنيفات العلمية
             </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               المقاييس منظمة في ثلاث عائلات علمية متكاملة
             </p>
           </div>
@@ -116,10 +116,10 @@ const LandingPageEnhanced = () => {
             <Card className="p-8 hover:shadow-xl transition-all duration-300 border-2 border-emerald-200 dark:border-emerald-800 hover:border-emerald-300 dark:hover:border-emerald-700">
               <div className="text-center space-y-4">
                 <div className="text-6xl mb-4">{moduleCategories.sharia.icon}</div>
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+                <h3 className="text-2xl font-bold text-foreground">
                   {moduleCategories.sharia.title}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300">
+                <p className="text-muted-foreground">
                   {moduleCategories.sharia.description}
                 </p>
                 <div className="pt-4">
@@ -134,10 +134,10 @@ const LandingPageEnhanced = () => {
             <Card className="p-8 hover:shadow-xl transition-all duration-300 border-2 border-amber-200 dark:border-amber-800 hover:border-amber-300 dark:hover:border-amber-700">
               <div className="text-center space-y-4">
                 <div className="text-6xl mb-4">{moduleCategories.supporting.icon}</div>
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+                <h3 className="text-2xl font-bold text-foreground">
                   {moduleCategories.supporting.title}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300">
+                <p className="text-muted-foreground">
                   {moduleCategories.supporting.description}
                 </p>
                 <div className="pt-4">
@@ -152,10 +152,10 @@ const LandingPageEnhanced = () => {
             <Card className="p-8 hover:shadow-xl transition-all duration-300 border-2 border-blue-200 dark:border-blue-800 hover:border-blue-300 dark:hover:border-blue-700">
               <div className="text-center space-y-4">
                 <div className="text-6xl mb-4">{moduleCategories.technical.icon}</div>
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+                <h3 className="text-2xl font-bold text-foreground">
                   {moduleCategories.technical.title}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300">
+                <p className="text-muted-foreground">
                   {moduleCategories.technical.description}
                 </p>
                 <div className="pt-4">
@@ -170,10 +170,10 @@ const LandingPageEnhanced = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+      <section className="py-20 bg-gradient-to-b from-muted to-background">
         <Container>
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
               لماذا منهاج؟
             </h2>
           </div>
@@ -181,32 +181,32 @@ const LandingPageEnhanced = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <Card className="p-6 text-center hover:shadow-lg transition-shadow">
               <div className="text-4xl mb-3">📚</div>
-              <h3 className="font-bold text-gray-900 dark:text-white mb-2">محتوى منظم</h3>
-              <p className="text-sm text-gray-600 dark:text-gray-300">
+              <h3 className="font-bold text-foreground mb-2">محتوى منظم</h3>
+              <p className="text-sm text-muted-foreground">
                 مقاييس مرتبة ومنظمة حسب السداسيات
               </p>
             </Card>
 
             <Card className="p-6 text-center hover:shadow-lg transition-shadow">
               <div className="text-4xl mb-3">🎯</div>
-              <h3 className="font-bold text-gray-900 dark:text-white mb-2">أهداف واضحة</h3>
-              <p className="text-sm text-gray-600 dark:text-gray-300">
+              <h3 className="font-bold text-foreground mb-2">أهداف واضحة</h3>
+              <p className="text-sm text-muted-foreground">
                 كل مقياس له أهداف محددة وواضحة
               </p>
             </Card>
 
             <Card className="p-6 text-center hover:shadow-lg transition-shadow">
               <div className="text-4xl mb-3">🌙</div>
-              <h3 className="font-bold text-gray-900 dark:text-white mb-2">وضع ليلي</h3>
-              <p className="text-sm text-gray-600 dark:text-gray-300">
+              <h3 className="font-bold text-foreground mb-2">وضع ليلي</h3>
+              <p className="text-sm text-muted-foreground">
                 راحة للعين مع الوضع الداكن
               </p>
             </Card>
 
             <Card className="p-6 text-center hover:shadow-lg transition-shadow">
               <div className="text-4xl mb-3">📱</div>
-              <h3 className="font-bold text-gray-900 dark:text-white mb-2">متجاوب</h3>
-              <p className="text-sm text-gray-600 dark:text-gray-300">
+              <h3 className="font-bold text-foreground mb-2">متجاوب</h3>
+              <p className="text-sm text-muted-foreground">
                 يعمل على جميع الأجهزة بسلاسة
               </p>
             </Card>
@@ -226,12 +226,12 @@ const LandingPageEnhanced = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
               <Link to="/subjects">
-                <Button size="lg" className="bg-white text-primary-600 hover:bg-gray-100">
+                <Button size="lg" className="bg-primary-foreground text-primary hover:bg-primary-foreground/90">
                   استكشف المقاييس ←
                 </Button>
               </Link>
               <Link to="/about">
-                <Button size="lg" variant="ghost" className="text-white border-2 border-white/30 hover:bg-white/10">
+                <Button size="lg" variant="ghost" className="text-white border-2 border-primary-foreground/30 hover:bg-primary-foreground/10">
                   المزيد عن المنصة
                 </Button>
               </Link>

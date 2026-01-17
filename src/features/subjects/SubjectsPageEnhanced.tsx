@@ -30,11 +30,11 @@ const SubjectsPageEnhanced = () => {
             <span>السنة الأولى - السداسي الأول</span>
           </div>
           
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">
+          <h1 className="text-4xl md:text-5xl font-bold text-foreground">
             المقاييس الدراسية
           </h1>
           
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             استكشف مقاييس السداسي الأول من السنة الأولى في تخصص العلوم الإسلامية
           </p>
         </div>
@@ -75,7 +75,7 @@ const SubjectsPageEnhanced = () => {
               placeholder="ابحث عن مقياس..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full px-6 py-4 pr-12 rounded-2xl border-2 border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
+              className="w-full px-6 py-4 pr-12 rounded-2xl border-2 border-border bg-card text-foreground placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all"
             />
             <span className="absolute left-4 top-1/2 -translate-y-1/2 text-2xl">
               🔍
@@ -85,7 +85,7 @@ const SubjectsPageEnhanced = () => {
 
         {/* Category Filter */}
         <div className="flex flex-col items-center gap-6">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
+          <h2 className="text-2xl font-bold text-foreground">
             تصفية حسب التصنيف
           </h2>
           <CategoryFilter
@@ -96,14 +96,14 @@ const SubjectsPageEnhanced = () => {
 
         {/* Category Description */}
         {activeCategory !== 'all' && (
-          <div className="max-w-3xl mx-auto p-6 rounded-2xl bg-white dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700">
+          <div className="max-w-3xl mx-auto p-6 rounded-2xl bg-card border-2 border-border">
             <div className="flex items-start gap-4">
               <span className="text-4xl">{moduleCategories[activeCategory].icon}</span>
               <div>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                <h3 className="text-xl font-bold text-foreground mb-2">
                   {moduleCategories[activeCategory].title}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300">
+                <p className="text-muted-foreground">
                   {moduleCategories[activeCategory].description}
                 </p>
               </div>
@@ -113,7 +113,7 @@ const SubjectsPageEnhanced = () => {
 
         {/* Results Count */}
         <div className="text-center">
-          <p className="text-gray-600 dark:text-gray-400">
+          <p className="text-muted-foreground">
             عرض <span className="font-bold text-primary-600 dark:text-primary-400">{filteredModules.length}</span> من أصل {semester1Modules.length} مقياس
           </p>
         </div>
@@ -128,10 +128,10 @@ const SubjectsPageEnhanced = () => {
         ) : (
           <div className="text-center py-12">
             <div className="text-6xl mb-4">🔍</div>
-            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+            <h3 className="text-xl font-bold text-foreground mb-2">
               لم يتم العثور على نتائج
             </h3>
-            <p className="text-gray-600 dark:text-gray-400">
+            <p className="text-muted-foreground">
               جرب البحث بكلمات مختلفة أو اختر تصنيفاً آخر
             </p>
           </div>
@@ -146,7 +146,7 @@ const SubjectsPageEnhanced = () => {
             اختر مقياساً من الأعلى وابدأ رحلتك التعليمية الآن
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <button className="px-8 py-3 bg-white text-primary-600 rounded-xl font-semibold hover:bg-gray-100 transition-colors">
+            <button className="px-8 py-3 bg-card text-primary rounded-xl font-semibold hover:bg-muted transition-colors">
               تصفح جميع المقاييس
             </button>
             <button className="px-8 py-3 bg-primary-700 text-white rounded-xl font-semibold hover:bg-primary-800 transition-colors border-2 border-white/20">

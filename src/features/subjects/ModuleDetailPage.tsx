@@ -10,7 +10,7 @@ const ModuleDetailPage = () => {
     return (
       <Container className="py-12 text-center">
         <div className="text-6xl mb-4">❌</div>
-        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+        <h1 className="text-3xl font-bold text-foreground mb-4">
           المقياس غير موجود
         </h1>
         <Link to="/subjects">
@@ -84,17 +84,17 @@ const ModuleDetailPage = () => {
       <Container className="py-12 space-y-8">
         {/* Description */}
         <Card className="p-8">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-2xl font-bold text-foreground mb-4">
             📝 نبذة عن المقياس
           </h2>
-          <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+          <p className="text-lg text-card-foreground leading-relaxed">
             {module.description}
           </p>
         </Card>
 
         {/* Objectives */}
         <Card className="p-8">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+          <h2 className="text-2xl font-bold text-foreground mb-6">
             🎯 أهداف المقياس
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -105,7 +105,7 @@ const ModuleDetailPage = () => {
               >
                 <div className="flex items-start gap-3">
                   <span className={`text-2xl ${colors.text}`}>✓</span>
-                  <p className="text-gray-700 dark:text-gray-300 flex-1">
+                  <p className="text-card-foreground flex-1">
                     {objective}
                   </p>
                 </div>
@@ -116,25 +116,25 @@ const ModuleDetailPage = () => {
 
         {/* Topics */}
         <Card className="p-8">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
+          <h2 className="text-2xl font-bold text-foreground mb-6">
             📚 محاور المقياس
           </h2>
           <div className="space-y-4">
             {module.topics.map((topic, idx) => (
               <div
                 key={idx}
-                className="group p-6 rounded-xl border-2 border-gray-200 dark:border-gray-700 hover:border-primary-300 dark:hover:border-primary-700 bg-white dark:bg-gray-800 transition-all hover:shadow-lg cursor-pointer"
+                className="group p-6 rounded-xl border-2 border-border hover:border-primary-300 dark:hover:border-primary-700 bg-card transition-all hover:shadow-lg cursor-pointer"
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-4">
                     <div className={`w-10 h-10 rounded-lg ${colors.bg} ${colors.text} flex items-center justify-center font-bold`}>
                       {idx + 1}
                     </div>
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                    <h3 className="text-lg font-semibold text-foreground">
                       {topic}
                     </h3>
                   </div>
-                  <span className="text-gray-400 group-hover:text-primary-500 transition-colors">
+                  <span className="text-muted-foreground group-hover:text-primary-500 transition-colors">
                     ←
                   </span>
                 </div>
@@ -144,35 +144,35 @@ const ModuleDetailPage = () => {
         </Card>
 
         {/* Coming Soon Features */}
-        <Card className="p-8 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 border-2 border-dashed border-gray-300 dark:border-gray-600">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">
+        <Card className="p-8 bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 border-2 border-dashed border-border">
+          <h2 className="text-2xl font-bold text-foreground mb-6 text-center">
             🚀 قريباً
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="text-center p-4">
               <div className="text-4xl mb-2">📘</div>
-              <h3 className="font-semibold text-gray-900 dark:text-white mb-1">
+              <h3 className="font-semibold text-foreground mb-1">
                 ملخصات تفصيلية
               </h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400">
+              <p className="text-sm text-muted-foreground">
                 ملخصات شاملة لكل محور
               </p>
             </div>
             <div className="text-center p-4">
               <div className="text-4xl mb-2">🌳</div>
-              <h3 className="font-semibold text-gray-900 dark:text-white mb-1">
+              <h3 className="font-semibold text-foreground mb-1">
                 خرائط ذهنية
               </h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400">
+              <p className="text-sm text-muted-foreground">
                 تشجير المفاهيم والعلاقات
               </p>
             </div>
             <div className="text-center p-4">
               <div className="text-4xl mb-2">🧠</div>
-              <h3 className="font-semibold text-gray-900 dark:text-white mb-1">
+              <h3 className="font-semibold text-foreground mb-1">
                 أسئلة تدريبية
               </h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400">
+              <p className="text-sm text-muted-foreground">
                 اختبر معلوماتك
               </p>
             </div>

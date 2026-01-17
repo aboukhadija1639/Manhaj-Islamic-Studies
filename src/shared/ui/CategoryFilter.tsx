@@ -17,20 +17,20 @@ const CategoryFilter = ({ activeCategory, onCategoryChange }: CategoryFilterProp
 
   const colorStyles = {
     gray: {
-      active: 'bg-gray-600 text-white border-gray-600',
-      inactive: 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-600 hover:border-gray-400',
+      active: 'bg-secondary text-secondary-foreground border-secondary',
+      inactive: 'bg-card text-card-foreground border-border hover:border-muted-foreground',
     },
     emerald: {
       active: 'bg-emerald-600 text-white border-emerald-600',
-      inactive: 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border-emerald-300 dark:border-emerald-600 hover:border-emerald-400',
+      inactive: 'bg-card text-card-foreground border-emerald-300 dark:border-emerald-600 hover:border-emerald-400',
     },
     amber: {
       active: 'bg-amber-600 text-white border-amber-600',
-      inactive: 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border-amber-300 dark:border-amber-600 hover:border-amber-400',
+      inactive: 'bg-card text-card-foreground border-amber-300 dark:border-amber-600 hover:border-amber-400',
     },
     blue: {
       active: 'bg-blue-600 text-white border-blue-600',
-      inactive: 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border-blue-300 dark:border-blue-600 hover:border-blue-400',
+      inactive: 'bg-card text-card-foreground border-blue-300 dark:border-blue-600 hover:border-blue-400',
     },
   };
 

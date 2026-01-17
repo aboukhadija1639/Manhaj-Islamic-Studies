@@ -21,8 +21,8 @@ export function LessonRenderer({
     return (
       <div className="flex items-center justify-center p-8">
         <div className="text-center">
-          <div className="h-8 w-8 animate-spin rounded-full border-4 border-gray-300 border-t-blue-500 mx-auto" />
-          <p className="mt-4 text-gray-600">جاري تحميل الدرس...</p>
+          <div className="h-8 w-8 animate-spin rounded-full border-4 border-border border-t-blue-500 mx-auto" />
+          <p className="mt-4 text-muted-foreground">جاري تحميل الدرس...</p>
         </div>
       </div>
     );
@@ -35,8 +35,8 @@ export function LessonRenderer({
           <svg className="h-12 w-12 text-red-500 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4m0 4v.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
-          <p className="mt-4 text-gray-900 font-medium">حدث خطأ</p>
-          <p className="text-gray-600 text-sm">{error.message}</p>
+          <p className="mt-4 text-foreground font-medium">حدث خطأ</p>
+          <p className="text-muted-foreground text-sm">{error.message}</p>
         </div>
       </div>
     );
@@ -48,15 +48,15 @@ export function LessonRenderer({
     <div className="flex h-full flex-col md:flex-row">
       <div className="flex-1 overflow-y-auto">
         <article className="mx-auto max-w-3xl px-4 py-8 sm:px-6 lg:px-8">
-          <nav className="flex items-center gap-2 text-sm text-gray-600 mb-6">
-            <a href="#" className="hover:text-gray-900">{lesson.sectionTitle}</a>
+          <nav className="flex items-center gap-2 text-sm text-muted-foreground mb-6">
+            <a href="#" className="hover:text-foreground">{lesson.sectionTitle}</a>
             <span>/</span>
-            <span className="text-gray-900 font-medium">{lesson.title}</span>
+            <span className="text-foreground font-medium">{lesson.title}</span>
           </nav>
 
-          <header className="mb-8 border-b border-gray-200 pb-6">
-            <h1 className="text-3xl font-bold text-gray-900 mb-4">{lesson.title}</h1>
-            <div className="flex flex-wrap items-center gap-4 text-sm text-gray-600">
+          <header className="mb-8 border-b border-border pb-6">
+            <h1 className="text-3xl font-bold text-foreground mb-4">{lesson.title}</h1>
+            <div className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
               {lesson.metadata?.duration && (
                 <div className="flex items-center gap-1">
                   <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -66,7 +66,7 @@ export function LessonRenderer({
                 </div>
               )}
               <div className="flex items-center gap-1">
-                <span className="text-xs px-2 py-1 bg-gray-100 rounded">{lesson.type}</span>
+                <span className="text-xs px-2 py-1 bg-muted rounded">{lesson.type}</span>
               </div>
             </div>
           </header>
@@ -79,7 +79,7 @@ export function LessonRenderer({
             )}
           </div>
 
-          <div className="mt-12 border-t border-gray-200 pt-6">
+          <div className="mt-12 border-t border-border pt-6">
             <button
               onClick={() => markComplete(!isCompleted)}
               disabled={isUpdating}
@@ -97,8 +97,8 @@ export function LessonRenderer({
       </div>
 
       {lesson.toc.length > 0 && (
-        <div className="hidden lg:flex lg:w-64 lg:flex-col lg:border-l lg:border-gray-200 lg:bg-gray-50 lg:p-6">
-          <h2 className="text-sm font-semibold text-gray-900 mb-4">محتويات الدرس</h2>
+        <div className="hidden lg:flex lg:w-64 lg:flex-col lg:border-l lg:border-border lg:bg-background lg:p-6">
+          <h2 className="text-sm font-semibold text-foreground mb-4">محتويات الدرس</h2>
           <TableOfContents entries={lesson.toc} />
         </div>
       )}

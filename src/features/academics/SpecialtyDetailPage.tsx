@@ -20,7 +20,7 @@ export default function SpecialtyDetailPage() {
   const years = degree.type === 'licence' ? [1, 2, 3] : [1, 2];
 
   return (
-    <div className="py-12 bg-slate-50 min-h-screen" dir="rtl">
+    <div className="py-12 bg-background min-h-screen" dir="rtl">
       <Container>
         <div className="mb-10">
           <Link to={`/academics/${degreeId}`} className="text-emerald-600 hover:text-emerald-700 flex items-center gap-2 mb-6">
@@ -28,20 +28,20 @@ export default function SpecialtyDetailPage() {
           </Link>
           <div className="flex items-center gap-4 mb-4">
             <span className="text-5xl">{specialty.icon}</span>
-            <h1 className="text-4xl font-bold text-slate-900">{specialty.nameAr}</h1>
+            <h1 className="text-4xl font-bold text-foreground">{specialty.nameAr}</h1>
           </div>
-          <p className="text-xl text-slate-600 max-w-4xl leading-relaxed">{specialty.description}</p>
+          <p className="text-xl text-muted-foreground max-w-4xl leading-relaxed">{specialty.description}</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
           <div className="lg:col-span-2">
-            <h2 className="text-2xl font-bold text-slate-800 mb-6">المسار الدراسي</h2>
+            <h2 className="text-2xl font-bold text-foreground mb-6">المسار الدراسي</h2>
             <div className="space-y-6">
               {years.map((yearNum) => (
                 <Card key={yearNum} className="p-6 flex items-center justify-between hover:border-emerald-300 transition-colors">
                   <div>
-                    <h3 className="text-xl font-bold text-slate-900">السنة {yearNum === 1 ? 'الأولى' : yearNum === 2 ? 'الثانية' : 'الثالثة'}</h3>
-                    <p className="text-slate-500">سداسيات الدراسة والمقاييس المقررة</p>
+                    <h3 className="text-xl font-bold text-foreground">السنة {yearNum === 1 ? 'الأولى' : yearNum === 2 ? 'الثانية' : 'الثالثة'}</h3>
+                    <p className="text-muted-foreground">سداسيات الدراسة والمقاييس المقررة</p>
                   </div>
                   <Link to={`/academics/${degreeId}/${specialtyId}/year-${yearNum}`}>
                     <Button variant="primary">عرض المقاييس</Button>
@@ -64,10 +64,10 @@ export default function SpecialtyDetailPage() {
             </Card>
 
             <Card className="p-6">
-              <h3 className="text-xl font-bold text-slate-900 mb-4">الآفاق المهنية</h3>
+              <h3 className="text-xl font-bold text-foreground mb-4">الآفاق المهنية</h3>
               <div className="flex flex-wrap gap-2">
                 {specialty.careerPaths.map((path, i) => (
-                  <span key={i} className="px-3 py-1 bg-slate-100 text-slate-700 rounded-full text-xs font-medium">
+                  <span key={i} className="px-3 py-1 bg-muted text-card-foreground rounded-full text-xs font-medium">
                     {path}
                   </span>
                 ))}

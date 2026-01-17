@@ -75,7 +75,7 @@ export default function ScienceDetailPage() {
         <Container>
           <div className="max-w-4xl mx-auto space-y-12">
             {/* Purpose */}
-            <div className="bg-white dark:bg-stone-800 rounded-2xl p-8 shadow-lg border-r-4 border-teal-500">
+            <div className="bg-card rounded-2xl p-8 shadow-lg border-r-4 border-teal-500">
               <h2 className="text-2xl font-bold mb-4 text-right flex items-center justify-end gap-3">
                 <span>الغرض من هذا العلم</span>
                 <span className="text-3xl">🎯</span>
@@ -86,7 +86,7 @@ export default function ScienceDetailPage() {
             </div>
 
             {/* Educational Goal */}
-            <div className="bg-white dark:bg-stone-800 rounded-2xl p-8 shadow-lg border-r-4 border-emerald-500">
+            <div className="bg-card rounded-2xl p-8 shadow-lg border-r-4 border-emerald-500">
               <h2 className="text-2xl font-bold mb-4 text-right flex items-center justify-end gap-3">
                 <span>الهدف التربوي</span>
                 <span className="text-3xl">📚</span>
@@ -97,7 +97,7 @@ export default function ScienceDetailPage() {
             </div>
 
             {/* Functional Role */}
-            <div className="bg-white dark:bg-stone-800 rounded-2xl p-8 shadow-lg border-r-4 border-blue-500">
+            <div className="bg-card rounded-2xl p-8 shadow-lg border-r-4 border-blue-500">
               <h2 className="text-2xl font-bold mb-4 text-right flex items-center justify-end gap-3">
                 <span>الدور الوظيفي</span>
                 <span className="text-3xl">🔗</span>
@@ -108,7 +108,7 @@ export default function ScienceDetailPage() {
             </div>
 
             {/* Practical Outcome */}
-            <div className="bg-white dark:bg-stone-800 rounded-2xl p-8 shadow-lg border-r-4 border-purple-500">
+            <div className="bg-card rounded-2xl p-8 shadow-lg border-r-4 border-purple-500">
               <h2 className="text-2xl font-bold mb-4 text-right flex items-center justify-end gap-3">
                 <span>الأثر العملي</span>
                 <span className="text-3xl">✨</span>
@@ -131,7 +131,7 @@ export default function ScienceDetailPage() {
                 Epistemological Position
               </span>
             </h2>
-            <div className="bg-white dark:bg-stone-800 rounded-2xl p-8 shadow-lg">
+            <div className="bg-card rounded-2xl p-8 shadow-lg">
               <div className="text-center mb-6">
                 <span className={`inline-block px-6 py-3 rounded-full text-lg font-semibold ${
                   science.epistemologicalPosition.type === 'revealed'
@@ -174,7 +174,7 @@ export default function ScienceDetailPage() {
                   return (
                     <div
                       key={conn.targetId}
-                      className="bg-white dark:bg-stone-800 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow"
+                      className="bg-card rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow"
                     >
                       <div className="flex items-center gap-4 mb-3">
                         <div className="text-4xl">{targetScience.icon}</div>
@@ -223,7 +223,7 @@ export default function ScienceDetailPage() {
         <Container>
           <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Prerequisites */}
-            <div className="bg-white dark:bg-stone-800 rounded-2xl p-8 shadow-lg">
+            <div className="bg-card rounded-2xl p-8 shadow-lg">
               <h3 className="text-2xl font-bold mb-4 text-right flex items-center justify-end gap-3">
                 <span>المتطلبات السابقة</span>
                 <span className="text-3xl">⬅️</span>
@@ -244,7 +244,7 @@ export default function ScienceDetailPage() {
             </div>
 
             {/* Enables */}
-            <div className="bg-white dark:bg-stone-800 rounded-2xl p-8 shadow-lg">
+            <div className="bg-card rounded-2xl p-8 shadow-lg">
               <h3 className="text-2xl font-bold mb-4 text-right flex items-center justify-end gap-3">
                 <span>ما يُمَكِّن من دراسته</span>
                 <span className="text-3xl">➡️</span>
@@ -313,7 +313,7 @@ export default function ScienceDetailPage() {
             <div className="flex gap-4 justify-center flex-wrap">
               <Link
                 to="/subjects"
-                className="inline-block bg-white text-teal-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-stone-100 transition-colors shadow-lg"
+                className="inline-block bg-card text-primary px-8 py-4 rounded-lg text-lg font-semibold hover:bg-muted transition-colors shadow-lg"
               >
                 عرض المحتوى التعليمي
               </Link>

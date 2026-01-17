@@ -50,13 +50,13 @@ export function SearchBox({
           onChange={handleChange}
           placeholder="ابحث عن درس..."
           disabled={isIndexing}
-          className="w-full rounded-lg border border-gray-300 bg-white px-4 py-2 pr-10 text-sm placeholder-gray-500 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 disabled:bg-gray-100"
+          className="w-full rounded-lg border border-border bg-card px-4 py-2 pr-10 text-sm placeholder-muted-foreground focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 disabled:bg-muted"
           aria-label="البحث في الدروس"
         />
 
         {/* Search Icon */}
         <svg
-          className="absolute right-3 top-2.5 h-5 w-5 text-gray-400"
+          className="absolute right-3 top-2.5 h-5 w-5 text-muted-foreground"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -73,7 +73,7 @@ export function SearchBox({
         {query && (
           <button
             onClick={handleClear}
-            className="absolute left-3 top-2.5 text-gray-400 hover:text-gray-600"
+            className="absolute left-3 top-2.5 text-muted-foreground hover:text-muted-foreground"
             aria-label="مسح البحث"
           >
             <svg
@@ -93,14 +93,14 @@ export function SearchBox({
         {/* Loading Indicator */}
         {(isSearching || isIndexing) && (
           <div className="absolute left-3 top-2.5">
-            <div className="h-5 w-5 animate-spin rounded-full border-2 border-gray-300 border-t-blue-500" />
+            <div className="h-5 w-5 animate-spin rounded-full border-2 border-border border-t-blue-500" />
           </div>
         )}
       </div>
 
       {/* Keyboard Shortcut Hint */}
       {!query && (
-        <div className="absolute left-3 top-2.5 text-xs text-gray-400">
+        <div className="absolute left-3 top-2.5 text-xs text-muted-foreground">
           Ctrl+K
         </div>
       )}

@@ -23,7 +23,7 @@ const EnglishModulePage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+    <div className="min-h-screen bg-gradient-to-b from-muted to-background">
       {/* Hero Section */}
       <div className="bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700 text-white py-16">
         <Container>
@@ -36,7 +36,7 @@ const EnglishModulePage = () => {
           </div>
 
           <div className="flex items-start gap-6">
-            <div className="text-7xl bg-white/20 p-8 rounded-2xl backdrop-blur-sm">
+            <div className="text-7xl bg-primary-foreground/20 p-8 rounded-2xl backdrop-blur-sm">
               🌐
             </div>
             <div className="flex-1">
@@ -48,13 +48,13 @@ const EnglishModulePage = () => {
                 Master the fundamentals of English grammar with interactive lessons covering numbers, speech forms, conditionals, and voice transformations.
               </p>
               <div className="flex flex-wrap gap-3">
-                <span className="px-4 py-2 bg-white/20 rounded-lg backdrop-blur-sm">
+                <span className="px-4 py-2 bg-primary-foreground/20 rounded-lg backdrop-blur-sm">
                   📚 {englishLessons.length} Lessons
                 </span>
-                <span className="px-4 py-2 bg-white/20 rounded-lg backdrop-blur-sm">
+                <span className="px-4 py-2 bg-primary-foreground/20 rounded-lg backdrop-blur-sm">
                   ⭐ 3 Credits
                 </span>
-                <span className="px-4 py-2 bg-white/20 rounded-lg backdrop-blur-sm">
+                <span className="px-4 py-2 bg-primary-foreground/20 rounded-lg backdrop-blur-sm">
                   ⏱️ 22.5 Hours
                 </span>
               </div>
@@ -66,20 +66,20 @@ const EnglishModulePage = () => {
       <Container className="py-12">
         {/* Module Overview */}
         <Card className="p-8 mb-12">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+          <h2 className="text-2xl font-bold text-foreground mb-4">
             📖 About This Module
           </h2>
-          <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+          <p className="text-lg text-card-foreground leading-relaxed mb-4">
             This English Language module is designed for first-year students of Islamic Sciences at the University of El-Oued. The course focuses on essential grammar topics that form the foundation for academic reading and writing.
           </p>
-          <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed">
+          <p className="text-lg text-card-foreground leading-relaxed">
             Each lesson includes comprehensive explanations, examples, and interactive exercises to help you master the material. You can track your progress and practice as many times as you need.
           </p>
         </Card>
 
         {/* Lessons Grid */}
         <div className="mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-3">
+          <h2 className="text-3xl font-bold text-foreground mb-6 flex items-center gap-3">
             <span>📚</span>
             <span>Course Lessons</span>
           </h2>
@@ -98,15 +98,15 @@ const EnglishModulePage = () => {
                         <div className="text-5xl">{lesson.icon}</div>
                         <div>
                           <div className="flex items-center gap-2 mb-1">
-                            <span className="text-sm font-semibold text-gray-500 dark:text-gray-400">
+                            <span className="text-sm font-semibold text-muted-foreground">
                               Lesson {lesson.number}
                             </span>
                             <span className={cn('w-2 h-2 rounded-full', diffStyle.badge)} />
                           </div>
-                          <h3 className="text-xl font-bold text-gray-900 dark:text-white">
+                          <h3 className="text-xl font-bold text-foreground">
                             {lesson.title}
                           </h3>
-                          <p className="text-sm text-gray-600 dark:text-gray-400">
+                          <p className="text-sm text-muted-foreground">
                             {lesson.titleAr}
                           </p>
                         </div>
@@ -114,13 +114,13 @@ const EnglishModulePage = () => {
                     </div>
 
                     {/* Description */}
-                    <p className="text-gray-700 dark:text-gray-300 mb-4 line-clamp-2">
+                    <p className="text-card-foreground mb-4 line-clamp-2">
                       {lesson.description}
                     </p>
 
                     {/* Meta Info */}
                     <div className="flex flex-wrap gap-2 mb-4">
-                      <span className="px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300">
+                      <span className="px-3 py-1 rounded-full text-xs font-semibold bg-muted text-muted-foreground">
                         ⏱️ {lesson.duration}
                       </span>
                       <span className={cn('px-3 py-1 rounded-full text-xs font-semibold capitalize', diffStyle.bg, diffStyle.text)}>
@@ -148,7 +148,7 @@ const EnglishModulePage = () => {
 
         {/* Learning Path */}
         <Card className="p-8 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 border-2 border-blue-200 dark:border-blue-800">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center gap-3">
+          <h2 className="text-2xl font-bold text-foreground mb-6 flex items-center gap-3">
             <span>🎯</span>
             <span>Recommended Learning Path</span>
           </h2>
@@ -159,10 +159,10 @@ const EnglishModulePage = () => {
                   {lesson.number}
                 </div>
                 <div className="flex-1">
-                  <h4 className="font-semibold text-gray-900 dark:text-white">
+                  <h4 className="font-semibold text-foreground">
                     {lesson.title}
                   </h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-400">
+                  <p className="text-sm text-muted-foreground">
                     {lesson.duration} • {lesson.difficulty}
                   </p>
                 </div>
@@ -175,7 +175,7 @@ const EnglishModulePage = () => {
         </Card>
 
         {/* Navigation */}
-        <div className="flex justify-between items-center pt-12 mt-12 border-t-2 border-gray-200 dark:border-gray-700">
+          <div className="flex justify-between items-center pt-12 mt-12 border-t-2 border-border">
           <Link to="/subjects">
             <Button variant="secondary" size="lg">
               ← Back to Modules

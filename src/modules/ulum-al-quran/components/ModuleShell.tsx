@@ -48,7 +48,7 @@ export function ModuleShell({ manifest, initialLessonId, onLessonChange }: Modul
 
   return (
     <div
-      className="flex h-screen flex-col bg-gray-50"
+      className="flex h-screen flex-col bg-background"
       dir="rtl"
       lang="ar"
     >
@@ -62,7 +62,7 @@ export function ModuleShell({ manifest, initialLessonId, onLessonChange }: Modul
       {/* Main Content Area */}
       <div className="flex flex-1 overflow-hidden">
         {/* Sidebar - Desktop */}
-        <div className="hidden md:flex md:w-64 md:flex-col md:border-l md:border-gray-200 md:bg-white">
+        <div className="hidden md:flex md:w-64 md:flex-col md:border-l md:border-border md:bg-card">
           <ModuleSidebar
             manifest={manifest}
             currentLessonId={currentLessonId}
@@ -81,7 +81,7 @@ export function ModuleShell({ manifest, initialLessonId, onLessonChange }: Modul
             />
 
             {/* Drawer */}
-            <div className="absolute inset-y-0 right-0 z-50 w-64 overflow-y-auto bg-white shadow-lg">
+            <div className="absolute inset-y-0 right-0 z-50 w-64 overflow-y-auto bg-card shadow-lg">
               <ModuleSidebar
                 manifest={manifest}
                 currentLessonId={currentLessonId}
@@ -101,7 +101,7 @@ export function ModuleShell({ manifest, initialLessonId, onLessonChange }: Modul
             />
           ) : (
             <div className="flex items-center justify-center p-8">
-              <p className="text-gray-500">جاري تحميل الدرس...</p>
+              <p className="text-muted-foreground">جاري تحميل الدرس...</p>
             </div>
           )}
         </div>

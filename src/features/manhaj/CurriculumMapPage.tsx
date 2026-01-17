@@ -40,25 +40,25 @@ export default function CurriculumMapPage() {
       <section className="py-8 bg-stone-100 dark:bg-stone-900">
         <Container>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-            <div className="bg-white dark:bg-stone-800 rounded-xl p-6 text-center shadow-md">
+            <div className="bg-card rounded-xl p-6 text-center shadow-md">
               <div className="text-4xl font-bold text-teal-600 dark:text-teal-400 mb-2">
                 {manhajSciences.length}
               </div>
               <div className="text-sm text-stone-600 dark:text-stone-400">علوم / Sciences</div>
             </div>
-            <div className="bg-white dark:bg-stone-800 rounded-xl p-6 text-center shadow-md">
+            <div className="bg-card rounded-xl p-6 text-center shadow-md">
               <div className="text-4xl font-bold text-emerald-600 dark:text-emerald-400 mb-2">
                 {totalCredits}
               </div>
               <div className="text-sm text-stone-600 dark:text-stone-400">ساعة معتمدة / Credits</div>
             </div>
-            <div className="bg-white dark:bg-stone-800 rounded-xl p-6 text-center shadow-md">
+            <div className="bg-card rounded-xl p-6 text-center shadow-md">
               <div className="text-4xl font-bold text-blue-600 dark:text-blue-400 mb-2">
                 {totalHours}
               </div>
               <div className="text-sm text-stone-600 dark:text-stone-400">ساعة تدريس / Hours</div>
             </div>
-            <div className="bg-white dark:bg-stone-800 rounded-xl p-6 text-center shadow-md">
+            <div className="bg-card rounded-xl p-6 text-center shadow-md">
               <div className="text-4xl font-bold text-purple-600 dark:text-purple-400 mb-2">
                 16
               </div>
@@ -77,7 +77,7 @@ export default function CurriculumMapPage() {
               Learning Pathway
             </span>
           </h2>
-          <div className="max-w-5xl mx-auto bg-white dark:bg-stone-800 rounded-2xl p-8 shadow-lg mb-12">
+          <div className="max-w-5xl mx-auto bg-card rounded-2xl p-8 shadow-lg mb-12">
             <img
               src="/docs/diagrams/pathway.png"
               alt="Learning Pathway - 4 Phases"
@@ -107,7 +107,7 @@ export default function CurriculumMapPage() {
                     return science ? (
                       <div
                         key={scienceId}
-                        className="text-xs bg-white dark:bg-stone-900 rounded px-3 py-2 text-right"
+                        className="text-xs bg-card rounded px-3 py-2 text-right"
                       >
                         {science.titleAr}
                       </div>
@@ -136,7 +136,7 @@ export default function CurriculumMapPage() {
               className={`px-6 py-3 rounded-lg font-semibold transition-all ${
                 selectedCategory === 'all'
                   ? 'bg-teal-600 text-white shadow-lg'
-                  : 'bg-white dark:bg-stone-800 text-stone-700 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-700'
+                  : 'bg-card text-stone-700 dark:text-stone-300 hover:bg-muted dark:hover:bg-stone-700'
               }`}
             >
               الكل / All ({manhajSciences.length})
@@ -146,7 +146,7 @@ export default function CurriculumMapPage() {
               className={`px-6 py-3 rounded-lg font-semibold transition-all ${
                 selectedCategory === 'core'
                   ? 'bg-emerald-600 text-white shadow-lg'
-                  : 'bg-white dark:bg-stone-800 text-stone-700 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-700'
+                  : 'bg-card text-stone-700 dark:text-stone-300 hover:bg-muted dark:hover:bg-stone-700'
               }`}
             >
               العلوم الأساسية / Core ({coreSciences.length})
@@ -156,7 +156,7 @@ export default function CurriculumMapPage() {
               className={`px-6 py-3 rounded-lg font-semibold transition-all ${
                 selectedCategory === 'supporting'
                   ? 'bg-amber-600 text-white shadow-lg'
-                  : 'bg-white dark:bg-stone-800 text-stone-700 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-700'
+                  : 'bg-card text-stone-700 dark:text-stone-300 hover:bg-muted dark:hover:bg-stone-700'
               }`}
             >
               العلوم المساعدة / Supporting ({supportingSciences.length})
@@ -166,7 +166,7 @@ export default function CurriculumMapPage() {
               className={`px-6 py-3 rounded-lg font-semibold transition-all ${
                 selectedCategory === 'technical'
                   ? 'bg-blue-600 text-white shadow-lg'
-                  : 'bg-white dark:bg-stone-800 text-stone-700 dark:text-stone-300 hover:bg-stone-100 dark:hover:bg-stone-700'
+                  : 'bg-card text-stone-700 dark:text-stone-300 hover:bg-muted dark:hover:bg-stone-700'
               }`}
             >
               العلوم التقنية / Technical ({technicalSciences.length})
@@ -178,7 +178,7 @@ export default function CurriculumMapPage() {
               <Link
                 key={science.id}
                 to={`/manhaj/science/${science.id}`}
-                className="group bg-white dark:bg-stone-800 rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all border border-stone-200 dark:border-stone-700 hover:scale-105"
+                className="group bg-card rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all border border-stone-200 dark:border-stone-700 hover:scale-105"
               >
                 <div className="flex items-start justify-between mb-4">
                   <div className={`text-5xl`}>{science.icon}</div>
@@ -228,7 +228,7 @@ export default function CurriculumMapPage() {
             </p>
             <Link
               to="/subjects"
-              className="inline-block bg-white text-teal-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-stone-100 transition-colors shadow-lg"
+              className="inline-block bg-card text-primary px-8 py-4 rounded-lg text-lg font-semibold hover:bg-muted transition-colors shadow-lg"
             >
               عرض جميع المواد →
             </Link>

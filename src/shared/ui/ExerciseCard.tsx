@@ -52,7 +52,7 @@ const ExerciseCard = ({ exercise, exerciseNumber, onComplete }: ExerciseCardProp
           {exerciseNumber}
         </span>
         <div className="flex-1">
-          <p className="text-lg font-semibold text-gray-900 dark:text-white">
+          <p className="text-lg font-semibold text-foreground">
             {exercise.question}
           </p>
         </div>
@@ -84,13 +84,13 @@ const ExerciseCard = ({ exercise, exerciseNumber, onComplete }: ExerciseCardProp
                 'hover:border-primary-400 dark:hover:border-primary-600',
                 selectedOption === option
                   ? 'border-primary-600 bg-primary-50 dark:bg-primary-900/30'
-                  : 'border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800',
+                  : 'border-border bg-card',
                 showResult && option === exercise.correctAnswer && 'border-green-500 bg-green-50 dark:bg-green-900/30',
                 showResult && selectedOption === option && option !== exercise.correctAnswer && 'border-red-500 bg-red-50 dark:bg-red-900/30',
                 showResult && 'cursor-not-allowed'
               )}
             >
-              <span className="font-medium text-gray-900 dark:text-white">
+              <span className="font-medium text-foreground">
                 {String.fromCharCode(65 + idx)}. {option}
               </span>
             </button>
@@ -113,12 +113,12 @@ const ExerciseCard = ({ exercise, exerciseNumber, onComplete }: ExerciseCardProp
             </span>
           </div>
           {!isCorrect && (
-            <p className="text-gray-800 dark:text-gray-200 mb-1">
+            <p className="text-card-foreground mb-1">
               <span className="font-semibold">Correct answer:</span> {exercise.correctAnswer}
             </p>
           )}
           {exercise.explanation && (
-            <p className="text-gray-700 dark:text-gray-300 text-sm">
+            <p className="text-card-foreground text-sm">
               <span className="font-semibold">Explanation:</span> {exercise.explanation}
             </p>
           )}

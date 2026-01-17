@@ -43,7 +43,7 @@ const ModuleCard = forwardRef<HTMLDivElement, ModuleCardProps>(
       <div
         ref={ref}
         className={cn(
-          'group relative overflow-hidden rounded-2xl border-2 bg-white dark:bg-gray-900',
+          'group relative overflow-hidden rounded-2xl border-2 bg-card',
           'transition-all duration-300 hover:shadow-xl hover:-translate-y-1',
           styles.border,
           styles.hover,
@@ -87,21 +87,21 @@ const ModuleCard = forwardRef<HTMLDivElement, ModuleCardProps>(
 
           {/* Title */}
           <div>
-            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1 line-clamp-1">
+            <h3 className="text-xl font-bold text-foreground mb-1 line-clamp-1">
               {module.titleAr}
             </h3>
-            <p className="text-sm text-gray-500 dark:text-gray-400">
+            <p className="text-sm text-muted-foreground">
               {module.title}
             </p>
           </div>
 
           {/* Description */}
-          <p className="text-sm text-gray-600 dark:text-gray-300 line-clamp-2 leading-relaxed">
+          <p className="text-sm text-muted-foreground line-clamp-2 leading-relaxed">
             {module.description}
           </p>
 
           {/* Stats */}
-          <div className="flex items-center gap-4 text-xs text-gray-500 dark:text-gray-400">
+          <div className="flex items-center gap-4 text-xs text-muted-foreground">
             <div className="flex items-center gap-1">
               <span>⏱️</span>
               <span>{module.hours} ساعة</span>
@@ -117,13 +117,13 @@ const ModuleCard = forwardRef<HTMLDivElement, ModuleCardProps>(
             {module.topics.slice(0, 3).map((topic, idx) => (
               <span
                 key={idx}
-                className="px-2 py-1 text-xs rounded-md bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300"
+                className="px-2 py-1 text-xs rounded-md bg-muted text-muted-foreground"
               >
                 {topic}
               </span>
             ))}
             {module.topics.length > 3 && (
-              <span className="px-2 py-1 text-xs rounded-md bg-gray-100 dark:bg-gray-800 text-gray-500 dark:text-gray-400">
+              <span className="px-2 py-1 text-xs rounded-md bg-muted text-muted-foreground">
                 +{module.topics.length - 3}
               </span>
             )}
@@ -141,8 +141,8 @@ const ModuleCard = forwardRef<HTMLDivElement, ModuleCardProps>(
             className={cn(
               'block w-full mt-4 py-3 px-4 rounded-xl text-center font-semibold',
               'transition-all duration-200',
-              'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200',
-              'hover:bg-gray-200 dark:hover:bg-gray-700',
+              'bg-muted text-card-foreground dark:text-card-foreground',
+              'hover:bg-muted dark:hover:bg-muted',
               'group-hover:shadow-md'
             )}
           >
