@@ -188,6 +188,41 @@ export const modulesData: Module[] = [
     },
   },
   {
+    id: 'usul-al-fiqh-1',
+    code: 'UEF-114',
+    nameAr: 'أصول الفقه 1',
+    nameEn: 'Principles of Jurisprudence 1',
+    description:
+      'مقياس يتناول القواعد والأصول التي يعتمد عليها الفقيه في استنباط الأحكام الشرعية من أدلتها التفصيلية.',
+    type: 'fundamental',
+    credits: 5,
+    weeklyHours: {
+      lecture: 2,
+      tutorial: 2,
+      practical: 0,
+    },
+    semesterId: 'licence-1-s1',
+    prerequisiteIds: [],
+    objectives: [
+      'التعرف على مفهوم أصول الفقه ونشأته',
+      'فهم أنواع الحكم الشرعي',
+      'دراسة الأدلة الشرعية المتفق عليها',
+    ],
+    outcomes: [
+      'يعرف الطالب مبادئ علم أصول الفقه',
+      'يميز بين أنواع الأحكام الشرعية',
+      'يفهم كيفية الاستدلال بالأدلة المتفق عليها',
+    ],
+    keywords: ['أصول الفقه', 'الحكم الشرعي', 'الأدلة'],
+    unitIds: [],
+    resourceIds: [],
+    assessment: {
+      continuous: 40,
+      exam: 60,
+      types: ['continuous', 'exam'],
+    },
+  },
+  {
     id: 'arabic-1',
     code: 'UET-116',
     nameAr: 'اللغة العربية 1 (النحو)',

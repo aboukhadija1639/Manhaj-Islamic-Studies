@@ -4,8 +4,9 @@ import { academicService } from '@/app/services';
 import { lazy, Suspense } from 'react';
 import { getModuleById } from '../../data/academics/years/licence-year-1.data';
 
-// استيراد ModuleDetailPage الجديد لعلوم القرآن
-const ModuleDetailPage = lazy(() => import('../../modules/ulum-al-quran/components/ModuleDetailPage').then(m => ({ default: m.ModuleDetailPage })));
+// استيراد ModuleDetailPage الجديد لعلوم القرآن وأصول الفقه
+const UlumAlQuranDetailPage = lazy(() => import('../../modules/ulum-al-quran/components/ModuleDetailPage').then(m => ({ default: m.ModuleDetailPage })));
+const UsulAlFiqhDetailPage = lazy(() => import('../../modules/usul-al-fiqh/components/ModuleDetailPage').then(m => ({ default: m.ModuleDetailPage })));
 
 export default function AcademicModulePage() {
   const { degreeId, specialtyId, yearId, semesterId, moduleId } = useParams();
@@ -43,14 +44,18 @@ export default function AcademicModulePage() {
     navigate(`/academics/${degreeId}/${specialtyId}/${yearId}/${semesterId}`);
   };
 
-  // إذا كان المقياس هو علوم القرآن، نستخدم الصفحة الجديدة المتكاملة
-  if (moduleId === 'ulum-al-quran') {
+  // إذا كان المقياس هو علوم القرآن أو أصول الفقه، نستخدم الصفحة الجديدة المتكاملة
+  if (moduleId === 'ulum-al-quran' || moduleId === 'usul-al-fiqh-1') {
+    const isUsul = moduleId === 'usul-al-fiqh-1';
+    const DetailPage = isUsul ? UsulAlFiqhDetailPage : UlumAlQuranDetailPage;
+    const moduleName = isUsul ? 'أصول الفقه' : 'علوم القرآن';
+
     return (
       <div>
         {/* Breadcrumb Navigation */}
         <div className="bg-card border-b border-border" dir="rtl">
           <Container className="py-4">
-            <nav className="flex items-center gap-2 text-sm text-muted-foreground">
+            <nav className="flex flex-wrap items-center gap-2 text-sm text-muted-foreground">
               <button
                 onClick={() => navigate('/academics')}
                 className="hover:text-primary transition-colors"
@@ -69,7 +74,7 @@ export default function AcademicModulePage() {
                 onClick={() => navigate(`/academics/${degreeId}/${specialtyId}`)}
                 className="hover:text-primary transition-colors"
               >
-                علوم القرآن والقراءات
+                {specialtyId === 'quran-sciences' ? 'علوم القرآن والقراءات' : specialtyId}
               </button>
               <span>/</span>
               <button
@@ -86,14 +91,14 @@ export default function AcademicModulePage() {
                 السداسي الأول
               </button>
               <span>/</span>
-              <span className="text-foreground font-medium">علوم القرآن</span>
+              <span className="text-foreground font-medium">{moduleName}</span>
             </nav>
           </Container>
         </div>
 
         {/* Module Detail Page */}
         <Suspense fallback={<div className="p-20 text-center">جاري تحميل المقياس...</div>}>
-          <ModuleDetailPage
+          <DetailPage
             moduleId={moduleId}
             onNavigateToLesson={handleNavigateToLesson}
           />
