@@ -49,8 +49,8 @@ export function ModuleDetailPage({
   const units = usulModuleUnits;
   const resources = usulModuleResources;
   
-  const totalLessons = units.reduce((acc, unit) => acc + unit.lessons.length, 0);
-  const totalMinutes = units.reduce((acc, unit) => acc + unit.estimatedDuration, 0);
+  const totalLessons = units.reduce((acc: number, unit: UsulModuleUnit) => acc + unit.lessons.length, 0);
+  const totalMinutes = units.reduce((acc: number, unit: UsulModuleUnit) => acc + unit.estimatedDuration, 0);
   const totalHours = Math.round(totalMinutes / 60);
   
   const completionPercentage = totalLessons > 0 
@@ -167,7 +167,7 @@ export function ModuleDetailPage({
                 </CardHeader>
                 <CardContent>
                   <ul className="space-y-3">
-                    {usulModuleOverview.prerequisites.map((prereq, index) => (
+                    {usulModuleOverview.prerequisites.map((prereq: string, index: number) => (
                       <li key={index} className="flex items-start gap-2">
                         <CheckCircle2 className="h-5 w-5 text-indigo-600 flex-shrink-0 mt-0.5" />
                         <span className="text-foreground">{prereq}</span>
@@ -184,7 +184,7 @@ export function ModuleDetailPage({
                 <CardContent>
                   <ul className="space-y-3">
                     {usulModuleOverview.assessmentCriteria.map(
-                      (criterion, index) => (
+                      (criterion: string, index: number) => (
                         <li key={index} className="flex items-start gap-2">
                           <div className="h-2 w-2 rounded-full bg-indigo-600 flex-shrink-0 mt-2.5" />
                           <span className="text-foreground">{criterion}</span>
@@ -208,7 +208,7 @@ export function ModuleDetailPage({
               </CardHeader>
               <CardContent>
                 <ul className="space-y-4">
-                  {usulModuleOverview.objectives.map((objective, index) => (
+                  {usulModuleOverview.objectives.map((objective: string, index: number) => (
                     <li key={index} className="flex items-start gap-4">
                       <div className="flex-shrink-0 w-10 h-10 rounded-full bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold">
                         {index + 1}
@@ -229,7 +229,7 @@ export function ModuleDetailPage({
               </CardHeader>
               <CardContent>
                 <ul className="space-y-3">
-                  {usulModuleOverview.outcomes.map((outcome, index) => (
+                  {usulModuleOverview.outcomes.map((outcome: string, index: number) => (
                     <li key={index} className="flex items-start gap-2">
                       <CheckCircle2 className="h-5 w-5 text-indigo-600 flex-shrink-0 mt-0.5" />
                       <span className="text-foreground text-lg">{outcome}</span>
@@ -242,7 +242,7 @@ export function ModuleDetailPage({
 
           {/* Content Tab */}
           <TabsContent value="content" className="space-y-4">
-            {units.map((unit) => (
+            {units.map((unit: UsulModuleUnit) => (
               <UnitCard
                 key={unit.id}
                 unit={unit}
@@ -255,7 +255,7 @@ export function ModuleDetailPage({
 
           {/* Resources Tab */}
           <TabsContent value="resources" className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {resources.map((resource) => (
+            {resources.map((resource: UsulModuleResource) => (
               <ResourceCard key={resource.id} resource={resource} />
             ))}
           </TabsContent>
@@ -291,9 +291,9 @@ export function ModuleDetailPage({
 
                   <div className="space-y-4">
                     <h3 className="font-bold text-lg">التقدم حسب الوحدات</h3>
-                    {units.map((unit) => {
+                    {units.map((unit: UsulModuleUnit) => {
                       const unitLessons = unit.lessons.length;
-                      const completedInUnit = unit.lessons.filter((l) =>
+                      const completedInUnit = unit.lessons.filter((l: UsulModuleLesson) =>
                         completedLessons.has(l.id)
                       ).length;
                       const unitPercentage = Math.round(
@@ -348,7 +348,7 @@ function UnitCard({
       </CardHeader>
       <CardContent className="p-0">
         <div className="divide-y divide-border">
-          {unit.lessons.map((lesson) => (
+          {unit.lessons.map((lesson: UsulModuleLesson) => (
             <div
               key={lesson.id}
               className="flex items-center justify-between p-4 hover:bg-muted/50 transition-colors group"
@@ -436,4 +436,5 @@ function ResourceCard({ resource }: { resource: UsulModuleResource }) {
         </Button>
       </div>
     </Card>
+  );
 }

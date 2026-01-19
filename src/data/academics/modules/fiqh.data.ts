@@ -1,4 +1,4 @@
-import type { Module } from '@/domain/academics/types';
+import type { Module } from '../../../domain/academics/types';
 
 /**
  * بيانات مقياس الفقه الإسلامي
