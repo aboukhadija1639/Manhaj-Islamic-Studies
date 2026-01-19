@@ -230,7 +230,13 @@ export default function SubjectDetailPage() {
                         <div className="flex-1">
                           <h3 className="text-lg font-bold text-foreground mb-2">{lecture.titleAr || lecture.title}</h3>
                           {(lecture.descriptionAr || lecture.description) && (
-                            <p className="text-muted-foreground text-sm">{lecture.descriptionAr || lecture.description}</p>
+                            <p className="text-muted-foreground text-sm mb-2">{lecture.descriptionAr || lecture.description}</p>
+                          )}
+                          {lecture.summaryAr && (
+                            <div className="mt-3 p-4 bg-emerald-50 dark:bg-emerald-900/20 rounded-lg border-r-4 border-emerald-500">
+                              <h4 className="text-sm font-bold text-emerald-700 dark:text-emerald-400 mb-1">ملخص المحاضرة:</h4>
+                              <p className="text-foreground text-sm leading-relaxed">{lecture.summaryAr}</p>
+                            </div>
                           )}
                         </div>
                         {lecture.duration && (

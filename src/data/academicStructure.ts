@@ -29,6 +29,7 @@ export interface Lecture {
   titleAr: string;
   description?: string;
   descriptionAr?: string;
+  summaryAr?: string;
   duration?: string;
   fileUrl?: string;
   videoUrl?: string;
@@ -147,6 +148,7 @@ export const licenceProgram: Program = {
                   titleAr: 'المحاضرة الأولى: التعريف بمقياس مدخل إلى سيرة رسول الله ﷺ',
                   title: 'Lecture 1: Introduction to the Study of the Prophet\'s Biography',
                   descriptionAr: 'الفرق بين السيرة النبوية والسنة النبوية، مزايا السيرة النبوية، وأهمية دراستها',
+                  summaryAr: 'تضع المحاضرة الأساس النظري للمقياس، مفرقة بين السيرة (التطبيق العملي للوحي) والسنة (المصدر التشريعي). وتؤكد على مزايا السيرة من شمولية ودقة، وأهميتها في فهم القرآن والاقتداء العملي.',
                   order: 1
                 },
                 {
@@ -154,6 +156,7 @@ export const licenceProgram: Program = {
                   titleAr: 'المحاضرة الثانية: الرؤية التوحيدية ووظيفة الرسول فيها',
                   title: 'Lecture 2: The Monotheistic Vision and the Prophet\'s Role',
                   descriptionAr: 'شروط تحقيق الرؤية التوحيدية، مستويات المعرفة، ووظيفة الرسول في الرؤية التوحيدية',
+                  summaryAr: 'تحليل للرؤية التوحيدية كمنهج حياة، مع تحديد شروط تحقيقها (الإخلاص والاتباع). وتوضح المحاضرة مستويات المعرفة (فطرية، عقلية، وحيية) وتضع وظيفة الرسول في قلب هذه الرؤية كبلاغ وتزكية.',
                   order: 2
                 },
                 {
@@ -161,6 +164,7 @@ export const licenceProgram: Program = {
                   titleAr: 'المحاضرة الثالثة: مصادر السيرة النبوية',
                   title: 'Lecture 3: Sources of the Prophetic Biography',
                   descriptionAr: 'مصادر السيرة النبوية وأهمية معرفتها',
+                  summaryAr: 'استعراض نقدي للمصادر المعتمدة للسيرة، بدءاً من القرآن الكريم (أوثق المصادر) وكتب الحديث الصحيحة، وصولاً إلى كتب المغازي والسير الأولى، مع التأكيد على منهجية التوثيق الأكاديمي.',
                   order: 3
                 },
                 {
@@ -168,6 +172,7 @@ export const licenceProgram: Program = {
                   titleAr: 'المحاضرة الرابعة: حياة العرب قبل بعثة النبي ﷺ',
                   title: 'Lecture 4: Life of Arabs Before the Prophetic Mission',
                   descriptionAr: 'الجانب الاجتماعي في الجزيرة العربية قبل الإسلام',
+                  summaryAr: 'تحليل للبيئة الجاهلية (الاجتماعية والدينية)، مبرزة الحكمة من اختيار شبه الجزيرة العربية مهداً للرسالة. وتوضح المحاضرة الفرق بين الكعبة كرمز للتوحيد والأصنام كرمز للوثنية الطارئة.',
                   order: 4
                 },
                 {
@@ -175,6 +180,7 @@ export const licenceProgram: Program = {
                   titleAr: 'المحاضرة الخامسة: حركة النبي ﷺ في مجتمعه قبل بعثته',
                   title: 'Lecture 5: The Prophet\'s Activities Before His Mission',
                   descriptionAr: 'الجانب الاقتصادي والديني والثقافي في حياة النبي قبل البعثة',
+                  summaryAr: 'تبرز المحاضرة الإعداد الإلهي للنبي ﷺ من خلال عمله في الرعي والتجارة، مما أكسبه صفات القيادة والأمانة. وتوضح الحكمة من بعثته أمياً لقطع الطريق على المشككين في مصدر الوحي.',
                   order: 5
                 },
                 {
@@ -182,6 +188,7 @@ export const licenceProgram: Program = {
                   titleAr: 'المحاضرة السادسة: من البشارات إلى المولد',
                   title: 'Lecture 6: From Prophecies to Birth',
                   descriptionAr: 'بشارات مولد النبي ﷺ وحكمة هذه البشارات',
+                  summaryAr: 'تستعرض الإرهاصات والبشارات التي سبقت المولد النبوي (حادثة الفيل، رؤيا آمنة، بشارات الأنبياء)، وتؤكد على أن مولده كان تحولاً تاريخياً ورحمة شاملة للعالمين.',
                   order: 6
                 },
                 {
@@ -189,6 +196,7 @@ export const licenceProgram: Program = {
                   titleAr: 'المحاضرة السابعة: من البعثة إلى الهجرة - الجزء الأول',
                   title: 'Lecture 7: From Mission to Migration - Part 1',
                   descriptionAr: 'بداية الدعوة السرية',
+                  summaryAr: 'تتناول المحاضرة بدء الوحي، مفسرة حكمة خلوة النبي ﷺ في غار حراء كتهيئة روحية. وتؤكد على دلالات كلمة "اقرأ" كمنطلق للعلم والمعرفة في بناء الأمة الإسلامية.',
                   order: 7
                 },
                 {
@@ -196,6 +204,7 @@ export const licenceProgram: Program = {
                   titleAr: 'المحاضرة الثامنة: من البعثة إلى الهجرة - الجزء الثاني',
                   title: 'Lecture 8: From Mission to Migration - Part 2',
                   descriptionAr: 'خصائص الدعوة السرية والجهرية',
+                  summaryAr: 'تحليل لمرحلتي الدعوة السرية والجهرية. تبرر السرية ببناء النواة المؤمنة (الرعيل الأول) وتركز على التربية العقدية، وتوضح خصائص الجهرية كإعلان للحق ومواجهة للباطل.',
                   order: 8
                 },
                 {
@@ -203,6 +212,7 @@ export const licenceProgram: Program = {
                   titleAr: 'المحاضرة التاسعة: من البعثة إلى الهجرة - تابع',
                   title: 'Lecture 9: From Mission to Migration - Continued',
                   descriptionAr: 'بناء الإنسان النوراني',
+                  summaryAr: 'تفنيد للشبهات حول فقر النبي ﷺ ونبذه الاجتماعي، وتأكيد على مكانته المرموقة. وتوضح المحاضرة حكمة اليتم كإعداد إلهي مباشر للنبي ﷺ ليتولى الله تربيته دون فضل لأحد من البشر.',
                   order: 9
                 },
                 {
@@ -210,6 +220,7 @@ export const licenceProgram: Program = {
                   titleAr: 'المحاضرة العاشرة: من البعثة إلى الهجرة - تابع',
                   title: 'Lecture 10: From Mission to Migration - Continued',
                   descriptionAr: 'خصائص الدعوة الجهرية',
+                  summaryAr: 'تتناول معجزة الإسراء والمعراج كرحلة لتثبيت النبي ﷺ بعد عام الحزن، وربط المسجد الحرام بالأقصى. وتوضح الفرق بين المعجزة (تحدي النبوة) والكرامة (منحة للولي) والشعوذة (خداع بصري).',
                   order: 10
                 },
                 {
@@ -217,6 +228,7 @@ export const licenceProgram: Program = {
                   titleAr: 'المحاضرة الحادية عشر: من البعثة إلى الهجرة - تابع',
                   title: 'Lecture 11: From Mission to Migration - Continued',
                   descriptionAr: 'مفهوم الأمة والمعجزة والشعوذة، ورحلة الإسراء والمعراج',
+                  summaryAr: 'تحليل لأسباب الهجرة (اشتداد الأذى، البحث عن بيئة آمنة) ودلالاتها الاستراتيجية. وتؤكد على أن الهجرة كانت تخطيطاً دقيقاً وتوكلاً على الله، وتستشهد بالآية 40 من سورة التوبة كدرس في اليقين.',
                   order: 11
                 },
                 {
@@ -224,6 +236,7 @@ export const licenceProgram: Program = {
                   titleAr: 'المحاضرة الثانية عشر: من الهجرة إلى الوفاة',
                   title: 'Lecture 12: From Migration to the Prophet\'s Passing',
                   descriptionAr: 'الأسباب الموجبة للهجرة ودلالاتها',
+                  summaryAr: 'تستعرض المحاضرة وصايا حجة الوداع (حرمة الدماء والأموال، حقوق النساء) كإعلان لكمال الدين، وتختتم بوفاة النبي ﷺ وأثرها العظيم في تثبيت مفهوم بقاء الرسالة رغم فناء الرسول.',
                   order: 12
                 }
               ]
