@@ -130,6 +130,17 @@ export const licenceProgram: Program = {
               references: ['الرحيق المختوم - المباركفوري', 'السيرة النبوية - ابن هشام']
             },
             {
+              id: 'usul-al-fiqh-1',
+              name: 'Principles of Jurisprudence (1)',
+              nameAr: 'أصول الفقه (1)',
+              type: 'أساسي',
+              credit: 5,
+              coefficient: 2,
+              description: 'مدخل إلى أصول الفقه ومصادر التشريع والحكم الشرعي',
+              objectives: ['التعرف على مفهوم أصول الفقه ونشأته', 'فهم أنواع الحكم الشرعي', 'دراسة الأدلة الشرعية المتفق عليها'],
+              references: ['الورقات - الجويني', 'مذكرة أصول الفقه - الشنقيطي']
+            },
+            {
               id: 'l1-s1-arabic',
               name: 'Arabic Language (Grammar & Morphology)',
               nameAr: 'اللغة العربية (نحو وصرف)',
