@@ -1,4 +1,51 @@
-import { Module } from '../types';
+// Module data structure for السيرة النبوية (1)
+// Following the pattern from other module data files
+
+export interface Module {
+  id: string;
+  title: string;
+  code: string;
+  credits: number;
+  semester: number;
+  description: string;
+  objectives: string[];
+  prerequisites: string[];
+  syllabus: {
+    lectures: Array<{
+      number: number;
+      title: string;
+      topics: string[];
+      duration: string;
+    }>;
+    assessments: Array<{
+      type: string;
+      weight: number;
+      description: string;
+    }>;
+    examNotes: string[];
+  };
+  resources: {
+    required: Array<{
+      type: string;
+      title: string;
+      author: string;
+      description: string;
+    }>;
+    recommended: Array<{
+      type: string;
+      title: string;
+      author: string;
+      description: string;
+    }>;
+  };
+  instructor: {
+    name: string;
+    office: string;
+    email: string;
+    officeHours: string;
+  };
+  tags: string[];
+}
 
 export const sirahNabawiyah1Module: Module = {
   id: 'sirah-nabawiyah-1',
