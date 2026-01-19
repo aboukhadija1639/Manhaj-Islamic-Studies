@@ -85,11 +85,11 @@ export const commonCoreDetails = {
         description: 'دراسة أحكام العبادات والمعاملات',
       },
       {
-        id: 'usul-fiqh',
+        id: 'usul-al-fiqh-1',
         nameAr: 'أصول الفقه',
-        credits: 4,
+        credits: 5,
         type: 'fundamental' as const,
-        description: 'مدخل إلى أصول الفقه ومصادر التشريع',
+        description: 'مدخل إلى أصول الفقه ومصادر التشريع والحكم الشرعي',
       },
       {
         id: 'aqidah-islamiyah',
