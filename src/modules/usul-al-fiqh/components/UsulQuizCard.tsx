@@ -8,9 +8,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../../../shared/ui/Card';
 import Button from '../../../shared/ui/Button';
 import { Badge } from '../../../shared/ui/Badge';
-import { CheckCircle2, XCircle, AlertCircle, BookOpen, Lightbulb } from 'lucide-react';
+import { CheckCircle2, XCircle, BookOpen, Lightbulb } from 'lucide-react';
 import { cn } from '../../../shared/utils/cn';
-import type { QuizQuestion, Citation } from '../../../data/academics/modules/usul-al-fiqh-enhanced.data';
+import type { QuizQuestion } from '../../../data/academics/modules/usul-al-fiqh-enhanced.data';
 
 interface UsulQuizCardProps {
   question: QuizQuestion;
@@ -71,7 +71,7 @@ const UsulQuizCard = ({
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.5, ease: 'easeOut' },
+      transition: { duration: 0.5 },
     },
   };
 
@@ -80,7 +80,7 @@ const UsulQuizCard = ({
     visible: {
       opacity: 1,
       scale: 1,
-      transition: { duration: 0.3, ease: 'easeOut' },
+      transition: { duration: 0.3 },
     },
     exit: { opacity: 0, scale: 0.95, transition: { duration: 0.2 } },
   };

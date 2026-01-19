@@ -8,7 +8,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../../../shared/ui/Card';
 import { Badge } from '../../../shared/ui/Badge';
 import { ChevronDown, BookOpen, Link2 } from 'lucide-react';
-import { cn } from '../../../shared/utils/cn';
+// import { cn } from '../../../shared/utils/cn';
 import type { Definition } from '../../../data/academics/modules/usul-al-fiqh-enhanced.data';
 
 interface DefinitionCardProps {
@@ -37,7 +37,7 @@ const DefinitionCard = ({
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.4, ease: 'easeOut' },
+      transition: { duration: 0.4 },
     },
   };
 
@@ -46,7 +46,7 @@ const DefinitionCard = ({
     visible: {
       opacity: 1,
       height: 'auto',
-      transition: { duration: 0.3, ease: 'easeOut' },
+      transition: { duration: 0.3 },
     },
     exit: { opacity: 0, height: 0, transition: { duration: 0.2 } },
   };

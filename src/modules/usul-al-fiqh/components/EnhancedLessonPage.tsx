@@ -8,7 +8,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '../../../shared/ui/tabs';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../../../shared/ui/Card';
 import { Progress } from '../../../shared/ui/progress';
-import Button from '../../../shared/ui/Button';
+// import Button from '../../../shared/ui/Button';
 import {
   BookOpen,
   Target,
@@ -78,7 +78,7 @@ const EnhancedLessonPage = ({
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.5, ease: 'easeOut' },
+      transition: { duration: 0.5 },
     },
   };
 
@@ -87,7 +87,7 @@ const EnhancedLessonPage = ({
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.3, ease: 'easeOut' },
+      transition: { duration: 0.3 },
     },
   };
 

@@ -9,7 +9,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../..
 import { Badge } from '../../../shared/ui/Badge';
 import { CheckCircle2, BookOpen, Lightbulb, Download } from 'lucide-react';
 import Button from '../../../shared/ui/Button';
-import { cn } from '../../../shared/utils/cn';
+// import { cn } from '../../../shared/utils/cn';
 import type { Summary } from '../../../data/academics/modules/usul-al-fiqh-enhanced.data';
 
 interface LessonSummaryProps {
@@ -43,7 +43,6 @@ const LessonSummary = ({
       y: 0,
       transition: {
         duration: 0.5,
-        ease: 'easeOut',
         staggerChildren: 0.1,
         delayChildren: 0.1,
       },
@@ -55,7 +54,7 @@ const LessonSummary = ({
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.4, ease: 'easeOut' },
+      transition: { duration: 0.4 },
     },
   };
 
@@ -64,7 +63,7 @@ const LessonSummary = ({
     visible: {
       opacity: 1,
       height: 'auto',
-      transition: { duration: 0.3, ease: 'easeOut' },
+      transition: { duration: 0.3 },
     },
     exit: { opacity: 0, height: 0, transition: { duration: 0.2 } },
   };

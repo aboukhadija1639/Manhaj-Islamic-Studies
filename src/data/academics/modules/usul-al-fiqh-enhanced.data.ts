@@ -187,7 +187,7 @@ const citations = {
     source: 'الوجيز في أصول الفقه',
   } as Citation,
 
-  alQur'an: {
+  alQuran: {
     id: 'quran-reference',
     author: 'القرآن الكريم',
     title: 'القرآن الكريم',
@@ -682,10 +682,10 @@ const unit2Lesson1: Lesson = {
       explanationAr: 'الصلاة المفروضة واجبة لأن الشارع أمر بها أمراً جازماً.',
       difficulty: 'easy',
       relatedTopics: ['الواجب', 'الحكم التكليفي'],
-      citations: [citations.alQur'an],
+      citations: [citations.alQuran],
     },
   ],
-  citations: [citations.alJuwayni, citations.alShawkani, citations.alQur'an],
+  citations: [citations.alJuwayni, citations.alShawkani, citations.hadith],
 };
 
 const unit2Lesson2: Lesson = {
