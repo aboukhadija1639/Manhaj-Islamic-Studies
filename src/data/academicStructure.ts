@@ -125,9 +125,108 @@ export const licenceProgram: Program = {
               type: 'أساسي',
               credit: 5,
               coefficient: 2,
-              description: 'سيرة النبي محمد صلى الله عليه وسلم',
-              objectives: ['معرفة حياة النبي', 'فهم الدروس المستفادة من السيرة'],
-              references: ['الرحيق المختوم - المباركفوري', 'السيرة النبوية - ابن هشام']
+              summaryAr: 'مقياس يتناول دراسة سيرة النبي محمد صلى الله عليه وسلم من الميلاد إلى الهجرة، مع التركيز على حياة العرب قبل الإسلام، البعثة النبوية، مراحل الدعوة السرية والجهرية، والهجرة إلى المدينة المنورة. يشمل المقياس 12 محاضرة شاملة مع أقسام خاصة للتحضير للامتحان.',
+              description: 'A comprehensive study of the Prophet Muhammad\'s biography from birth to Hijrah, covering pre-Islamic Arabia, the prophetic mission, stages of da\'wah, and migration to Madinah.',
+              objectivesAr: [
+                'التعرف على حياة العرب قبل الإسلام (الجانب الاجتماعي والاقتصادي والعقدي)',
+                'دراسة مولد النبي صلى الله عليه وسلم وبشارات النبوة',
+                'فهم مراحل الدعوة النبوية (السرية والجهرية)',
+                'إدراك أسباب الهجرة ودلالاتها التربوية',
+                'استخلاص الدروس والعبر من السيرة النبوية'
+              ],
+              referencesAr: [
+                'الرحيق المختوم - صفي الرحمن المباركفوري',
+                'السيرة النبوية - ابن هشام',
+                'البداية والنهاية - ابن كثير',
+                'صحيح البخاري',
+                'صحيح مسلم'
+              ],
+              lectures: [
+                {
+                  id: 'sirah-lecture-1',
+                  titleAr: 'المحاضرة الأولى: التعريف بمقياس مدخل إلى سيرة رسول الله ﷺ',
+                  title: 'Lecture 1: Introduction to the Study of the Prophet\'s Biography',
+                  descriptionAr: 'الفرق بين السيرة النبوية والسنة النبوية، مزايا السيرة النبوية، وأهمية دراستها',
+                  order: 1
+                },
+                {
+                  id: 'sirah-lecture-2',
+                  titleAr: 'المحاضرة الثانية: الرؤية التوحيدية ووظيفة الرسول فيها',
+                  title: 'Lecture 2: The Monotheistic Vision and the Prophet\'s Role',
+                  descriptionAr: 'شروط تحقيق الرؤية التوحيدية، مستويات المعرفة، ووظيفة الرسول في الرؤية التوحيدية',
+                  order: 2
+                },
+                {
+                  id: 'sirah-lecture-3',
+                  titleAr: 'المحاضرة الثالثة: مصادر السيرة النبوية',
+                  title: 'Lecture 3: Sources of the Prophetic Biography',
+                  descriptionAr: 'مصادر السيرة النبوية وأهمية معرفتها',
+                  order: 3
+                },
+                {
+                  id: 'sirah-lecture-4',
+                  titleAr: 'المحاضرة الرابعة: حياة العرب قبل بعثة النبي ﷺ',
+                  title: 'Lecture 4: Life of Arabs Before the Prophetic Mission',
+                  descriptionAr: 'الجانب الاجتماعي في الجزيرة العربية قبل الإسلام',
+                  order: 4
+                },
+                {
+                  id: 'sirah-lecture-5',
+                  titleAr: 'المحاضرة الخامسة: حركة النبي ﷺ في مجتمعه قبل بعثته',
+                  title: 'Lecture 5: The Prophet\'s Activities Before His Mission',
+                  descriptionAr: 'الجانب الاقتصادي والديني والثقافي في حياة النبي قبل البعثة',
+                  order: 5
+                },
+                {
+                  id: 'sirah-lecture-6',
+                  titleAr: 'المحاضرة السادسة: من البشارات إلى المولد',
+                  title: 'Lecture 6: From Prophecies to Birth',
+                  descriptionAr: 'بشارات مولد النبي ﷺ وحكمة هذه البشارات',
+                  order: 6
+                },
+                {
+                  id: 'sirah-lecture-7',
+                  titleAr: 'المحاضرة السابعة: من البعثة إلى الهجرة - الجزء الأول',
+                  title: 'Lecture 7: From Mission to Migration - Part 1',
+                  descriptionAr: 'بداية الدعوة السرية',
+                  order: 7
+                },
+                {
+                  id: 'sirah-lecture-8',
+                  titleAr: 'المحاضرة الثامنة: من البعثة إلى الهجرة - الجزء الثاني',
+                  title: 'Lecture 8: From Mission to Migration - Part 2',
+                  descriptionAr: 'خصائص الدعوة السرية والجهرية',
+                  order: 8
+                },
+                {
+                  id: 'sirah-lecture-9',
+                  titleAr: 'المحاضرة التاسعة: من البعثة إلى الهجرة - تابع',
+                  title: 'Lecture 9: From Mission to Migration - Continued',
+                  descriptionAr: 'بناء الإنسان النوراني',
+                  order: 9
+                },
+                {
+                  id: 'sirah-lecture-10',
+                  titleAr: 'المحاضرة العاشرة: من البعثة إلى الهجرة - تابع',
+                  title: 'Lecture 10: From Mission to Migration - Continued',
+                  descriptionAr: 'خصائص الدعوة الجهرية',
+                  order: 10
+                },
+                {
+                  id: 'sirah-lecture-11',
+                  titleAr: 'المحاضرة الحادية عشر: من البعثة إلى الهجرة - تابع',
+                  title: 'Lecture 11: From Mission to Migration - Continued',
+                  descriptionAr: 'مفهوم الأمة والمعجزة والشعوذة، ورحلة الإسراء والمعراج',
+                  order: 11
+                },
+                {
+                  id: 'sirah-lecture-12',
+                  titleAr: 'المحاضرة الثانية عشر: من الهجرة إلى الوفاة',
+                  title: 'Lecture 12: From Migration to the Prophet\'s Passing',
+                  descriptionAr: 'الأسباب الموجبة للهجرة ودلالاتها',
+                  order: 12
+                }
+              ]
             },
             {
               id: 'usul-al-fiqh-1',
